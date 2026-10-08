@@ -3,12 +3,15 @@ import hashlib
 import json
 from pathlib import Path
 
+from verifica_archivio import candidate_paths
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
     courses = json.loads((ROOT / 'docs/indice_corsi.json').read_text())
     projects = json.loads((ROOT / 'docs/catalogo_progetti.json').read_text())
+    selected = set(candidate_paths())
     errors = []
     course_by_slug = {course['slug']: course for course in courses}
     project_by_slug = {project['slug']: project for project in projects}
@@ -28,8 +31,12 @@ def main():
             errors.append(f"Cartella senza elaborati o elaborati senza cartella: {course['slug']}")
         if course['folder'] and not (ROOT / course['folder'] / 'README.md').is_file():
             errors.append(f"README del corso mancante: {course['folder']}")
+        if course['folder'] and course['folder'] + '/README.md' not in selected:
+            errors.append(f"README del corso escluso dalla pubblicazione: {course['folder']}")
     for project in projects:
         slug = project['slug']
+        if project['status'] != 'Superato':
+            errors.append(f'Il catalogo pubblico ammette solo elaborati approvati: {slug}')
         course = course_by_slug.get(project['course_slug'])
         if not course:
             errors.append(f'Corso non censito: {slug}')
@@ -43,6 +50,8 @@ def main():
             if not path.is_relative_to((ROOT / course['folder']).resolve()):
                 errors.append(f'Percorso esterno al corso: {slug}, {field}')
         path = ROOT / project['artifact_path']
+        if project['artifact_path'] not in selected:
+            errors.append(f'Elaborato escluso dalla pubblicazione: {slug}')
         if not path.is_file():
             errors.append(f"Elaborato mancante: {project['artifact_path']}")
             continue
@@ -54,8 +63,8 @@ def main():
                 errors.append(f'Hash diverso: {slug}')
             else:
                 approved += 1
-    physical = {p.name for p in ROOT.iterdir() if p.is_dir() and p.name[:2].isdigit()
-                and 1 <= int(p.name[:2]) <= 17}
+    physical = {name.split('/')[0] for name in selected
+                if '/' in name and name[:2].isdigit()}
     if physical != set(folders):
         errors.append(f'Cartelle di corso non coerenti con indice: {sorted(physical ^ set(folders))}')
     print(json.dumps({'courses': len(courses), 'course_folders': len(folders),

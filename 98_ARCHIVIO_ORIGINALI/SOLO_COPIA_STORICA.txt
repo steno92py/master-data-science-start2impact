@@ -1,3 +1,0 @@
-Gli originali didattici sono ora riuniti negli archivi dei rispettivi corsi.
-Per lavorare usare ../README.md e ../17_Progetto_Finale/README.md.
-La mappa dei vecchi percorsi è in ../00_STATO_MASTER/riordino/accorpamento_corsi_2026-10-08.json.

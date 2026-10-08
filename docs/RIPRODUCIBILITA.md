@@ -4,7 +4,7 @@ Il portfolio raccoglie lavori realizzati in ambienti diversi. Non esiste un unic
 
 ## Consultazione rapida
 
-I PDF delle consegne, i workbook Excel, le esportazioni HTML di Machine Learning e il video Agenti AI permettono di vedere i risultati senza avviare i programmi. I notebook con output conservano le esecuzioni storiche; le due copie delle prove finali pubblicate su GitHub hanno gli output rimossi per dimensioni.
+I PDF delle consegne, i workbook Excel e le esportazioni HTML di Machine Learning permettono di vedere i risultati senza avviare i programmi. I notebook con output conservano le esecuzioni storiche; la copia del notebook sul turismo virtuale ha gli output rimossi per dimensioni.
 
 ## Ambiente Python
 
@@ -19,16 +19,8 @@ Usare un ambiente virtuale per ogni progetto e lavorare su una copia degli elabo
 | Titanic | Librerie importate dal notebook, dati e PDF in `progetto/` | Controllare eventuali sorgenti dati esterne prima di eseguire. |
 | ML Advanced / Wine | scikit-learn e librerie importate dal notebook | Il dataset è quello fornito da scikit-learn. |
 | Prova finale 1 | Notebook, CSV Travel e Tableau | Directory di lavoro: `17_Progetto_Finale/01_PROGETTO_1`, anche aprendo la copia in `versione_git/`. |
-| Prova finale 2 | Notebook, `train.csv`, `test.csv` | Leggere prima la revisione metodologica; modelli serializzati e output originali restano locali. |
 
 Gli elenchi descrivono le dipendenze osservate e i punti d’ingresso, non un ambiente reinstallato e certificato durante questa attività.
-
-## Progetti con una procedura di setup dedicata
-
-- [Agenti AI](../15_Agenti_AI/GUIDA_SETUP.md): importare l’export portabile n8n, configurare le proprie credenziali e la propria rubrica. Il workflow pubblico non contiene credenziali operative.
-- [EcoBot](../16_Agenti_AI_per_Data/ecobot/README.md): seguire il README, `requirements.txt` e `.env.example`. Le credenziali non sono incluse. L’uso delle API può consumare il credito del proprio account.
-
-I test di questi due progetti sono descritti nelle rispettive relazioni; i numeri riportati sono quelli delle verifiche documentate, non di una nuova esecuzione effettuata al momento della pubblicazione del portfolio.
 
 ## Dashboard, workbook e dati esterni
 

@@ -19,27 +19,30 @@ PATTERNS = {
     'airtable_token': re.compile(rb'\bpat[A-Za-z0-9]{14}\.[A-Za-z0-9]{50,}'),
 }
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--output', type=Path)
-    args = parser.parse_args()
+def candidate_paths():
+    """Applica le esclusioni anche in un export privo della cartella .git."""
     with tempfile.TemporaryDirectory(prefix='s2i-git-check-') as tmp:
         gitdir = Path(tmp)/'repo.git'
         subprocess.run(['git','init','--bare','-q',str(gitdir)],check=True)
         cmd = ['git','-c','core.excludesFile=/dev/null',f'--git-dir={gitdir}',
                f'--work-tree={ROOT}','ls-files','--others','--exclude-standard','-z']
-        paths = [p for p in subprocess.check_output(cmd,cwd=ROOT).decode().split('\0') if p]
+        return [p for p in subprocess.check_output(cmd,cwd=ROOT).decode().split('\0') if p]
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output', type=Path)
+    args = parser.parse_args()
+    paths = candidate_paths()
     large=[];secrets=[];forbidden=[];total=0
     for rel in paths:
         p=ROOT/rel
         if not p.is_file():continue
         size=p.stat().st_size;total+=size
         if size>LIMIT:large.append({'path':rel,'bytes':size})
-        archive_guide = rel in {'98_ARCHIVIO_ORIGINALI/README.md',
-                               '98_ARCHIVIO_ORIGINALI/SOLO_COPIA_STORICA.txt'}
         if (p.name.startswith('.env') and p.name!='.env.example') or any(
-            part in {'config_locale','node_modules','.venv','feedback_riservato'} for part in p.parts) or (
-            '98_ARCHIVIO_ORIGINALI' in p.parts and not archive_guide):
+            part in {'config_locale','node_modules','.venv','feedback_riservato',
+                     'materiali_riferimento'} for part in p.parts):
             forbidden.append(rel)
         if p.suffix.lower() in {'.pdf','.png','.jpg','.jpeg','.xlsx','.twbx','.gif'}:continue
         data=p.read_bytes()

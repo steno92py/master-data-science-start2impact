@@ -1,16 +1,10 @@
-# Repository GitHub
+# Repository del portfolio
 
-Repository pubblica: [steno92py/master-data-science-start2impact](https://github.com/steno92py/master-data-science-start2impact).
-
-## Archivio locale e copia versionata
-
-La cartella del master conserva tutti gli originali, le versioni precedenti e i materiali privati. La copia di lavoro Git pubblicabile è separata, in `00_STATO_MASTER/github/master-data-science-start2impact/`. In questo modo i file storici voluminosi e le configurazioni locali rimangono disponibili sul Mac.
-
-La repository contiene i file ammessi dalle regole `.gitignore`: progetti, notebook, documentazione, relazioni personali, dati di lavoro selezionati ed evidenze curate. Non contiene credenziali, feedback privati, tracce complete del corso, ZIP di consegna, video o modelli serializzati. La disponibilità pubblica del codice non attribuisce licenze ai dati o alle opere di terzi.
+[steno92py/master-data-science-start2impact](https://github.com/steno92py/master-data-science-start2impact) raccoglie 16 elaborati approvati di Stefano Nocco e i relativi materiali di lavoro.
 
 ## Verifiche
 
-Dalla radice del master oppure dalla copia Git:
+Dalla radice del repository:
 
 ```sh
 python3 tools/verifica_corsi.py
@@ -18,26 +12,18 @@ python3 tools/verifica_consegne.py
 python3 tools/verifica_archivio.py --output /tmp/master-verifica-git.json
 ```
 
-Il primo comando verifica l’indice dei corsi e l’appartenenza degli elaborati; il secondo verifica gli hash dei 16 elaborati approvati. Il terzo applica le esclusioni Git, elenca i candidati e controlla dimensioni e alcuni formati di credenziali. Non stampa segreti e non invia dati in rete; non è una garanzia universale di assenza di informazioni riservate.
+I controlli verificano l’associazione fra corsi ed elaborati, i file e gli hash delle consegne approvate, la selezione pubblicabile, le dimensioni e alcuni formati di credenziali. La scansione automatica non è una garanzia universale di assenza di informazioni riservate.
 
-Le copie delle due prove finali in `versione_git/` mantengono celle, testo e codice originali, senza output né contatori. Gli originali completi restano sul Mac. I file approvati recuperati dalla piattaforma mantengono i byte originali.
+## Aggiornamenti
 
-## Aggiornamenti futuri
+Le cartelle pubblicabili sono elencate esplicitamente in `.gitignore`. Per aggiungere un elaborato approvato aggiornare i cataloghi e le regole di selezione, poi eseguire le verifiche e controllare `git diff`. Le configurazioni personali, i registri interni, gli archivi privati e i materiali di riferimento di altri studenti restano esclusi dalla pubblicazione.
 
-Modificare i file nella copia Git, controllare `git diff` e le verifiche prima di commit e push. Non copiare automaticamente `.env`, ZIP o intere cartelle di configurazione. Quando si cambia un elaborato approvato, conservare la consegna originale e creare una versione di lavoro distinta: gli hash del catalogo descrivono i file effettivamente valutati.
+Le consegne approvate conservano i byte originali: eventuali modifiche vanno effettuate in una copia di lavoro distinta. Gli hash del catalogo identificano i file valutati.
 
-Per creare un nuovo export dell’archivio locale in una **cartella vuota**:
+Per esportare il portfolio in una cartella nuova o vuota:
 
 ```sh
-python3 tools/prepara_repository.py /tmp/master-export-nuovo
+python3 tools/prepara_repository.py /tmp/portfolio-export
 ```
 
-L’export copia solo la selezione ammessa e verifica l’identità di ogni copia; rifiuta destinazioni non vuote. Non cancella file, non sovrascrive la copia Git esistente e non esegue commit o push.
-
-## Perimetro della pubblicazione
-
-Il recupero e la pubblicazione documentano il lavoro presente. Non costituiscono una nuova consegna su start2impact né una nuova esecuzione dei modelli storici. Lo [stato del master](00_STATO_MASTER/STATO_MASTER.md) identifica le attività ancora aperte.
-
-## Accorpamento per corso
-
-L’[indice](docs/indice_corsi.json) identifica una cartella per corso ufficiale. Le consegne recuperate sono in `consegna/`; originali importati e pacchetti preparatori sono negli archivi del relativo corso. Il pacchetto finale EcoBot è in `16_Agenti_AI_per_Data/consegna/pacchetto_riservato/`, interamente esclusa dalla pubblicazione. La [mappa](00_STATO_MASTER/riordino/accorpamento_corsi_2026-10-08.json) traduce i percorsi dei registri storici.
+L’export applica la selezione pubblicabile e verifica ogni copia. Rifiuta destinazioni non vuote e non esegue commit o push.

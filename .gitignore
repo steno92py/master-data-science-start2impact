@@ -1,4 +1,33 @@
-# Configurazioni personali e credenziali
+# Selezione esplicita del portfolio pubblico
+/*
+!/.gitattributes
+!/.gitignore
+!/README.md
+!/GITHUB.md
+!/docs/
+!/tools/
+!/01_Introduzione_Data_Analytics/
+!/02_Introduzione_Data_Science_AI/
+!/03_Excel/
+!/04_Excel_Advanced/
+!/05_SQL/
+!/06_Python/
+!/07_NumPy/
+!/08_Data_Manipulation_Visualization/
+!/09_Data_Studio/
+!/10_Tableau/
+!/11_Google_Analytics_4/
+!/12_Advanced_Analytics/
+!/13_Machine_Learning/
+!/14_Machine_Learning_Advanced/
+!/17_Progetto_Finale/
+
+# Il progetto finale pubblicato è quello sul turismo virtuale
+/17_Progetto_Finale/*
+!/17_Progetto_Finale/README.md
+!/17_Progetto_Finale/01_PROGETTO_1/
+
+# Configurazioni personali, credenziali, dipendenze e cache
 .env
 .env.*
 !.env.example
@@ -6,8 +35,6 @@ config_locale/
 .streamlit/secrets.toml
 *.pem
 *.key
-
-# Ambiente locale e file rigenerabili
 .DS_Store
 ._*
 .venv*/
@@ -21,19 +48,13 @@ __pycache__/
 .vscode/
 *.log
 
-# Originali, versioni precedenti e materiale di altri autori restano sul Mac
-/98_ARCHIVIO_ORIGINALI/*
-!/98_ARCHIVIO_ORIGINALI/README.md
-!/98_ARCHIVIO_ORIGINALI/SOLO_COPIA_STORICA.txt
+# Archivi privati e materiali esterni al portfolio
 **/archivio/**
 !**/archivio/
 !**/archivio/README.md
 versioni_precedenti/
-/17_Progetto_Finale/materiali_riferimento/
-/17_Progetto_Finale/02_PROGETTO_2/supporto_tecnico/
-/00_MATERIALI_MASTER/brochure/
-
-# Pacchetti di consegna (alcuni contengono .env), video e modelli binari
+materiali_riferimento/
+feedback_riservato/
 *.zip
 *.mp4
 *.mov
@@ -44,49 +65,10 @@ versioni_precedenti/
 *.pkl
 *.safetensors
 
-# Dati Wine voluminosi, originali completi delle finali: copie leggere in versione_git
+# Dati voluminosi e copie complete conservati localmente
 /08_Data_Manipulation_Visualization/progetto/data/
 /08_Data_Manipulation_Visualization/progetto/sentiment_model/
 /17_Progetto_Finale/01_PROGETTO_1/Progetto Finale Data Analysis di Stefano Nocco.ipynb
-/17_Progetto_Finale/02_PROGETTO_2/Stefano Nocco PROGETTO FINALE 2.ipynb
-
-# Registri di sessione: pubblicare soltanto catalogo e stato curati
-/00_STATO_MASTER/*
-!/00_STATO_MASTER/STATO_MASTER.md
-!/00_STATO_MASTER/riordino/
-/00_STATO_MASTER/riordino/*
-!/00_STATO_MASTER/riordino/catalogo_corsi.json
-!/00_STATO_MASTER/riordino/spostamenti_2026-10-08.json
-!/00_STATO_MASTER/riordino/notebook_per_git.json
-
-# Evidenze n8n: includere risultati curati e screenshot finali
-/15_Agenti_AI/evidenze/*
-!/15_Agenti_AI/evidenze/test_workflow.json
-!/15_Agenti_AI/evidenze/prove_reali.json
-!/15_Agenti_AI/evidenze/demo_video_2026-10-08.json
-!/15_Agenti_AI/evidenze/consegna_finale_2026-10-08.json
-!/15_Agenti_AI/evidenze/email_ricevuta_*.png
-!/15_Agenti_AI/evidenze/evento_calendario_*.png
-!/15_Agenti_AI/evidenze/telegram_prova_voce_*.png
-!/15_Agenti_AI/evidenze/video_finale_loom_*.png
-/15_Agenti_AI/video/heygen/montaggio/
-/15_Agenti_AI/video/**/*.png
-/15_Agenti_AI/video/**/*.jpg
-/15_Agenti_AI/video/audio/
-/15_Agenti_AI/video/frames/
-/16_Agenti_AI_per_Data/ecobot_output/
-
-# Selezione del portfolio pubblico: feedback e preparazione restano locali
-feedback_riservato/
-/01_Introduzione_Data_Analytics/archivio/01 PROGETTO INTRODUTTIVO DATA ANALYSIS - Stefano Nocco.pdf
 /06_Python/esercizi/
 /10_Tableau/feedback/
 /12_Advanced_Analytics/dataset/*.csv
-/15_Agenti_AI/video/
-/15_Agenti_AI/originale_recuperato/
-/15_Agenti_AI/evidenze/*.png
-
-# Pacchetti di consegna riservati restano esclusivamente locali
-/16_Agenti_AI_per_Data/consegna/pacchetto_riservato/
-# Indice corrente di accorpamento; registri dettagliati solo sul Mac
-!/00_STATO_MASTER/riordino/accorpamento_corsi_2026-10-08.json
