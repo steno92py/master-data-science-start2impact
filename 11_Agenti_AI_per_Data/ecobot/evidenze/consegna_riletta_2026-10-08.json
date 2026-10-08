@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-08",
+  "source": "https://talent.start2impact.it/corsi/agenti-ai-per-data/progetto/b9577a46-370f-4d9f-8cbf-6a570d18ca84/297c4949-93fb-4f09-81df-89a85b465d84",
+  "method": "Lettura diretta delle sezioni nella sessione browser autorizzata; non solo copia locale del 7 ottobre",
+  "kind": "SINTESI_DEI_REQUISITI_OSSERVATI",
+  "sections": [
+    {
+      "name": "Informazioni sul progetto",
+      "observed_requirements": "Agente data-driven per analizzare consumi energetici e fornire consigli comprensibili."
+    },
+    {
+      "name": "1. Progetto",
+      "observed_requirements": "Architettura a scelta; LangChain indicato per una soluzione semplice. Multi-agente non obbligatorio."
+    },
+    {
+      "name": "2. Scenario",
+      "observed_requirements": "EcoBot per EcoGrid: pulizia preventiva, analisi descrittiva, PNG, consigli pratici e interfaccia Streamlit."
+    },
+    {
+      "name": "3. Ambiente di sviluppo",
+      "observed_requirements": "Jupyter richiesto; Colab, Anaconda o installazione locale ammessi; setup librerie nella prima cella."
+    },
+    {
+      "name": "4. Step preliminare - Dati",
+      "observed_requirements": "Due CSV sintetici da 720 ore, produzione con 6 NaN e un valore -5, consumi con picco alle ore 19-21. La traccia chiede di eseguire il generatore così com’è."
+    },
+    {
+      "name": "5. Struttura del progetto",
+      "observed_requirements": "Notebook in due sezioni; setup, tool, ciclo con piano ed esempi; Streamlit con due upload, chat, PNG e memoria. README con architettura motivata, avvio ed esempi."
+    },
+    {
+      "name": "6. Requisiti tecnici",
+      "observed_requirements": "Chiave fuori dal codice in .env, rilevamento e recupero dagli errori, system prompt strutturato e codice leggibile."
+    },
+    {
+      "name": "7. Prima di inviare",
+      "observed_requirements": "ZIP NomeCognome_AgentiAIData.zip con agent.ipynb, .env configurato, requirements.txt, README.md e streamlit_screenshot.png. Valutati anche utilità, gentilezza e chiarezza."
+    }
+  ],
+  "submission_performed": false,
+  "generator_adaptation": "Formule e anomalie invariate; aggiunti seed 42, funzione e cartella data per conservare e ripetere le analisi. Adattamento documentato, non copia letterale byte per byte.",
+  "secret_requirement": "La traccia richiede .env con chiave; il pacchetto di lavoro usa un template vuoto, quindi questo aspetto non è dichiarato completato."
+}

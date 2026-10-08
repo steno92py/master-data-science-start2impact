@@ -1,0 +1,7 @@
+# Archivio: conserva i byte originali, inclusi i terminatori di riga.
+* -text
+*.pdf binary
+*.png binary
+*.jpg binary
+*.xlsx binary
+*.twbx binary

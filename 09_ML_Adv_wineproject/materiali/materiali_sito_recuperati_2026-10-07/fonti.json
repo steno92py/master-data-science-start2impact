@@ -1,0 +1,25 @@
+{
+  "dataset": "https://archive.ics.uci.edu/dataset/109/wine",
+  "dataset_citation": "Aeberhard, S. & Forina, M. (1992). Wine. UCI Machine Learning Repository. DOI: 10.24432/C5PC7J",
+  "dataset_license": "CC BY 4.0",
+  "csv": "wine.data",
+  "csv_sha256": "6be6b1203f3d51df0b553a70e57b8a723cd405683958204f96d23d7cd6aea659",
+  "notebook": "CORRETTO_StefanoNoccoMLAdv_01.ipynb",
+  "notebook_sha256": "6e80b3b7f8b503fdf6b3ebcf091cfa650b38fbe9afde4e6e0848c3934ded5adf",
+  "notebook_cells": 119,
+  "source_cells": {
+    "benchmark_standard": 44,
+    "benchmark_robust": 45,
+    "lda_matrix_and_report": 63,
+    "rf_feature_importances": 101,
+    "lda_repeated_cv": 74,
+    "rf_repeated_cv": 104
+  },
+  "notes": [
+    "Il dataset UCI usa classi 1–3; qui convertite in 0–2 come scikit-learn e il notebook.",
+    "Confronto modelli ricostruito dagli output salvati, non da un nuovo addestramento.",
+    "Matrice originale estratta senza modifiche dall'output PNG della cella 63.",
+    "Benchmark su 5 fold; la CV ripetuta è 5 fold per 10 ripetizioni, non nested CV.",
+    "Test di 36 campioni consultato più volte nel notebook: non una valutazione esterna indipendente."
+  ]
+}

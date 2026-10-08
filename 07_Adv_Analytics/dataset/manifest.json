@@ -1,0 +1,20 @@
+[
+  {
+    "file": "supermarket_sales.csv",
+    "source": "https://drive.google.com/file/d/1rW6Av8bbWu1Lyo8SKjiaSRUMoHoWNK7F/view?usp=drive_link",
+    "downloaded_on": "2026-10-08",
+    "bytes": 131528,
+    "sha256": "901aa9d1999df4c620b547a34b250912610a04342686c62cc2dfb82b163812a8",
+    "rows_excluding_header": 1000,
+    "columns": 17
+  },
+  {
+    "file": "apple_quality.csv",
+    "source": "https://drive.google.com/file/d/1XnzAlIa8R9D_doy0ebSo1qf319Pg6mbf/view?usp=drive_link",
+    "downloaded_on": "2026-10-08",
+    "bytes": 387649,
+    "sha256": "1e3bbab20fd3551d19e0b5d564c18f6ee64c7f563659c79c813f5b079e63e255",
+    "rows_excluding_header": 4001,
+    "columns": 9
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "origine": "/Users/stefanonocco/Desktop/progetto_n8n_s2i/workflow.json",
+    "destinazione": "10_Agenti_AI/originale_recuperato/workflow.json",
+    "sha256": "acdd44f1bbfabe0b7449215c2c8ab9535ab56350849a65ce9b5e556a5d4cec8b"
+  },
+  {
+    "origine": "/Users/stefanonocco/Desktop/progetto_n8n_s2i/GUIDA.md",
+    "destinazione": "10_Agenti_AI/originale_recuperato/GUIDA.md",
+    "sha256": "b9066e496b0244765ce1703a956088313514c6372f5ae079e78d5c539affa58e"
+  },
+  {
+    "origine": "/Users/stefanonocco/Desktop/progetto_n8n_s2i/contatti_prova.csv",
+    "destinazione": "10_Agenti_AI/originale_recuperato/contatti_prova.csv",
+    "sha256": "134293bfdce932975675d8648b23dd376c05c2720961686fbe0af9f9b1b219b2"
+  }
+]

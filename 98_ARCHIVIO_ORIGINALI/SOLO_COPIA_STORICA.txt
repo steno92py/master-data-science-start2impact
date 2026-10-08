@@ -1,0 +1,7 @@
+QUESTA NON È LA CARTELLA DI LAVORO.
+
+Usare ../99_FINAL_PROJECT per le prove finali:
+01_PROGETTO_1 = prima prova SUPERATA.
+02_PROGETTO_2 = seconda prova PREPARATA, da revisionare prima della consegna.
+
+Qui resta soltanto la cartella sorgente originale importata, conservata integralmente.

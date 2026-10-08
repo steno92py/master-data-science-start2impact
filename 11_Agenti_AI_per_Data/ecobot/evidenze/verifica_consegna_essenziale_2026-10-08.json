@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-08",
+  "archive_sha256": "0d0b2b5a4d8fbb5ce6e8ca9dc8c0cc48dd24720335f4712a0dddcb0254f31ca0",
+  "files_in_archive": 9,
+  "notebook_code_cells_executed": 16,
+  "notebook_errors": 0,
+  "api_calls": 0,
+  "execution": "Da ZIP estratto in una nuova cartella; i moduli Python assenti sono stati generati dal notebook.",
+  "generated_modules_match_source": true,
+  "streamlit_apptest_passed": true,
+  "displayed_metrics": [
+    "1,150.20 kWh",
+    "1,292.32 kWh",
+    "7"
+  ],
+  "staging_directory": "/var/folders/gx/q6tjtnhn1xj4qgwy8vc1y6km0000gn/T/ecobot-consegna-essenziale-86staf5r",
+  "notebook_source_in_archive_unchanged": true
+}

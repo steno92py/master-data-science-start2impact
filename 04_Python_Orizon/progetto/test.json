@@ -1,0 +1,455 @@
+[
+  {
+    "name": "Roma",
+    "country": "Italia",
+    "attractions": [
+      "Colosseo",
+      "Musei Vaticani",
+      "Pantheon",
+      "Bocca della Verità"
+    ]
+  },
+  {
+    "name": "Milano",
+    "country": "Italia",
+    "attractions": [
+      "Duomo di Milano",
+      "Galleria Vittorio Emanuele II",
+      "Castello Sforzesco"
+    ]
+  },
+  {
+    "name": "Venezia",
+    "country": "Italia",
+    "attractions": [
+      "Piazza San Marco",
+      "Canal Grande",
+      "Palazzo Ducale"
+    ]
+  },
+  {
+    "name": "Firenze",
+    "country": "Italia",
+    "attractions": [
+      "Duomo di Firenze",
+      "Galleria degli Uffizi",
+      "Ponte Vecchio"
+    ]
+  },
+  {
+    "name": "Torino",
+    "country": "Italia",
+    "attractions": [
+      "Mole Antonelliana",
+      "Palazzo Reale",
+      "Museo Egizio"
+    ]
+  },
+  {
+    "name": "Parigi",
+    "country": "Francia",
+    "attractions": [
+      "Torre Eiffel",
+      "Museo del Louvre",
+      "Cattedrale di Notre-Dame"
+    ]
+  },
+  {
+    "name": "Lione",
+    "country": "Francia",
+    "attractions": [
+      "Basilica di Notre-Dame de Fourvière",
+      "Vieux Lyon",
+      "Parc de la Tête d'Or"
+    ]
+  },
+  {
+    "name": "Marsiglia",
+    "country": "Francia",
+    "attractions": [
+      "Vecchio Porto",
+      "Basilica di Notre-Dame de la Garde",
+      "Parco Nazionale delle Calanques"
+    ]
+  },
+  {
+    "name": "Nizza",
+    "country": "Francia",
+    "attractions": [
+      "Promenade des Anglais",
+      "Colline du Château",
+      "Vieux Nice"
+    ]
+  },
+  {
+    "name": "Bordeaux",
+    "country": "Francia",
+    "attractions": [
+      "Place de la Bourse",
+      "Cité du Vin",
+      "Cattedrale di San Andrea"
+    ]
+  },
+  {
+    "name": "Madrid",
+    "country": "Spagna",
+    "attractions": [
+      "Museo del Prado",
+      "Palacio Reale",
+      "Parco del Retiro"
+    ]
+  },
+  {
+    "name": "Barcellona",
+    "country": "Spagna",
+    "attractions": [
+      "Sagrada Familia",
+      "Parc Güell",
+      "Quartiere Gotico"
+    ]
+  },
+  {
+    "name": "Siviglia",
+    "country": "Spagna",
+    "attractions": [
+      "Reale Alcázar di Siviglia",
+      "Cattedrale di Siviglia",
+      "Plaza de España"
+    ]
+  },
+  {
+    "name": "Valencia",
+    "country": "Spagna",
+    "attractions": [
+      "Città delle Arti e delle Scienze",
+      "Cattedrale di Valencia",
+      "Giardini del Turia"
+    ]
+  },
+  {
+    "name": "Granada",
+    "country": "Spagna",
+    "attractions": [
+      "Alhambra",
+      "Generalife",
+      "Cattedrale di Granada"
+    ]
+  },
+  {
+    "name": "New York",
+    "country": "USA",
+    "attractions": [
+      "Statua della Libertà",
+      "Central Park",
+      "Times Square"
+    ]
+  },
+  {
+    "name": "Los Angeles",
+    "country": "USA",
+    "attractions": [
+      "Hollywood Sign",
+      "Osservatorio Griffith",
+      "Getty Center"
+    ]
+  },
+  {
+    "name": "Chicago",
+    "country": "USA",
+    "attractions": [
+      "Millennium Park",
+      "Art Institute of Chicago",
+      "Willis Tower"
+    ]
+  },
+  {
+    "name": "Miami",
+    "country": "USA",
+    "attractions": [
+      "South Beach",
+      "Quartiere Art Deco",
+      "Vizcaya Museum and Gardens"
+    ]
+  },
+  {
+    "name": "San Francisco",
+    "country": "USA",
+    "attractions": [
+      "Golden Gate Bridge",
+      "Isola di Alcatraz",
+      "Fisherman's Wharf"
+    ]
+  },
+  {
+    "name": "Tokyo",
+    "country": "Giappone",
+    "attractions": [
+      "Sensō-ji",
+      "Tokyo Skytree",
+      "Santuario Meiji",
+      "Tokyo Tower",
+      "Shibuya Crossing"
+    ]
+  },
+  {
+    "name": "Kyoto",
+    "country": "Giappone",
+    "attractions": [
+      "Santuario Fushimi Inari",
+      "Kinkaku-ji",
+      "Kiyomizu-dera"
+    ]
+  },
+  {
+    "name": "Osaka",
+    "country": "Giappone",
+    "attractions": [
+      "Castello di Osaka",
+      "Dotonbori",
+      "Universal Studios Japan"
+    ]
+  },
+  {
+    "name": "Nara",
+    "country": "Giappone",
+    "attractions": [
+      "Tempio Todai-ji",
+      "Parco di Nara",
+      "Santuario Kasuga-taisha"
+    ]
+  },
+  {
+    "name": "Hiroshima",
+    "country": "Giappone",
+    "attractions": [
+      "Parco della Pace di Hiroshima",
+      "Castello di Hiroshima",
+      "Miyajima (Santuario di Itsukushima)"
+    ]
+  },
+  {
+    "name": "Londra",
+    "country": "Regno Unito",
+    "attractions": [
+      "British Museum",
+      "Tower of London",
+      "Buckingham Palace"
+    ]
+  },
+  {
+    "name": "Manchester",
+    "country": "Regno Unito",
+    "attractions": [
+      "Museo della Scienza e dell'Industria",
+      "Cattedrale di Manchester",
+      "Old Trafford"
+    ]
+  },
+  {
+    "name": "Birmingham",
+    "country": "Regno Unito",
+    "attractions": [
+      "Cadbury World",
+      "Birmingham Museum and Art Gallery",
+      "Library of Birmingham"
+    ]
+  },
+  {
+    "name": "Edimburgo",
+    "country": "Regno Unito",
+    "attractions": [
+      "Castello di Edimburgo",
+      "Royal Mile",
+      "Palazzo di Holyrood"
+    ]
+  },
+  {
+    "name": "Liverpool",
+    "country": "Regno Unito",
+    "attractions": [
+      "The Beatles Story",
+      "Albert Dock",
+      "Liverpool Cathedral"
+    ]
+  },
+  {
+    "name": "Berlino",
+    "country": "Germania",
+    "attractions": [
+      "Porta di Brandeburgo",
+      "Memoriale del Muro di Berlino",
+      "Isola dei Musei"
+    ]
+  },
+  {
+    "name": "Monaco",
+    "country": "Germania",
+    "attractions": [
+      "Marienplatz",
+      "Giardino Inglese",
+      "Palazzo di Nymphenburg"
+    ]
+  },
+  {
+    "name": "Amburgo",
+    "country": "Germania",
+    "attractions": [
+      "Porto di Amburgo",
+      "Miniatur Wunderland",
+      "Elbphilharmonie"
+    ]
+  },
+  {
+    "name": "Francoforte",
+    "country": "Germania",
+    "attractions": [
+      "Römer",
+      "Palmengarten",
+      "Städel Museum"
+    ]
+  },
+  {
+    "name": "Colonia",
+    "country": "Germania",
+    "attractions": [
+      "Cattedrale di Colonia",
+      "Ponte di Hohenzollern",
+      "Museum Ludwig"
+    ]
+  },
+  {
+    "name": "Rio de Janeiro",
+    "country": "Brasile",
+    "attractions": [
+      "Cristo Redentore",
+      "Pan di Zucchero",
+      "Spiaggia di Copacabana"
+    ]
+  },
+  {
+    "name": "San Paolo",
+    "country": "Brasile",
+    "attractions": [
+      "Museo di Arte di São Paulo",
+      "Parco Ibirapuera",
+      "Mercato Municipale"
+    ]
+  },
+  {
+    "name": "Brasilia",
+    "country": "Brasile",
+    "attractions": [
+      "Congresso Nazionale",
+      "Cattedrale di Brasília",
+      "Memoriale JK"
+    ]
+  },
+  {
+    "name": "Salvador",
+    "country": "Brasile",
+    "attractions": [
+      "Pelourinho",
+      "Chiesa di Bonfim",
+      "Elevador Lacerda"
+    ]
+  },
+  {
+    "name": "Fortaleza",
+    "country": "Brasile",
+    "attractions": [
+      "Spiaggia di Iracema",
+      "Dragão do Mar Center",
+      "Praia do Futuro"
+    ]
+  },
+  {
+    "name": "Sydney",
+    "country": "Australia",
+    "attractions": [
+      "Opera House",
+      "Harbour Bridge",
+      "Bondi Beach"
+    ]
+  },
+  {
+    "name": "Melbourne",
+    "country": "Australia",
+    "attractions": [
+      "Royal Botanic Gardens",
+      "Federation Square",
+      "MCG"
+    ]
+  },
+  {
+    "name": "Brisbane",
+    "country": "Australia",
+    "attractions": [
+      "South Bank Parklands",
+      "Lone Pine Koala Sanctuary",
+      "Story Bridge"
+    ]
+  },
+  {
+    "name": "Perth",
+    "country": "Australia",
+    "attractions": [
+      "Kings Park",
+      "Perth Zoo",
+      "Cottesloe Beach"
+    ]
+  },
+  {
+    "name": "Adelaide",
+    "country": "Australia",
+    "attractions": [
+      "Adelaide Oval",
+      "Glenelg Beach",
+      "Adelaide Botanic Garden"
+    ]
+  },
+  {
+    "name": "Toronto",
+    "country": "Canada",
+    "attractions": [
+      "CN Tower",
+      "Royal Ontario Museum",
+      "Toronto Islands"
+    ]
+  },
+  {
+    "name": "Vancouver",
+    "country": "Canada",
+    "attractions": [
+      "Stanley Park",
+      "Granville Island",
+      "Capilano Suspension Bridge"
+    ]
+  },
+  {
+    "name": "Montreal",
+    "country": "Canada",
+    "attractions": [
+      "Vieux-Montréal",
+      "Mont Royal",
+      "Basilica di Notre-Dame"
+    ]
+  },
+  {
+    "name": "Calgary",
+    "country": "Canada",
+    "attractions": [
+      "Calgary Zoo",
+      "Heritage Park",
+      "Calgary Tower"
+    ]
+  },
+  {
+    "name": "Ottawa",
+    "country": "Canada",
+    "attractions": [
+      "Collina del Parlamento",
+      "Canale Rideau",
+      "Galleria Nazionale del Canada"
+    ]
+  }
+]

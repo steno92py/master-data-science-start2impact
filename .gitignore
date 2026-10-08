@@ -1,0 +1,87 @@
+# Configurazioni personali e credenziali
+.env
+.env.*
+!.env.example
+config_locale/
+.streamlit/secrets.toml
+*.pem
+*.key
+
+# Ambiente locale e file rigenerabili
+.DS_Store
+._*
+.venv*/
+venv/
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.idea/
+.vscode/
+*.log
+
+# Originali, versioni precedenti e materiale di altri autori restano sul Mac
+/98_ARCHIVIO_ORIGINALI/*
+!/98_ARCHIVIO_ORIGINALI/README.md
+!/98_ARCHIVIO_ORIGINALI/SOLO_COPIA_STORICA.txt
+**/archivio/**
+!**/archivio/
+!**/archivio/README.md
+versioni_precedenti/
+/99_FINAL_PROJECT/materiali_riferimento/
+/99_FINAL_PROJECT/02_PROGETTO_2/supporto_tecnico/
+/00_MATERIALI_MASTER/brochure/
+
+# Pacchetti di consegna (alcuni contengono .env), video e modelli binari
+*.zip
+*.mp4
+*.mov
+*.wav
+*.mp3
+*.m4a
+*.joblib
+*.pkl
+*.safetensors
+
+# Dati Wine voluminosi, originali completi delle finali: copie leggere in versione_git
+/05_Wine_projects/progetto/data/
+/05_Wine_projects/progetto/sentiment_model/
+/99_FINAL_PROJECT/01_PROGETTO_1/Progetto Finale Data Analysis di Stefano Nocco.ipynb
+/99_FINAL_PROJECT/02_PROGETTO_2/Stefano Nocco PROGETTO FINALE 2.ipynb
+
+# Registri di sessione: pubblicare soltanto catalogo e stato curati
+/00_STATO_MASTER/*
+!/00_STATO_MASTER/STATO_MASTER.md
+!/00_STATO_MASTER/riordino/
+/00_STATO_MASTER/riordino/*
+!/00_STATO_MASTER/riordino/catalogo_corsi.json
+!/00_STATO_MASTER/riordino/spostamenti_2026-10-08.json
+!/00_STATO_MASTER/riordino/notebook_per_git.json
+
+# Evidenze n8n: includere risultati curati e screenshot finali
+/10_Agenti_AI/evidenze/*
+!/10_Agenti_AI/evidenze/test_workflow.json
+!/10_Agenti_AI/evidenze/prove_reali.json
+!/10_Agenti_AI/evidenze/demo_video_2026-10-08.json
+!/10_Agenti_AI/evidenze/consegna_finale_2026-10-08.json
+!/10_Agenti_AI/evidenze/email_ricevuta_*.png
+!/10_Agenti_AI/evidenze/evento_calendario_*.png
+!/10_Agenti_AI/evidenze/telegram_prova_voce_*.png
+!/10_Agenti_AI/evidenze/video_finale_loom_*.png
+/10_Agenti_AI/video/heygen/montaggio/
+/10_Agenti_AI/video/**/*.png
+/10_Agenti_AI/video/**/*.jpg
+/10_Agenti_AI/video/audio/
+/10_Agenti_AI/video/frames/
+/11_Agenti_AI_per_Data/ecobot_output/
+
+# Selezione del portfolio pubblico: feedback e preparazione restano locali
+feedback_riservato/
+/01_intro/consegna/01 PROGETTO INTRODUTTIVO DATA ANALYSIS - Stefano Nocco.pdf
+/04_Python_Orizon/esercizi/
+/06_Tableau/feedback/
+/07_Adv_Analytics/dataset/*.csv
+/10_Agenti_AI/video/
+/10_Agenti_AI/originale_recuperato/
+/10_Agenti_AI/evidenze/*.png

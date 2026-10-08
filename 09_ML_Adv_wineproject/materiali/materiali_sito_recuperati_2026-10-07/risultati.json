@@ -1,0 +1,975 @@
+{
+  "rows": 178,
+  "features": 13,
+  "class_counts": {
+    "0": 59,
+    "1": 71,
+    "2": 48
+  },
+  "profiles": [
+    {
+      "target": 0,
+      "flavanoids": 3.06,
+      "proline": 1065.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.76,
+      "proline": 1050.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.24,
+      "proline": 1185.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.49,
+      "proline": 1480.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.69,
+      "proline": 735.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.39,
+      "proline": 1450.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.52,
+      "proline": 1290.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.51,
+      "proline": 1295.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.98,
+      "proline": 1045.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.15,
+      "proline": 1045.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.32,
+      "proline": 1510.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.43,
+      "proline": 1280.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.76,
+      "proline": 1320.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.69,
+      "proline": 1150.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.64,
+      "proline": 1547.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.91,
+      "proline": 1310.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.14,
+      "proline": 1280.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.4,
+      "proline": 1130.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.93,
+      "proline": 1680.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.03,
+      "proline": 845.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.17,
+      "proline": 780.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.41,
+      "proline": 770.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.88,
+      "proline": 1035.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.37,
+      "proline": 1015.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.61,
+      "proline": 845.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.68,
+      "proline": 830.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.94,
+      "proline": 1195.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.19,
+      "proline": 1285.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.97,
+      "proline": 915.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.33,
+      "proline": 1035.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.25,
+      "proline": 1285.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.19,
+      "proline": 1515.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.69,
+      "proline": 990.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.74,
+      "proline": 1235.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.53,
+      "proline": 1095.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.98,
+      "proline": 920.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.68,
+      "proline": 880.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.43,
+      "proline": 1105.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.64,
+      "proline": 1020.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.04,
+      "proline": 760.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.29,
+      "proline": 795.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.68,
+      "proline": 1035.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.56,
+      "proline": 1095.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.63,
+      "proline": 680.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.0,
+      "proline": 885.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.65,
+      "proline": 1080.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.17,
+      "proline": 1065.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.39,
+      "proline": 985.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.92,
+      "proline": 1060.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.54,
+      "proline": 1260.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.27,
+      "proline": 1150.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.99,
+      "proline": 1265.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.74,
+      "proline": 1190.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.79,
+      "proline": 1375.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.9,
+      "proline": 1060.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 2.78,
+      "proline": 1120.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.0,
+      "proline": 970.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.23,
+      "proline": 1270.0
+    },
+    {
+      "target": 0,
+      "flavanoids": 3.67,
+      "proline": 1285.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 0.57,
+      "proline": 520.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.09,
+      "proline": 680.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.41,
+      "proline": 450.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.79,
+      "proline": 630.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 3.1,
+      "proline": 420.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.75,
+      "proline": 355.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.65,
+      "proline": 678.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 3.18,
+      "proline": 502.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.0,
+      "proline": 510.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.3,
+      "proline": 750.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.28,
+      "proline": 718.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.02,
+      "proline": 870.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.86,
+      "proline": 410.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.84,
+      "proline": 472.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.89,
+      "proline": 985.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.14,
+      "proline": 886.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.57,
+      "proline": 428.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.03,
+      "proline": 392.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.32,
+      "proline": 500.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.85,
+      "proline": 750.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.55,
+      "proline": 463.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.26,
+      "proline": 278.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.53,
+      "proline": 714.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.58,
+      "proline": 630.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.59,
+      "proline": 515.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.21,
+      "proline": 520.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.94,
+      "proline": 450.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.69,
+      "proline": 495.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.61,
+      "proline": 562.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.69,
+      "proline": 680.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.59,
+      "proline": 625.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.5,
+      "proline": 480.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.25,
+      "proline": 450.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.46,
+      "proline": 495.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.25,
+      "proline": 290.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.26,
+      "proline": 345.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.27,
+      "proline": 937.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 0.99,
+      "proline": 625.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.5,
+      "proline": 428.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 3.75,
+      "proline": 660.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.99,
+      "proline": 406.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.17,
+      "proline": 710.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.36,
+      "proline": 562.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.11,
+      "proline": 438.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.64,
+      "proline": 415.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.92,
+      "proline": 672.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.84,
+      "proline": 315.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.03,
+      "proline": 510.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.76,
+      "proline": 488.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.04,
+      "proline": 312.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.92,
+      "proline": 680.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.58,
+      "proline": 562.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.27,
+      "proline": 325.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.03,
+      "proline": 607.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.01,
+      "proline": 434.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.29,
+      "proline": 385.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.17,
+      "proline": 407.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.6,
+      "proline": 495.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.09,
+      "proline": 345.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.25,
+      "proline": 372.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.64,
+      "proline": 564.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.79,
+      "proline": 625.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 5.08,
+      "proline": 465.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.13,
+      "proline": 365.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.65,
+      "proline": 380.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 3.03,
+      "proline": 380.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.65,
+      "proline": 378.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 3.15,
+      "proline": 352.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.24,
+      "proline": 466.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 2.45,
+      "proline": 342.0
+    },
+    {
+      "target": 1,
+      "flavanoids": 1.75,
+      "proline": 580.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 1.25,
+      "proline": 630.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 1.22,
+      "proline": 530.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 1.09,
+      "proline": 560.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 1.2,
+      "proline": 600.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.58,
+      "proline": 650.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.66,
+      "proline": 695.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.47,
+      "proline": 720.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.6,
+      "proline": 515.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.48,
+      "proline": 580.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.6,
+      "proline": 590.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.5,
+      "proline": 600.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.5,
+      "proline": 780.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.52,
+      "proline": 520.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.8,
+      "proline": 550.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.78,
+      "proline": 855.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.55,
+      "proline": 830.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.34,
+      "proline": 415.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.65,
+      "proline": 625.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.76,
+      "proline": 650.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 1.39,
+      "proline": 550.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 1.57,
+      "proline": 500.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 1.36,
+      "proline": 480.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 1.28,
+      "proline": 425.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.83,
+      "proline": 675.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.58,
+      "proline": 640.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.63,
+      "proline": 725.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.83,
+      "proline": 480.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.58,
+      "proline": 880.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 1.31,
+      "proline": 660.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 1.1,
+      "proline": 620.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.92,
+      "proline": 520.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.56,
+      "proline": 680.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.6,
+      "proline": 570.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.7,
+      "proline": 675.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.68,
+      "proline": 615.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.47,
+      "proline": 520.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.92,
+      "proline": 695.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.66,
+      "proline": 685.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.84,
+      "proline": 750.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.96,
+      "proline": 630.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.49,
+      "proline": 510.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.51,
+      "proline": 470.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.7,
+      "proline": 660.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.61,
+      "proline": 740.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.75,
+      "proline": 750.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.69,
+      "proline": 835.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.68,
+      "proline": 840.0
+    },
+    {
+      "target": 2,
+      "flavanoids": 0.76,
+      "proline": 560.0
+    }
+  ],
+  "class_means": {
+    "0": {
+      "flavanoids": 2.982372881355932,
+      "proline": 1115.7118644067796,
+      "color_intensity": 5.528305084745763
+    },
+    "1": {
+      "flavanoids": 2.0808450704225354,
+      "proline": 519.5070422535211,
+      "color_intensity": 3.086619718309859
+    },
+    "2": {
+      "flavanoids": 0.7814583333333334,
+      "proline": 629.8958333333334,
+      "color_intensity": 7.396249979166667
+    }
+  },
+  "standard_scaler_cv_5fold": [
+    {
+      "model": "LinearDiscriminant",
+      "mean": 0.978818,
+      "std": 0.028452
+    },
+    {
+      "model": "RandomForest",
+      "mean": 0.978818,
+      "std": 0.017301
+    },
+    {
+      "model": "SVM_RBF",
+      "mean": 0.978571,
+      "std": 0.028571
+    },
+    {
+      "model": "LogisticRegression",
+      "mean": 0.965025,
+      "std": 0.031404
+    },
+    {
+      "model": "kNN",
+      "mean": 0.943842,
+      "std": 0.016716
+    },
+    {
+      "model": "GradientBoosting",
+      "mean": 0.94335,
+      "std": 0.028945
+    }
+  ],
+  "lda_report": [
+    {
+      "class": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 12
+    },
+    {
+      "class": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 14
+    },
+    {
+      "class": 2,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 10
+    }
+  ],
+  "lda_repeated_cv_output": "Repeated CV mean: 0.972512315270936 std: 0.02861326985548244\n",
+  "rf_repeated_cv_output": "0.9740886699507391 0.02864878266499426\n"
+}

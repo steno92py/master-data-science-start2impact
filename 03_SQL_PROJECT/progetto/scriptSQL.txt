@@ -1,0 +1,650 @@
+-- ============================================================
+-- COSA STO FACENDO QUI
+-- Creo tabelle di staging dai CSV (campi grezzi come TEXT),
+-- poi VIEW "pulite" con cast e normalizzazioni,
+-- infine query analitiche (JOIN, ultimi-anni, ranking).
+-- Scelgo una chiave testuale semplice: country_key = lower(trim(nome)).
+-- Nota a me stesso:
+-- - Se devo fare JOIN robuste tra paesi, in futuro meglio una mappa ISO3.
+-- - Le unità contano: CO₂ in kt (migliaia di tonnellate) vs Mt; le “rinnovabili” includono biomassa tradizionale.
+-- - Alcuni indicatori “2023” sono in realtà “ultimo valore disponibile” (lag di pubblicazione).
+-- ============================================================
+
+-- Scelgo TEXT per lo staging: voglio importare “come viene”.
+-- Farò i cast nelle VIEW (meno rischi di fallire l’import per simboli $, virgole, ecc.).
+-- Ricordo a me stesso che alcune colonne usano separatori di migliaia o “%”.
+
+CREATE TABLE IF NOT EXISTS stg_world_2023 (
+  "Country" TEXT,
+  "Density\n(P/Km2)" TEXT,
+  "Abbreviation" TEXT,
+  "Agricultural Land( %)" TEXT,
+  "Land Area(Km2)" TEXT,
+  "Armed Forces size" TEXT,
+  "Birth Rate" TEXT,
+  "Calling Code" TEXT,
+  "Capital/Major City" TEXT,
+  "Co2-Emissions" TEXT,
+  "CPI" TEXT,
+  "CPI Change (%)" TEXT,
+  "Currency-Code" TEXT,
+  "Fertility Rate" TEXT,
+  "Forested Area (%)" TEXT,
+  "Gasoline Price" TEXT,
+  "GDP" TEXT,
+  "Gross primary education enrollment (%)" TEXT,
+  "Gross tertiary education enrollment (%)" TEXT,
+  "Infant mortality" TEXT,
+  "Largest city" TEXT,
+  "Life expectancy" TEXT,
+  "Maternal mortality ratio" TEXT,
+  "Minimum wage" TEXT,
+  "Official language" TEXT,
+  "Out of pocket health expenditure" TEXT,
+  "Physicians per thousand" TEXT,
+  "Population" TEXT,
+  "Population: Labor force participation (%)" TEXT,
+  "Tax revenue (%)" TEXT,
+  "Total tax rate" TEXT,
+  "Unemployment rate" TEXT,
+  "Urban_population" TEXT,
+  "Latitude" TEXT,
+  "Longitude" TEXT
+);
+
+-- Serie storiche 2000–2020 per energia/clima.
+-- Qui trovo: accesso elettricità, clean cooking, TFEC rinnovabile, TWh per fonte,
+-- % elettricità low-carbon, energia primaria pro capite, intensità energetica,
+-- CO₂ (in kt), e PIL pro capite.
+-- Attenzione: “Renewable energy share in TFEC” (SDG 7.2.1) include biomassa tradizionale:
+-- non va confuso con “rinnovabili moderne”.
+
+CREATE TABLE IF NOT EXISTS stg_energy (
+  "Entity" TEXT,
+  "Year" TEXT,
+  "Access to electricity (% of population)" TEXT,
+  "Access to clean fuels for cooking" TEXT,
+  "Renewable-electricity-generating-capacity-per-capita" TEXT,
+  "Financial flows to developing countries (US $)" TEXT,
+  "Renewable energy share in the total final energy consumption (%)" TEXT,
+  "Electricity from fossil fuels (TWh)" TEXT,
+  "Electricity from nuclear (TWh)" TEXT,
+  "Electricity from renewables (TWh)" TEXT,
+  "Low-carbon electricity (% electricity)" TEXT,
+  "Primary energy consumption per capita (kWh/person)" TEXT,
+  "Energy intensity level of primary energy (MJ/$2017 PPP GDP)" TEXT,
+  "Value_co2_emissions_kt_by_country" TEXT,
+  "Renewables (% equivalent primary energy)" TEXT,
+  "gdp_growth" TEXT,
+  "gdp_per_capita" TEXT,
+  "Density\n(P/Km2)" TEXT,
+  "Land Area(Km2)" TEXT,
+  "Latitude" TEXT,
+  "Longitude" TEXT
+);
+
+-- Eventi a livello incidente (OIM): morti e dispersi durante migrazioni irregolari.
+-- Dato “minimo noto”: ciò che non viene riportato non entra.
+-- Campo chiave per me più avanti: “Region of Incident” + year per aggregazioni didattiche.
+
+CREATE TABLE IF NOT EXISTS stg_missing_migrants (
+  "Incident Type" TEXT,
+  "Incident year" TEXT,
+  "Reported Month" TEXT,
+  "Region of Origin" TEXT,
+  "Region of Incident" TEXT,
+  "Country of Origin" TEXT,
+  "Number of Dead" TEXT,
+  "Minimum Estimated Number of Missing" TEXT,
+  "Total Number of Dead and Missing" TEXT,
+  "Number of Survivors" TEXT,
+  "Number of Females" TEXT,
+  "Number of Males" TEXT,
+  "Number of Children" TEXT,
+  "Cause of Death" TEXT,
+  "Migration route" TEXT,
+  "Location of death" TEXT,
+  "Information Source" TEXT,
+  "Coordinates" TEXT,
+  "UNSD Geographical Grouping" TEXT
+);
+
+-- Import (psql)
+
+COPY stg_world_2023 FROM '/world-data-2023.csv' WITH (FORMAT csv, HEADER true);
+COPY stg_energy FROM '/global-data-on-sustainable-energy.csv' WITH (FORMAT csv, HEADER true);
+COPY stg_missing_migrants FROM '/Global Missing Migrants Dataset.csv' WITH (FORMAT csv, HEADER true);
+
+
+-- VIEW "pulita" per il 2023:
+-- - Rimuovo virgole/simboli e faccio i cast numerici.
+-- - GDP: se nel CSV ho il simbolo "$", ricordarmi di fare REPLACE('$','') prima del cast.
+-- - CO₂: il file spesso è in kt (non Mt). Qui mantengo il valore “grezzo” e mi appunto l’unità.
+-- - Urban% lo calcolo a valle come urban_population / population * 100.
+
+CREATE OR REPLACE VIEW world_2023 AS
+SELECT
+  lower(trim("Country")) AS country_key,
+  "Country",
+  -- rimuove virgole migliaia, cast a BIGINT
+  NULLIF(replace("Population", ',', ''), '')::BIGINT AS population,
+  -- GDP in USD (stringa con virgole), cast a NUMERIC
+  NULLIF(replace("GDP", ',', ''), '')::NUMERIC AS gdp_usd,
+  NULLIF("Life expectancy", '')::NUMERIC AS life_expectancy,
+  NULLIF("Physicians per thousand", '')::NUMERIC AS physicians_per_thousand,
+  NULLIF(replace("Gross primary education enrollment (%)", '%', ''), '')::NUMERIC AS gross_primary_enroll_pct,
+  NULLIF(replace("Gross tertiary education enrollment (%)", '%', ''), '')::NUMERIC AS gross_tertiary_enroll_pct,
+  NULLIF(replace("Out of pocket health expenditure", '%', ''), '')::NUMERIC AS oop_health_exp_pct,
+  NULLIF(replace("Co2-Emissions", ',', ''), '')::NUMERIC AS co2_emissions_mt, -- verosimilmente milioni tonnellate
+  NULLIF("Unemployment rate", '')::NUMERIC AS unemployment_rate_pct,
+  NULLIF(replace("Urban_population", ',', ''), '')::BIGINT AS urban_population
+FROM stg_world_2023;
+
+
+-- VIEW per le serie storiche:
+-- - Normalizzo il nome paese in country_key (lower+trim) per le JOIN con world_2023.
+-- - Cast coerenti: year INT, %, TWh, kt, kWh/person, MJ/$PPP.
+-- - Nota concettuale che ripeterò nei commenti delle query:
+--   la quota “rinnovabili nel TFEC” include biomassa tradizionale → può “gonfiare” i ranking
+--   in paesi poveri senza implicare vera transizione pulita.
+
+CREATE OR REPLACE VIEW energy AS
+SELECT
+  lower(trim("Entity")) AS country_key,
+  NULLIF("Entity",'') AS entity,
+  NULLIF("Year",'')::INT AS year,
+  NULLIF("Access to electricity (% of population)",'')::NUMERIC AS access_electricity_pct,
+  NULLIF("Access to clean fuels for cooking",'')::NUMERIC AS clean_cooking_pct,
+  NULLIF("Renewable-electricity-generating-capacity-per-capita",'')::NUMERIC AS ren_capacity_per_capita,
+  NULLIF("Renewable energy share in the total final energy consumption (%)",'')::NUMERIC AS ren_share_tfec_pct,
+  NULLIF("Electricity from fossil fuels (TWh)",'')::NUMERIC AS elec_fossil_twh,
+  NULLIF("Electricity from nuclear (TWh)",'')::NUMERIC AS elec_nuclear_twh,
+  NULLIF("Electricity from renewables (TWh)",'')::NUMERIC AS elec_renewables_twh,
+  NULLIF("Low-carbon electricity (% electricity)",'')::NUMERIC AS low_carbon_elec_pct,
+  NULLIF("Primary energy consumption per capita (kWh/person)",'')::NUMERIC AS primary_energy_pc_kwh,
+  NULLIF("Energy intensity level of primary energy (MJ/$2017 PPP GDP)",'')::NUMERIC AS energy_intensity_mj_per_ppp,
+  NULLIF("Value_co2_emissions_kt_by_country",'')::NUMERIC AS co2_kt,
+  NULLIF("gdp_per_capita",'')::NUMERIC AS gdp_per_capita
+FROM stg_energy;
+
+
+-- Aggrego per (regione, anno) la somma di morti+dispersi (“Total Dead and Missing”).
+-- Questo riflette l’indicatore SDG 10.7.3 a livello regionale (grezzo ma didattico).
+-- Ricordo: è un “minimo registrato”, non il totale reale.
+
+CREATE OR REPLACE VIEW missing_migrants_region_year AS
+SELECT
+  NULLIF("Region of Incident",'') AS region_of_incident,
+  NULLIF("Incident year",'')::INT AS year,
+  SUM(NULLIF("Total Number of Dead and Missing",'')::INT) AS dead_missing
+FROM stg_missing_migrants
+WHERE "Region of Incident" IS NOT NULL
+GROUP BY 1,2;
+
+
+-- OBIETTIVO (come lo spiego): per ogni Paese prendo l’ULTIMO anno disponibile di % rinnovabili (TFEC)
+-- e ci faccio una classifica (Top-10). Così evito di mischiare anni diversi per Paese.
+-- LETTURA: TFEC include biomassa tradizionale → classifica alta ≠ per forza “energia pulita”.
+-- TECNICA: uso MAX(year) per Paese e poi ordino per ren_share_tfec_pct DESC.
+
+
+WITH latest_energy AS (
+  SELECT e.*
+  FROM energy e
+  JOIN (
+    SELECT country_key, MAX(year) AS max_year
+    FROM energy
+    WHERE ren_share_tfec_pct IS NOT NULL
+    GROUP BY country_key
+  ) m ON m.country_key = e.country_key AND m.max_year = e.year
+  WHERE e.ren_share_tfec_pct IS NOT NULL
+)
+SELECT
+  w."Country" AS country,
+  le.year,
+  ROUND(le.ren_share_tfec_pct, 2) AS ren_share_tfec_pct,
+  w.population
+FROM latest_energy le
+JOIN world_2023 w USING (country_key)
+ORDER BY le.ren_share_tfec_pct DESC NULLS LAST
+LIMIT 10;
+
+
+-- OBIETTIVO: legare % rinnovabili (TFEC) a CO₂ pro capite.
+-- PASSI:
+-- 1) prendo l’ULTIMO anno con CO₂ (kt) per Paese;
+-- 2) faccio JOIN con popolazione 2023 e calcolo CO₂ pc = kt*1000 / population;
+-- 3) affianco (a scopo comparativo) il valore CO₂ dal dataset “world”.
+-- REMEMBER PERSONALE: unità! Se CO₂_world è in kt, non chiamarla “Mt” senza convertire; qui la lascio “com’è” e lo dico.
+
+WITH latest_co2 AS (
+  SELECT e.*
+  FROM energy e
+  JOIN (
+    SELECT country_key, MAX(year) AS max_year
+    FROM energy
+    WHERE co2_kt IS NOT NULL
+    GROUP BY country_key
+  ) m ON m.country_key = e.country_key AND m.max_year = e.year
+  WHERE e.co2_kt IS NOT NULL
+)
+SELECT
+  w."Country" AS country,
+  lc.year AS co2_year,
+  -- kt * 1000 = tonnellate; / popolazione = tonnellate pro capite
+  ROUND((lc.co2_kt * 1000.0) / NULLIF(w.population,0), 3) AS co2_t_per_capita,
+  w.co2_emissions_mt AS co2_2023_mt,
+  w.population
+FROM latest_co2 lc
+JOIN world_2023 w USING (country_key)
+WHERE w.population IS NOT NULL
+ORDER BY co2_t_per_capita DESC NULLS LAST
+LIMIT 20;
+
+
+-- OBIETTIVO: trovare i Paesi “rimasti indietro” sull’accesso all’elettricità.
+-- Scelgo soglia 80% (didattica e facile da comunicare). La cambio se serve.
+-- Prendo l’ULTIMO anno non nullo per Paese e ordino crescente.
+
+WITH latest_elec AS (
+  SELECT e.*
+  FROM energy e
+  JOIN (
+    SELECT country_key, MAX(year) AS max_year
+    FROM energy
+    WHERE access_electricity_pct IS NOT NULL
+    GROUP BY country_key
+  ) m ON m.country_key = e.country_key AND m.max_year = e.year
+)
+SELECT
+  w."Country" AS country,
+  le.year,
+  ROUND(le.access_electricity_pct,1) AS access_electricity_pct,
+  w.population
+FROM latest_elec le
+JOIN world_2023 w USING (country_key)
+WHERE le.access_electricity_pct < 80
+ORDER BY le.access_electricity_pct ASC;
+
+
+-- OBIETTIVO: sintetizzare (life expectancy, medici/1000, iscrizione primaria e terziaria)
+-- con una media dei rank (più basso = migliore).
+-- Per presentazione didattica: è un indice “artigianale”, trasparente ma NON ufficiale.
+-- Utile per far capire l’idea di compositi e trade-off.
+
+
+WITH base AS (
+  SELECT
+    "Country",
+    country_key,
+    life_expectancy,
+    physicians_per_thousand,
+    gross_primary_enroll_pct,
+    gross_tertiary_enroll_pct
+  FROM world_2023
+  WHERE life_expectancy IS NOT NULL
+    AND physicians_per_thousand IS NOT NULL
+    AND gross_primary_enroll_pct IS NOT NULL
+    AND gross_tertiary_enroll_pct IS NOT NULL
+),
+ranks AS (
+  SELECT
+    b.*,
+    RANK() OVER (ORDER BY life_expectancy DESC) AS r_life,
+    RANK() OVER (ORDER BY physicians_per_thousand DESC) AS r_phys,
+    RANK() OVER (ORDER BY gross_primary_enroll_pct DESC) AS r_prim,
+    RANK() OVER (ORDER BY gross_tertiary_enroll_pct DESC) AS r_tert
+  FROM base b
+)
+SELECT
+  "Country" AS country,
+  life_expectancy, physicians_per_thousand,
+  gross_primary_enroll_pct, gross_tertiary_enroll_pct,
+  ROUND( (r_life + r_phys + r_prim + r_tert) / 4.0, 1) AS avg_rank
+FROM ranks
+ORDER BY avg_rank ASC
+LIMIT 15;
+
+
+-- OBIETTIVO: misurare la relazione tra PIL pro capite (ultimo anno disponibile) e aspettativa di vita (2023).
+-- Questa è la “curva di Preston”: mi aspetto correlazione positiva con rendimenti decrescenti.
+-- Uso corr() di Postgres; per altri DB sostituisco con funzione equivalente.
+
+
+WITH latest_gdp AS (
+  SELECT e.country_key, e.gdp_per_capita
+  FROM energy e
+  JOIN (
+    SELECT country_key, MAX(year) AS max_year
+    FROM energy
+    WHERE gdp_per_capita IS NOT NULL
+    GROUP BY country_key
+  ) m ON m.country_key = e.country_key AND m.max_year = e.year
+  WHERE e.gdp_per_capita IS NOT NULL
+),
+pairs AS (
+  SELECT
+    w."Country" AS country,
+    w.life_expectancy::FLOAT8 AS life_exp,
+    lg.gdp_per_capita::FLOAT8 AS gdp_pc
+  FROM world_2023 w
+  JOIN latest_gdp lg USING (country_key)
+  WHERE w.life_expectancy IS NOT NULL
+)
+SELECT corr(life_exp, gdp_pc) AS pearson_corr_lifeexp_gdppc
+FROM pairs;
+
+
+-- Obiettivo: creare un dataset per verificare se, a parità di anno più recente,
+-- paesi con maggiore quota di rinnovabili hanno minori emissioni pro capite.
+-- Risultato atteso: tabella con (Paese, anno, % rinnovabili, CO₂ t/capita).
+
+WITH latest AS (
+  SELECT e.*
+  FROM energy e
+  JOIN (
+    SELECT country_key, MAX(year) AS max_year
+    FROM energy
+    WHERE ren_share_tfec_pct IS NOT NULL AND co2_kt IS NOT NULL
+    GROUP BY country_key
+  ) m ON m.country_key = e.country_key AND m.max_year = e.year
+),
+joined AS (
+  SELECT
+    w."Country" AS country, l.year,
+    l.ren_share_tfec_pct,
+    (l.co2_kt * 1000.0) / NULLIF(w.population,0) AS co2_t_per_capita
+  FROM latest l
+  JOIN world_2023 w USING (country_key)
+  WHERE w.population IS NOT NULL
+)
+SELECT country, year,
+       ROUND(ren_share_tfec_pct,2) AS ren_share_tfec_pct,
+       ROUND(co2_t_per_capita,3)   AS co2_t_per_capita
+FROM joined
+WHERE ren_share_tfec_pct IS NOT NULL AND co2_t_per_capita IS NOT NULL;
+
+
+-- Obiettivo: ottenere la serie 2000..2020 di accesso all’elettricità per un Paese scelto.
+-- Risultato atteso: (anno, % accesso) per trend/line chart.
+
+-- Sostituisci :country con il nome (case-insensitive), es. 'niger'
+SELECT
+  year, ROUND(access_electricity_pct,1) AS access_electricity_pct
+FROM energy
+WHERE country_key = lower(trim(:country))
+  AND access_electricity_pct IS NOT NULL
+ORDER BY year;
+
+
+-- Obiettivo: trovare paesi con alto GDP pro capite ma bassa quota di rinnovabili (ultimo anno), potenziali target policy.
+-- Risultato atteso: elenco di outlier (soglie modificabili).
+
+WITH latest AS (
+  SELECT e.*
+  FROM energy e
+  JOIN (
+    SELECT country_key, MAX(year) AS max_year
+    FROM energy
+    WHERE gdp_per_capita IS NOT NULL AND ren_share_tfec_pct IS NOT NULL
+    GROUP BY country_key
+  ) m ON m.country_key = e.country_key AND m.max_year = e.year
+)
+SELECT
+  w."Country" AS country,
+  l.year,
+  ROUND(l.gdp_per_capita,0) AS gdp_pc,
+  ROUND(l.ren_share_tfec_pct,1) AS ren_share_tfec_pct
+FROM latest l
+JOIN world_2023 w USING (country_key)
+WHERE l.gdp_per_capita > 40000   -- soglia alto reddito
+  AND l.ren_share_tfec_pct < 15  -- soglia bassa quota rinnovabili
+ORDER BY l.gdp_per_capita DESC;
+
+
+-- Obiettivo: osservare paesi con alta aspettativa di vita e bassa spesa out-of-pocket (%),
+-- come possibile indicatore di equità/efficienza del sistema sanitario.
+-- Risultato atteso: top-20 con life expectancy alta e OOP bassa.
+
+SELECT
+  "Country" AS country,
+  life_expectancy,
+  oop_health_exp_pct
+FROM world_2023
+WHERE life_expectancy IS NOT NULL AND oop_health_exp_pct IS NOT NULL
+ORDER BY life_expectancy DESC, oop_health_exp_pct ASC
+LIMIT 20;
+
+
+
+-- Obiettivo: misurare il “salto” tra iscrizione primaria e terziaria (proxy di prosecuzione).
+-- Risultato atteso: Paesi con grande differenza (positiva o negativa).
+
+SELECT
+  "Country" AS country,
+  gross_primary_enroll_pct,
+  gross_tertiary_enroll_pct,
+  ROUND(gross_primary_enroll_pct - gross_tertiary_enroll_pct,1) AS gap_primary_tertiary
+FROM world_2023
+WHERE gross_primary_enroll_pct IS NOT NULL AND gross_tertiary_enroll_pct IS NOT NULL
+ORDER BY gap_primary_tertiary DESC;  -- inverti ASC per trovare chi “chiude” il gap
+
+
+-- Obiettivo: capire se Paesi più urbanizzati hanno CO₂ totale maggiore (dato 2023).
+-- Risultato atteso: dataset con % popolazione urbana e CO₂ totali.
+
+SELECT
+  w."Country" AS country,
+  (w.urban_population::NUMERIC / NULLIF(w.population,0)) * 100.0 AS urban_pct,
+  w.co2_emissions_mt AS co2_mt_2023
+FROM world_2023 w
+WHERE w.population IS NOT NULL AND w.urban_population IS NOT NULL AND w.co2_emissions_mt IS NOT NULL
+ORDER BY urban_pct DESC;
+
+
+-- Obiettivo: sintetizzare i decessi/scomparsi per regione negli ultimi 5 anni (dataset a livello regionale).
+-- Risultato atteso: tabella con (regione, anno, totale), utile per stacked area/bar.
+
+WITH max_y AS (
+  SELECT MAX(year) AS y FROM missing_migrants_region_year
+),
+subset AS (
+  SELECT mm.*
+  FROM missing_migrants_region_year mm, max_y
+  WHERE mm.year BETWEEN (max_y.y - 4) AND max_y.y
+)
+SELECT region_of_incident, year, dead_missing
+FROM subset
+ORDER BY region_of_incident, year;
+
+
+-- Obiettivo: creare un indice semplice combinando 3 dimensioni (ultimo anno disponibile):
+-- più alto = migliore (rinnovabili↑, elettricità↑, CO₂ pro capite↓).
+-- Risultato atteso: classifica sintetica per confronto rapido tra Paesi.
+
+WITH latest AS (
+  SELECT e.*
+  FROM energy e
+  JOIN (
+    SELECT country_key, MAX(year) AS max_year
+    FROM energy
+    WHERE ren_share_tfec_pct IS NOT NULL
+       OR access_electricity_pct IS NOT NULL
+       OR co2_kt IS NOT NULL
+    GROUP BY country_key
+  ) m ON m.country_key = e.country_key AND m.max_year = e.year
+),
+joined AS (
+  SELECT
+    w."Country" AS country, l.country_key, l.year,
+    l.ren_share_tfec_pct,
+    l.access_electricity_pct,
+    (l.co2_kt * 1000.0) / NULLIF(w.population,0) AS co2_t_per_capita
+  FROM latest l
+  JOIN world_2023 w USING (country_key)
+  WHERE w.population IS NOT NULL
+),
+rk AS (
+  SELECT
+    country, year,
+    ren_share_tfec_pct, access_electricity_pct, co2_t_per_capita,
+    RANK() OVER (ORDER BY ren_share_tfec_pct DESC) AS r_ren,
+    RANK() OVER (ORDER BY access_electricity_pct DESC) AS r_acc,
+    RANK() OVER (ORDER BY co2_t_per_capita ASC) AS r_co2
+  FROM joined
+  WHERE ren_share_tfec_pct IS NOT NULL
+    AND access_electricity_pct IS NOT NULL
+    AND co2_t_per_capita IS NOT NULL
+)
+SELECT
+  country, year,
+  ROUND(ren_share_tfec_pct,1) AS ren_share_tfec_pct,
+  ROUND(access_electricity_pct,1) AS access_electricity_pct,
+  ROUND(co2_t_per_capita,3) AS co2_t_per_capita,
+  (r_ren + r_acc + r_co2) AS score_sum,
+  ROUND( (r_ren + r_acc + r_co2)::NUMERIC / 3.0, 1) AS score_avg
+FROM rk
+ORDER BY score_avg ASC
+LIMIT 25;
+
+
+-- Obiettivo: selezionare per ciascun Paese l’ultimo anno in cui la quota rinnovabili (TFEC) esiste,
+-- poi ordinare i top-10.
+-- Risultato atteso: Paese, anno, % rinnovabili, popolazione (2023) per dare scala.
+
+WITH latest_ren AS (
+  SELECT DISTINCT ON (e.country_key)
+         e.country_key, e.year, e.ren_share_tfec_pct
+  FROM energy e
+  WHERE e.ren_share_tfec_pct IS NOT NULL
+  ORDER BY e.country_key, e.year DESC
+)
+SELECT w."Country" AS country,
+       lr.year,
+       ROUND(lr.ren_share_tfec_pct, 2) AS ren_share_tfec_pct,
+       w.population
+FROM latest_ren lr
+JOIN world_2023 w USING (country_key)
+ORDER BY lr.ren_share_tfec_pct DESC
+LIMIT 10;
+
+
+-- Obiettivo: costruire dataset per scatter “rinnovabili vs CO₂ pro capite”
+-- usando l’ultimo anno per Paese in cui entrambe le metriche sono disponibili.
+-- Risultato atteso: Paese, anno, % rinnovabili, CO₂ t/capite.
+
+WITH both AS (
+  SELECT DISTINCT ON (e.country_key)
+         e.country_key, e.year, e.ren_share_tfec_pct, e.co2_kt
+  FROM energy e
+  WHERE e.ren_share_tfec_pct IS NOT NULL
+    AND e.co2_kt IS NOT NULL
+  ORDER BY e.country_key, e.year DESC
+)
+SELECT w."Country" AS country,
+       b.year,
+       ROUND(b.ren_share_tfec_pct,2) AS ren_share_tfec_pct,
+       ROUND((b.co2_kt * 1000.0) / NULLIF(w.population,0), 3) AS co2_t_per_capita
+FROM both b
+JOIN world_2023 w USING (country_key)
+WHERE w.population IS NOT NULL;
+
+
+
+-- Obiettivo: individuare i 5 paesi con accesso elettricità più basso (ultimo anno non nullo)
+-- e ricavarne la serie storica 2000..ultimo anno per line chart.
+-- Risultato atteso: (paese, anno, % accesso) per ciascuno dei bottom-5.
+
+WITH last_access AS (
+  SELECT DISTINCT ON (e.country_key)
+         e.country_key, e.year, e.access_electricity_pct
+  FROM energy e
+  WHERE e.access_electricity_pct IS NOT NULL
+  ORDER BY e.country_key, e.year DESC
+),
+bottom5 AS (
+  SELECT la.country_key
+  FROM last_access la
+  ORDER BY la.access_electricity_pct ASC
+  LIMIT 5
+)
+SELECT w."Country" AS country,
+       e.year,
+       ROUND(e.access_electricity_pct,1) AS access_electricity_pct
+FROM energy e
+JOIN bottom5 b ON b.country_key = e.country_key
+JOIN world_2023 w ON w.country_key = e.country_key
+WHERE e.access_electricity_pct IS NOT NULL
+ORDER BY w."Country", e.year;
+
+
+-- Obiettivo: correlazione tra aspettativa di vita (2023) e reddito pro capite (ultimo anno disponibile).
+-- Risultato atteso: valore Pearson in [-1,1] + dataset per scatter.
+
+WITH last_gdp AS (
+  SELECT DISTINCT ON (e.country_key)
+         e.country_key, e.gdp_per_capita
+  FROM energy e
+  WHERE e.gdp_per_capita IS NOT NULL
+  ORDER BY e.country_key, e.year DESC
+),
+pairs AS (
+  SELECT w."Country" AS country,
+         w.life_expectancy::FLOAT8 AS life_exp,
+         lg.gdp_per_capita::FLOAT8 AS gdp_pc
+  FROM world_2023 w
+  JOIN last_gdp lg USING (country_key)
+  WHERE w.life_expectancy IS NOT NULL
+)
+SELECT corr(life_exp, gdp_pc) AS pearson_corr_lifeexp_gdppc
+FROM pairs;
+
+-- (Per lo scatter)
+-- SELECT * FROM pairs;
+
+
+
+-- Obiettivo: sintetizzare tre dimensioni in un unico punteggio (rank blend).
+-- Risultato atteso: classifica con punteggio medio (basso = meglio) e metriche componenti.
+
+WITH last_ren AS (
+  SELECT DISTINCT ON (country_key) country_key, year, ren_share_tfec_pct
+  FROM energy WHERE ren_share_tfec_pct IS NOT NULL
+  ORDER BY country_key, year DESC
+),
+last_acc AS (
+  SELECT DISTINCT ON (country_key) country_key, year AS y_acc, access_electricity_pct
+  FROM energy WHERE access_electricity_pct IS NOT NULL
+  ORDER BY country_key, year DESC
+),
+last_co2 AS (
+  SELECT DISTINCT ON (country_key) country_key, year AS y_co2, co2_kt
+  FROM energy WHERE co2_kt IS NOT NULL
+  ORDER BY country_key, year DESC
+),
+joined AS (
+  SELECT w."Country" AS country, w.country_key,
+         lr.ren_share_tfec_pct, la.access_electricity_pct,
+         (lc.co2_kt * 1000.0) / NULLIF(w.population,0) AS co2_t_per_capita
+  FROM world_2023 w
+  JOIN last_ren lr USING (country_key)
+  JOIN last_acc la USING (country_key)
+  JOIN last_co2 lc USING (country_key)
+  WHERE w.population IS NOT NULL
+),
+ranks AS (
+  SELECT *,
+         RANK() OVER (ORDER BY ren_share_tfec_pct DESC) AS r_ren,
+         RANK() OVER (ORDER BY access_electricity_pct DESC) AS r_acc,
+         RANK() OVER (ORDER BY co2_t_per_capita ASC) AS r_co2
+  FROM joined
+)
+SELECT country,
+       ROUND(ren_share_tfec_pct,1) AS ren_share_tfec_pct,
+       ROUND(access_electricity_pct,1) AS access_electricity_pct,
+       ROUND(co2_t_per_capita,3) AS co2_t_per_capita,
+       (r_ren + r_acc + r_co2) AS score_sum,
+       ROUND(((r_ren + r_acc + r_co2)::NUMERIC)/3.0, 1) AS score_avg
+FROM ranks
+ORDER BY score_avg ASC
+LIMIT 25;

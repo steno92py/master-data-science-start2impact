@@ -1,0 +1,82 @@
+REVISIONE COMPLETA — ECOBOT / AGENTI AI PER DATA
+Stefano Nocco — 8 ottobre 2026
+
+VALUTAZIONE
+
+La struttura del progetto è solida e adatta alla consegna: un singolo agente LangChain sceglie strumenti Python deterministici; i calcoli sono separati dalla spiegazione linguistica; dati mancanti, copertura e limiti sono dichiarati. Il progetto propone consigli energetici supportati dai dati senza inventare tariffe o diagnosi di guasto.
+
+La revisione ha trovato problemi reali, corretti e verificati. Le verifiche tecniche sono concluse. Gli screenshot forniti da Stefano documentano app, chat, grafici e memoria; lo screenshot di consegna è acquisito. Export HTML/JSON e relative schermate verificati. Anche l’upload manuale dei CSV è verificato. Stefano ha autorizzato l’uso della chiave esistente nel .env del pacchetto finale riservato. I requisiti verificati sono completati; il pacchetto è pronto alla consegna.
+
+CONFRONTO CON LA CONSEGNA RILETTA SUL SITO
+
+Fonte: https://talent.start2impact.it/corsi/agenti-ai-per-data/progetto/b9577a46-370f-4d9f-8cbf-6a570d18ca84/297c4949-93fb-4f09-81df-89a85b465d84
+Lettura diretta dell’introduzione e di tutte le sezioni 1–7 l’8 ottobre. La matrice dettagliata è in CONFORMITA.md e la sintesi osservata in evidenze/consegna_riletta_2026-10-08.json.
+
+1. Architettura: la scelta è libera. Un singolo agente LangChain è ammesso e motivato nel README; non servono più agenti per due CSV e sei strumenti.
+2. Scenario: presenti pulizia preventiva, analisi descrittiva, confronto azienda/famiglia, PNG e consigli pratici. I limiti economici sono espliciti.
+3. Ambiente: notebook Jupyter con setup e caricamento .env. Installazione locale Python 3.11 verificata da zero. Colab e localtunnel sono alternative descritte dalla traccia, non obblighi per l’esecuzione locale.
+4. Dati: formule, nomi delle colonne, 720 ore e anomalie corrispondono al generatore ufficiale. Sono stati aggiunti seed 42, una funzione e la conservazione in data/ per rendere le analisi ripetibili. Questo adattamento è dichiarato: non si afferma una copia letterale byte per byte dello script.
+5. Notebook: due sezioni, strumenti, ciclo agente, memoria, esempi e cella %%writefile app.py. Aggiunta una cella che mostra i piani operativi pubblici e i parametri delle conversazioni reali archiviate. Non ricostruisce piani assenti né divulga ragionamenti interni privati.
+6. Streamlit: due upload, chat, grafici nella chat e memoria implementati. Le prove automatiche verificano apertura, errori, conteggi e reset; non sostituiscono il controllo del layout e degli upload nel browser.
+7. Documentazione: README con scelta architetturale, avvio ed esempi riusciti. Requisiti installabili verificati.
+8. Consegna: agent.ipynb, requirements.txt e README presenti. Il .env del pacchetto finale riservato è configurato con la chiave esistente, su autorizzazione di Stefano. streamlit_screenshot.png è presente, copiato senza modifiche dalla schermata mensile fornita da Stefano. Nome finale: StefanoNocco_AgentiAIData.zip. La versione di lavoro senza chiave mantiene DA_VALIDARE.
+9. Video: non richiesto in questa consegna.
+
+PROBLEMI CORRETTI
+
+A. Copertura con periodi diversi — impatto sui risultati mostrati.
+Con una misura di produzione alle 00 e una di consumo alle 03, l’intervallo di analisi è di quattro ore, ma la vecchia metrica indicava zero misure mancanti e l’export conteneva solo due righe. Ora la griglia include tutte e quattro le ore e l’app conta sei misure mancanti complessive sui due sensori. Le ore assenti restano sconosciute.
+
+B. Giorni e mesi incompleti — rischio di interpretare un periodo corto come un calo reale.
+Il dataset inizia e finisce a metà giornata e copre soltanto parti di settembre e ottobre. Ora ogni aggregazione distingue ore selezionate e ore del periodo completo. Note del grafico e risultati dei tool rendono espliciti i periodi parziali. Nelle nuove prove reali il modello ha descritto entrambi i mesi come parziali.
+
+C. Serie oltre 90 periodi — presentazione incompleta.
+Il grafico e il tool limitavano i punti agli ultimi 90 senza una spiegazione evidente. Ora l’avviso compare nei dati restituiti, nella nota del PNG, nell’app e nelle evidenze della risposta. Per vedere i periodi precedenti va ristretto l’intervallo.
+
+D. Più chiamate allo stesso strumento — evidenze perse.
+Il riepilogo conservava soltanto l’ultima chiamata di ciascun tool. Nel confronto fra due intervalli poteva sparire il primo totale. Ora sono conservati tutti i risultati distinti, con periodo e fascia.
+
+E. Interruzione API dopo un calcolo — perdita della traccia.
+Ora i risultati già ottenuti e i token delle risposte ricevute restano disponibili. L’analisi viene marcata incompleta e non viene mostrata l’eccezione privata. La suite smette di insistere quando il servizio API risulta indisponibile. Il comportamento di errore è verificato con simulazioni, senza provocare un guasto reale.
+
+F. Nuova conversazione — grafici residui.
+Il reset della chat lasciava i riferimenti ai grafici precedenti nel report. Ora azzera anche questi riferimenti, mantenendo il solo grafico di panoramica corrente.
+
+G. Pulizia e riproducibilità.
+Aggiunto il conteggio dei timestamp arrotondati all’ora. Rifiutati gli estremi con frazioni di nanosecondo che prima producevano falsi dati mancanti. Il notebook riconosce un dataset incompleto senza sovrascrivere silenziosamente la parte rimasta.
+
+H. Chiarezza delle risposte e del report.
+Precisato il prompt su causalità, coincidenza potenziale e dati economici mancanti. Nel report i dettagli tecnici sono espandibili e i grafici sono accanto alle risposte pertinenti. Una formulazione ridondante del modello, [Mostro il grafico.], resta annotata come limite stilistico nelle evidenze.
+
+VERIFICHE E RISULTATI
+
+- 25 test iniziali superati prima degli interventi.
+- 36 test dopo le correzioni, superati anche nel nuovo ambiente installato da requirements.txt. Sono inclusi giorni di 23 e 25 ore, periodi disgiunti, più intervalli, API interrotta e reset della chat.
+- Suite reale di 13 casi completata e riesaminata: risultati numerici e comportamento conformi; note linguistiche e un filtro ridondante documentati.
+- 3 ulteriori casi reali dopo le precisazioni del prompt: causalità, confronto e informazioni economiche mancanti.
+- 5 nuove conversazioni reali nel notebook: anomalie, totale, grafico mensile, risparmio in euro e causalità.
+- Notebook finale: 28 celle, di cui 16 di codice, eseguite senza errori. L’ultimo passaggio è offline e legge le conversazioni reali già acquisite: non è conteggiato come un’ulteriore prova API.
+- Tutte le celle %%writefile corrispondono ai moduli Python; i CSV originali mantengono gli hash precedenti.
+- PNG giornaliero, orario e mensile ispezionati visivamente. Report HTML verificato come struttura e contenuto incorporato; layout del report esportato poi verificato nei due screenshot forniti da Stefano.
+- Token aggiuntivi riportati dal provider: 99.234 per questa revisione. Non è una stima del costo fatturato.
+- I 14 avvisi dei test provengono da deprecazioni interne Matplotlib/Pyparsing; nessun test fallito.
+
+LIMITI E PASSAGGI RESIDUI
+
+Il controllo di sicurezza del browser ha rifiutato http://127.0.0.1:8518. Nessun aggiramento è stato effettuato. Stefano ha poi fornito quattro screenshot dell’app e un PNG esportato: controllo visivo positivo, con valori settimanali 291,75 e 301,18 kWh confermati da ricalcolo indipendente sui CSV. Anche totali, copertura e grafico mensile coincidono. Lo screenshot mensile originale è salvato come streamlit_screenshot.png. Le prime schermate mostravano la demo. Lo screenshot successivo delle 12:02 documenta invece entrambi i file caricati, avviso demo assente e risultati attesi: produzione 1.150,20 kWh su 713/720 ore, consumo 1.292,32 kWh su 720/720, 7 misure mancanti; tabella e grafico leggibili. La prova di caricamento è conclusa, senza nuove chiamate API. Evidenza: evidenze/verifica_upload_utente_2026-10-08.json. Gli export HTML/JSON successivamente forniti contengono i due scambi settimanali: risultati e metadati coincidono con il ricalcolo; 10.828 token registrati nel file, senza nuove chiamate durante la verifica. Il report incorpora lo stesso PNG giornaliero esportato. Le due schermate successive mostrano correttamente report e dettagli aperti/chiusi. Il JSON attuale non contiene la precedente domanda mensile: non ne documenta tracce o token. Unica nota estetica: marcatori **Risultati dei calcoli** conservati come testo. Evidenze in evidenze/verifica_export_utente_2026-10-08.json. Evidenza: evidenze/verifica_output_utente_2026-10-08.json.
+
+La traccia richiede un .env con chiave. Stefano ha autorizzato la chiave esistente: è inclusa esclusivamente nel .env del pacchetto finale riservato. Nessuna chiave in notebook, sorgenti, report o archivio di lavoro senza credenziale. Il README evita di sovrascrivere il .env configurato. Nessuna nuova chiamata API durante la preparazione del pacchetto.
+
+Le prove coprono i casi documentati e non garantiscono che il modello risponda correttamente a qualsiasi domanda futura. L’app è predisposta per l’esecuzione locale della consegna, non è stata collaudata come servizio pubblico multiutente.
+
+ARTEFATTI
+
+Notebook: agent.ipynb
+Matrice dei requisiti: CONFORMITA.md
+Riepilogo verificabile: evidenze/revisione_2026-10-08.json
+Report delle nuove conversazioni: evidenze/report_api_reale.html
+Archivio finale riservato: ../../00_STATO_MASTER/pacchetti_agenti_ai/StefanoNocco_AgentiAIData.zip
+Rigenerazione archivio finale: python prepara_consegna.py --include-local-api-key
+Versione senza chiave: python prepara_consegna.py
+
+Nessun elaborato è stato caricato sulla piattaforma durante la revisione.

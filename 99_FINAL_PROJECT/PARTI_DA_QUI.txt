@@ -1,0 +1,7 @@
+CARTELLA CORRETTA: 99_FINAL_PROJECT
+
+01_PROGETTO_1: superato, 1500/1500 il 19/10/2025. PDF della consegna recuperato.
+02_PROGETTO_2: preparato ma non inviato. Leggere REVISIONE_PRECONSEGNA.md.
+
+98_ARCHIVIO_ORIGINALI conserva soltanto la copia storica locale.
+Verifica della piattaforma: 08/10/2026.
