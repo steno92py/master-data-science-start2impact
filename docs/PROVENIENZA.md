@@ -33,3 +33,7 @@ Gli hash nel catalogo si riferiscono al **file effettivamente scaricato**. Per l
 ## Limiti della verifica
 
 Un progetto superato rappresenta una valutazione didattica storica, non una certificazione del software in produzione. La verifica del recupero controlla identità dei file, stato della piattaforma e struttura dell’archivio. Le dipendenze e tutti i modelli storici non sono stati nuovamente installati o addestrati. I progetti Agenti AI, EcoBot e la seconda prova finale hanno le proprie evidenze e pendenze documentate separatamente.
+
+## Collocazione corrente
+
+L’accorpamento successivo ha riunito i materiali per corso ufficiale. Le cartelle `consegna_piattaforma/` sono confluite in `consegna/`, senza cambiare i byte degli elaborati. Gli originali importati sono negli archivi dei rispettivi corsi. I registri di recupero restano storici; il catalogo corrente e la [mappa degli spostamenti](../00_STATO_MASTER/riordino/accorpamento_corsi_2026-10-08.json) indicano i percorsi attuali.

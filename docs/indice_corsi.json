@@ -1,0 +1,254 @@
+[
+  {
+    "slug": "prima-di-iniziare-data",
+    "title": "Prima di Iniziare",
+    "official_course_url": "https://talent.start2impact.it/corsi/prima-di-iniziare-data",
+    "folder": null,
+    "projects": [],
+    "verification_date": "2026-10-08",
+    "result": "Sezione introduttiva senza elaborato progettuale."
+  },
+  {
+    "slug": "introduzione-alla-data-analysis",
+    "title": "Introduzione alla Data Analytics",
+    "official_course_url": "https://talent.start2impact.it/corsi/introduzione-alla-data-analysis",
+    "folder": "01_Introduzione_Data_Analytics",
+    "projects": [
+      "introduzione-alla-data-analysis"
+    ],
+    "verification_date": "2026-10-08",
+    "result": "PDF approvato e variante locale riuniti nel corso; variante conservata in archivio."
+  },
+  {
+    "slug": "introduzione-alla-data-science",
+    "title": "Introduzione alla Data Science e AI",
+    "official_course_url": "https://talent.start2impact.it/corsi/introduzione-alla-data-science",
+    "folder": "02_Introduzione_Data_Science_AI",
+    "projects": [
+      "introduzione-alla-data-science"
+    ],
+    "verification_date": "2026-10-08",
+    "result": "PDF approvato e precedente bocciato riuniti nel corso; versioni distinte."
+  },
+  {
+    "slug": "ai-e-prompt-engineering",
+    "title": "AI e Prompt Engineering",
+    "official_course_url": "https://talent.start2impact.it/corsi/ai-e-prompt-engineering",
+    "folder": null,
+    "projects": [],
+    "verification_date": "2026-10-08",
+    "result": "Test superato, 270/300; nessun elaborato da recuperare."
+  },
+  {
+    "slug": "costruisci-una-strategia-dati",
+    "title": "Costruisci una strategia dati",
+    "official_course_url": "https://talent.start2impact.it/corsi/costruisci-una-strategia-dati",
+    "folder": null,
+    "projects": [],
+    "verification_date": "2026-10-08",
+    "result": "Progetto di gruppo opzionale; nessun allegato inviato."
+  },
+  {
+    "slug": "excel",
+    "title": "Excel",
+    "official_course_url": "https://talent.start2impact.it/corsi/excel",
+    "folder": "03_Excel",
+    "projects": [
+      "excel"
+    ],
+    "verification_date": "2026-10-08",
+    "result": "Un workbook approvato; corso distinto da Excel Advanced."
+  },
+  {
+    "slug": "excel-advanced",
+    "title": "Excel Advanced",
+    "official_course_url": "https://talent.start2impact.it/corsi/excel-advanced",
+    "folder": "04_Excel_Advanced",
+    "projects": [
+      "excel-advanced"
+    ],
+    "verification_date": "2026-10-08",
+    "result": "Un workbook approvato; corso distinto da Excel."
+  },
+  {
+    "slug": "sql",
+    "title": "SQL",
+    "official_course_url": "https://talent.start2impact.it/corsi/sql",
+    "folder": "05_SQL",
+    "projects": [
+      "sql"
+    ],
+    "verification_date": "2026-10-08",
+    "result": "PDF valutato, SQL e tre dataset nello stesso corso."
+  },
+  {
+    "slug": "python",
+    "title": "Python",
+    "official_course_url": "https://talent.start2impact.it/corsi/python",
+    "folder": "06_Python",
+    "projects": [
+      "python"
+    ],
+    "verification_date": "2026-10-08",
+    "result": "Consegna Orizon, copia di lavoro e originali MasterS2I riuniti; corso distinto da NumPy."
+  },
+  {
+    "slug": "numpy",
+    "title": "NumPy",
+    "official_course_url": "https://talent.start2impact.it/corsi/numpy",
+    "folder": "07_NumPy",
+    "projects": [
+      "numpy"
+    ],
+    "verification_date": "2026-10-08",
+    "result": "File Organizer appartiene a NumPy; notebook e script verificati contro lo ZIP approvato."
+  },
+  {
+    "slug": "data-manipulation-visualization",
+    "title": "Data Manipulation and Visualization",
+    "official_course_url": "https://talent.start2impact.it/corsi/data-manipulation-visualization",
+    "folder": "08_Data_Manipulation_Visualization",
+    "projects": [
+      "data-manipulation-visualization"
+    ],
+    "verification_date": "2026-10-08",
+    "result": "Wine Enthusiast EDA: consegna e varianti nello stesso corso. Distinto dal Wine di scikit-learn."
+  },
+  {
+    "slug": "data-studio",
+    "title": "Data Studio",
+    "official_course_url": "https://talent.start2impact.it/corsi/data-studio",
+    "folder": "09_Data_Studio",
+    "projects": [
+      "data-studio"
+    ],
+    "verification_date": "2026-10-08",
+    "result": "Data Studio e Looker Studio sono qui lo stesso corso; un PDF approvato."
+  },
+  {
+    "slug": "data-visualization-con-tableau",
+    "title": "Data Visualization con Tableau",
+    "official_course_url": "https://talent.start2impact.it/corsi/data-visualization-con-tableau",
+    "folder": "10_Tableau",
+    "projects": [
+      "data-visualization-con-tableau"
+    ],
+    "verification_date": "2026-10-08",
+    "result": "Turismo globale, dati e originali MasterS2I riuniti. Turismo virtuale appartiene alla prova finale 1."
+  },
+  {
+    "slug": "google-analytics-4",
+    "title": "Google Analytics 4",
+    "official_course_url": "https://talent.start2impact.it/corsi/google-analytics-4",
+    "folder": "11_Google_Analytics_4",
+    "projects": [
+      "google-analytics-4-progetto-1",
+      "google-analytics-4-progetto-2"
+    ],
+    "verification_date": "2026-10-08",
+    "result": "Un corso con due elaborati: estrazione e strategia dati. Feedback privato conservato solo sul Mac."
+  },
+  {
+    "slug": "advanced-analytics",
+    "title": "Advanced Analytics",
+    "official_course_url": "https://talent.start2impact.it/corsi/advanced-analytics",
+    "folder": "12_Advanced_Analytics",
+    "projects": [
+      "advanced-analytics"
+    ],
+    "verification_date": "2026-10-08",
+    "result": "Consegna approvata, copia locale, dataset e checkpoint recuperato riuniti."
+  },
+  {
+    "slug": "machine-learning",
+    "title": "Machine Learning",
+    "official_course_url": "https://talent.start2impact.it/corsi/machine-learning",
+    "folder": "13_Machine_Learning",
+    "projects": [
+      "machine-learning"
+    ],
+    "verification_date": "2026-10-08",
+    "result": "Titanic appartiene a Machine Learning, anche se il nome dei file contiene ML_Advanced."
+  },
+  {
+    "slug": "machine-learning-advanced",
+    "title": "Machine Learning Advanced",
+    "official_course_url": "https://talent.start2impact.it/corsi/machine-learning-advanced",
+    "folder": "14_Machine_Learning_Advanced",
+    "projects": [
+      "machine-learning-advanced"
+    ],
+    "verification_date": "2026-10-08",
+    "result": "Wine di scikit-learn: consegna, varianti e originale MasterS2I riuniti."
+  },
+  {
+    "slug": "agenti-ai",
+    "title": "Agenti AI",
+    "official_course_url": "https://talent.start2impact.it/corsi/agenti-ai",
+    "folder": "15_Agenti_AI",
+    "projects": [
+      "agenti-ai"
+    ],
+    "verification_date": "2026-10-08",
+    "result": "Assistente Telegram: PDF in consegna, video in video e vecchi ZIP in archivio/pacchetti_preparatori."
+  },
+  {
+    "slug": "agenti-ai-per-data",
+    "title": "Agenti AI per Data",
+    "official_course_url": "https://talent.start2impact.it/corsi/agenti-ai-per-data",
+    "folder": "16_Agenti_AI_per_Data",
+    "projects": [
+      "agenti-ai-per-data"
+    ],
+    "verification_date": "2026-10-08",
+    "result": "EcoBot: ZIP finale in consegna/pacchetto_riservato, vecchi ZIP e prototipo in archivio. Corso distinto da Agenti AI."
+  },
+  {
+    "slug": "progetto-finale-data-science-analytics-ai",
+    "title": "Realizza l’analisi completa di un dataset e genera previsioni sul futuro",
+    "official_course_url": "https://talent.start2impact.it/corsi/progetto-finale-data-science-analytics-ai",
+    "folder": "17_Progetto_Finale",
+    "projects": [
+      "progetto-finale-1",
+      "progetto-finale-2"
+    ],
+    "verification_date": "2026-10-08",
+    "result": "Un corso con due prove; originali MasterS2I riuniti negli archivi delle rispettive prove."
+  },
+  {
+    "slug": "trovare-lavoro",
+    "title": "Trovare Lavoro",
+    "official_course_url": "https://talent.start2impact.it/corsi/trovare-lavoro",
+    "folder": null,
+    "projects": [],
+    "verification_date": "2026-10-08",
+    "result": "Corso opzionale; nessun allegato progettuale da recuperare."
+  },
+  {
+    "slug": "linkedin-personal-branding",
+    "title": "LinkedIn per il Personal Branding",
+    "official_course_url": "https://talent.start2impact.it/corsi/linkedin-personal-branding",
+    "folder": null,
+    "projects": [],
+    "verification_date": "2026-10-08",
+    "result": "Corso opzionale; sezione progetto presente, nessun allegato inviato."
+  },
+  {
+    "slug": "networking",
+    "title": "Networking",
+    "official_course_url": "https://talent.start2impact.it/corsi/networking",
+    "folder": null,
+    "projects": [],
+    "verification_date": "2026-10-08",
+    "result": "Corso opzionale; nessun allegato progettuale da recuperare."
+  },
+  {
+    "slug": "public-speaking",
+    "title": "Public Speaking",
+    "official_course_url": "https://talent.start2impact.it/corsi/public-speaking",
+    "folder": null,
+    "projects": [],
+    "verification_date": "2026-10-08",
+    "result": "Corso opzionale; sezione progetto presente, nessun allegato inviato."
+  }
+]

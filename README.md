@@ -1,65 +1,67 @@
 # Master Data Science & AI — Stefano Nocco
 
-Portfolio dei progetti realizzati durante il percorso **start2impact**, organizzato per corso: analisi dei dati, dashboard, machine learning e agenti AI. Documentazione e consegne verificate l’**8 ottobre 2026**.
+Portfolio del percorso **start2impact**, organizzato per corso ufficiale. Associazioni, consegne e materiali verificati sulle evidenze della piattaforma acquisite l’**8 ottobre 2026**; file ricontrollati dopo l’accorpamento.
 
-**16 elaborati risultano superati sulla piattaforma. La prima prova finale è approvata con 1500/1500; la seconda è preparata e richiede ancora la revisione prima della consegna.** Il master non è indicato come concluso.
+**24 corsi e attività censiti, 17 cartelle con materiali, 19 elaborati.** I 16 elaborati approvati sono conservati con hash verificati. Agenti AI ed EcoBot sono pronti ma non inviati; la seconda prova finale richiede revisione. Il master non è indicato come concluso.
 
 ## Da dove iniziare
 
-- [Prima prova finale: turismo virtuale](99_FINAL_PROJECT/01_PROGETTO_1/README.md) — PDF valutato, notebook e dashboard.
-- [Agente Telegram: email e calendario](10_Agenti_AI/README.md) — workflow n8n e [demo video di 2:30](https://www.loom.com/share/6df5343a8a194c3f88e6df64413976ac).
-- [EcoBot](11_Agenti_AI_per_Data/ecobot/README.md) — assistente per l’analisi di consumi e produzione energetica.
-- [Seconda prova finale](99_FINAL_PROJECT/02_PROGETTO_2/README.md) — lavoro preparato, con revisione preconsegna esplicita.
+- [Agenti AI: cosa inviare](15_Agenti_AI/consegna/README.md) — PDF definitivo e video Loom.
+- [Agenti AI per Data: consegna EcoBot](16_Agenti_AI_per_Data/consegna/README.md) — posizione del pacchetto locale.
+- [Progetto finale](17_Progetto_Finale/README.md) — le due prove nello stesso corso.
+- [Verifica completa dei corsi e criterio di accorpamento](docs/PERCORSO.md).
 
-## Corsi e risultati
+## Corsi con materiali
 
-I punteggi riportano la valutazione dell’elaborato, non quella del test teorico.
+Ogni riga corrisponde a un corso ufficiale. I numeri ordinano le cartelle con materiali; non rappresentano un’identità comune fra corsi. I punteggi si riferiscono agli elaborati, non ai test teorici.
 
-| Corso / progetto | Strumenti | Stato verificato | Documentazione |
-| --- | --- | --- | --- |
-| Introduzione alla Data Analysis | PDF | Superato · 200/200 | [Apri](01_intro/README.md) |
-| Introduzione alla Data Science | PDF | Superato · 190/200 | [Apri](01_intro/README.md) |
-| Excel | Excel | Superato · 440/500 | [Apri](02_Excel/README.md) |
-| Excel Advanced | Excel | Superato · 490/500 | [Apri](02_excel_adv/README.md) |
-| SQL | SQL, Python | Superato · 470/500 | [Apri](03_SQL_PROJECT/README.md) |
-| Python — Orizon | Python, Jupyter | Superato · 500/500 | [Apri](04_Python_Orizon/README.md) |
-| Python e NumPy — File Organizer | Python, NumPy | Superato · 500/500 | [Apri](04_FileOrganizer/README.md) |
-| Data Manipulation & Visualization | pandas, Plotly, Seaborn | Superato · 500/500 | [Apri](05_Wine_projects/README.md) |
-| Data Studio / Looker Studio | Looker Studio | Superato · 500/500 | [Apri](06_Data_Studio/README.md) |
-| Data Visualization con Tableau | Tableau, Python | Superato · 500/500 | [Apri](06_Tableau/README.md) |
-| Google Analytics 4 — Estrazione dati | Google Analytics 4, Excel | Superato · 400/500 | [Apri](07_Google_Analytics_4/README.md) |
-| Google Analytics 4 — Strategia dati | Google Analytics 4, Excel | Superato · 500/500 | [Apri](07_Google_Analytics_4/README.md) |
-| Advanced Analytics | pandas, scikit-learn, XGBoost | Superato · 500/500 | [Apri](07_Adv_Analytics/README.md) |
-| Machine Learning — Titanic | Python, scikit-learn | Superato · 480/500 | [Apri](08_ML_project/README.md) |
-| Machine Learning Advanced — Wine | Python, scikit-learn | Superato · 480/500 | [Apri](09_ML_Adv_wineproject/README.md) |
-| Prova finale 1 — Turismo virtuale | Python, Tableau | Superato · 1500/1500 | [Apri](99_FINAL_PROJECT/01_PROGETTO_1/README.md) |
-| Agenti AI — Assistente Telegram | n8n | Pronto; non inviato | [Apri](10_Agenti_AI/README.md) |
-| Agenti AI per Data — EcoBot | Python | Pronto; non inviato; invio bloccato dai prerequisiti in piattaforma | [Apri](11_Agenti_AI_per_Data/README.md) |
-| Prova finale 2 — Passeggeri aerei | Python | Preparato; revisione necessaria; non inviato | [Apri](99_FINAL_PROJECT/02_PROGETTO_2/README.md) |
+| Corso | Elaborati e stato | Cartella |
+| --- | --- | --- |
+| Introduzione alla Data Analytics | Superato · 200/200 | [01_Introduzione_Data_Analytics](01_Introduzione_Data_Analytics/README.md) |
+| Introduzione alla Data Science e AI | Superato · 190/200 | [02_Introduzione_Data_Science_AI](02_Introduzione_Data_Science_AI/README.md) |
+| Excel | Superato · 440/500 | [03_Excel](03_Excel/README.md) |
+| Excel Advanced | Superato · 490/500 | [04_Excel_Advanced](04_Excel_Advanced/README.md) |
+| SQL | Superato · 470/500 | [05_SQL](05_SQL/README.md) |
+| Python | Superato · 500/500 | [06_Python](06_Python/README.md) |
+| NumPy | Superato · 500/500 | [07_NumPy](07_NumPy/README.md) |
+| Data Manipulation and Visualization | Superato · 500/500 | [08_Data_Manipulation_Visualization](08_Data_Manipulation_Visualization/README.md) |
+| Data Studio | Superato · 500/500 | [09_Data_Studio](09_Data_Studio/README.md) |
+| Data Visualization con Tableau | Superato · 500/500 | [10_Tableau](10_Tableau/README.md) |
+| Google Analytics 4 | Due elaborati superati: 400/500 e 500/500 | [11_Google_Analytics_4](11_Google_Analytics_4/README.md) |
+| Advanced Analytics | Superato · 500/500 | [12_Advanced_Analytics](12_Advanced_Analytics/README.md) |
+| Machine Learning | Superato · 480/500 | [13_Machine_Learning](13_Machine_Learning/README.md) |
+| Machine Learning Advanced | Superato · 480/500 | [14_Machine_Learning_Advanced](14_Machine_Learning_Advanced/README.md) |
+| Agenti AI | Pronto; non inviato | [15_Agenti_AI](15_Agenti_AI/README.md) |
+| Agenti AI per Data | Pronto; non inviato; invio bloccato dai prerequisiti in piattaforma | [16_Agenti_AI_per_Data](16_Agenti_AI_per_Data/README.md) |
+| Progetto finale — Data Science, Analytics e AI | Prova 1: 1500/1500; prova 2 da revisionare e inviare | [17_Progetto_Finale](17_Progetto_Finale/README.md) |
 
-## Struttura dell’archivio
+## Organizzazione
 
-Ogni README identifica il file valutato e spiega come consultarlo. La numerazione conserva l’organizzazione storica: le cartelle con lo stesso prefisso contengono corsi distinti.
+Ogni corso raccoglie consegne, codice, dati, versioni precedenti e materiali recuperati che gli appartengono. Google Analytics 4 comprende due elaborati e il progetto finale due prove; rimangono sottocartelle dello stesso corso.
 
-- `consegna_piattaforma/`: copie esatte dei documenti recuperati; non viene duplicato un file quando una copia identica è già in una posizione adeguata.
-- `progetto/`: codice, notebook e file di lavoro. Le differenze rispetto alla versione valutata sono dichiarate.
-- `consegna/`: relazioni, workbook o esportazioni; il README del corso chiarisce quali corrispondono alla consegna approvata.
-- `99_FINAL_PROJECT/`: le due prove finali; `versione_git/` contiene le copie leggere dei notebook.
-- `98_ARCHIVIO_ORIGINALI/`: riferimento all’archivio storico sul Mac, preservato integralmente ed escluso dalla pubblicazione.
+- `consegna/`: elaborati approvati o materiali pronti, identificati dal README del corso. Le precedenti cartelle `consegna_piattaforma/` sono confluite qui.
+- `progetto/`, `dataset/`, `materiali/`: codice, dati e materiali di lavoro, dove presenti; EcoBot mantiene la propria cartella `ecobot/`.
+- `archivio/` e `versioni_precedenti/`: originali importati e versioni storiche, locali ed escluse da Git.
+- `00_STATO_MASTER/`: registri trasversali e copia Git del portfolio; gli ZIP dei progetti sono ora nei rispettivi corsi.
+- `00_MATERIALI_MASTER/`: materiali generali del percorso.
+- `98_ARCHIVIO_ORIGINALI/`: metadati e rimandi storici; i contenuti dei corsi sono stati ricollocati nei relativi archivi.
 
-## Consultazione e avvio
+Le sette attività senza elaborati locali sono censite nell’[indice completo](docs/PERCORSO.md), senza creare cartelle vuote.
 
-I PDF, i workbook e le esportazioni HTML permettono di consultare molti risultati senza eseguire il codice. Per lavorare sui notebook, creare un ambiente Python separato per progetto e seguire le istruzioni del relativo corso: gli elaborati storici conservano percorsi Colab o locali, e non esiste un unico ambiente certificato per tutto il master.
+## Consultazione e verifiche
 
-- [Riproducibilità e dipendenze](docs/RIPRODUCIBILITA.md).
-- [Provenienza, verifiche e versioni](docs/PROVENIENZA.md).
-- [Catalogo completo del percorso e attività senza consegna](docs/PERCORSO.md).
-- [Catalogo elaborati con date e SHA-256](docs/catalogo_progetti.json).
-- [Stato e prossimi interventi](00_STATO_MASTER/STATO_MASTER.md).
-- [Gestione della repository e selezione dei file](GITHUB.md).
+I PDF, workbook e HTML consentono di consultare molti risultati senza eseguire il codice. I notebook storici mantengono i propri contenuti e percorsi Colab/locali; seguire la [guida alla riproducibilità](docs/RIPRODUCIBILITA.md) e il README del corso prima di eseguirli. Le copie leggere delle prove finali sono in `versione_git/`.
+
+```sh
+python3 tools/verifica_corsi.py
+python3 tools/verifica_consegne.py
+python3 tools/verifica_archivio.py --output /tmp/master-verifica-git.json
+```
+
+[Provenienza](docs/PROVENIENZA.md) · [Catalogo degli elaborati e hash](docs/catalogo_progetti.json) · [Indice dei corsi](docs/indice_corsi.json) · [Stato del master](00_STATO_MASTER/STATO_MASTER.md) · [Gestione GitHub](GITHUB.md).
 
 ## Materiali e diritti
 
-Questo è un portfolio personale, non materiale ufficiale di start2impact. Elaborati di Stefano Nocco; nomi, dataset, software e materiali di terzi restano dei rispettivi autori. Non viene attribuita una nuova licenza ai contenuti di terzi. Tracce integrali del corso, correzioni private, credenziali e file di configurazione personali non sono inclusi.
+Portfolio personale, non materiale ufficiale di start2impact. Elaborati di Stefano Nocco; dati, software e materiali di terzi restano dei rispettivi autori. La pubblicazione non attribuisce una nuova licenza ai contenuti di terzi. Tracce integrali, correzioni private, credenziali, ZIP di consegna e configurazioni personali restano locali.
 
-Gli output salvati e i punteggi descrivono il lavoro storico. Il recupero ha verificato integrità e provenienza dei file; non costituisce una nuova esecuzione integrale di tutti i modelli.
+Gli output e i punteggi descrivono il lavoro storico. La verifica controlla appartenenza e integrità dei materiali; non costituisce una nuova esecuzione di tutti i modelli o una nuova consegna.

@@ -29,8 +29,8 @@ __pycache__/
 !**/archivio/
 !**/archivio/README.md
 versioni_precedenti/
-/99_FINAL_PROJECT/materiali_riferimento/
-/99_FINAL_PROJECT/02_PROGETTO_2/supporto_tecnico/
+/17_Progetto_Finale/materiali_riferimento/
+/17_Progetto_Finale/02_PROGETTO_2/supporto_tecnico/
 /00_MATERIALI_MASTER/brochure/
 
 # Pacchetti di consegna (alcuni contengono .env), video e modelli binari
@@ -45,10 +45,10 @@ versioni_precedenti/
 *.safetensors
 
 # Dati Wine voluminosi, originali completi delle finali: copie leggere in versione_git
-/05_Wine_projects/progetto/data/
-/05_Wine_projects/progetto/sentiment_model/
-/99_FINAL_PROJECT/01_PROGETTO_1/Progetto Finale Data Analysis di Stefano Nocco.ipynb
-/99_FINAL_PROJECT/02_PROGETTO_2/Stefano Nocco PROGETTO FINALE 2.ipynb
+/08_Data_Manipulation_Visualization/progetto/data/
+/08_Data_Manipulation_Visualization/progetto/sentiment_model/
+/17_Progetto_Finale/01_PROGETTO_1/Progetto Finale Data Analysis di Stefano Nocco.ipynb
+/17_Progetto_Finale/02_PROGETTO_2/Stefano Nocco PROGETTO FINALE 2.ipynb
 
 # Registri di sessione: pubblicare soltanto catalogo e stato curati
 /00_STATO_MASTER/*
@@ -60,28 +60,33 @@ versioni_precedenti/
 !/00_STATO_MASTER/riordino/notebook_per_git.json
 
 # Evidenze n8n: includere risultati curati e screenshot finali
-/10_Agenti_AI/evidenze/*
-!/10_Agenti_AI/evidenze/test_workflow.json
-!/10_Agenti_AI/evidenze/prove_reali.json
-!/10_Agenti_AI/evidenze/demo_video_2026-10-08.json
-!/10_Agenti_AI/evidenze/consegna_finale_2026-10-08.json
-!/10_Agenti_AI/evidenze/email_ricevuta_*.png
-!/10_Agenti_AI/evidenze/evento_calendario_*.png
-!/10_Agenti_AI/evidenze/telegram_prova_voce_*.png
-!/10_Agenti_AI/evidenze/video_finale_loom_*.png
-/10_Agenti_AI/video/heygen/montaggio/
-/10_Agenti_AI/video/**/*.png
-/10_Agenti_AI/video/**/*.jpg
-/10_Agenti_AI/video/audio/
-/10_Agenti_AI/video/frames/
-/11_Agenti_AI_per_Data/ecobot_output/
+/15_Agenti_AI/evidenze/*
+!/15_Agenti_AI/evidenze/test_workflow.json
+!/15_Agenti_AI/evidenze/prove_reali.json
+!/15_Agenti_AI/evidenze/demo_video_2026-10-08.json
+!/15_Agenti_AI/evidenze/consegna_finale_2026-10-08.json
+!/15_Agenti_AI/evidenze/email_ricevuta_*.png
+!/15_Agenti_AI/evidenze/evento_calendario_*.png
+!/15_Agenti_AI/evidenze/telegram_prova_voce_*.png
+!/15_Agenti_AI/evidenze/video_finale_loom_*.png
+/15_Agenti_AI/video/heygen/montaggio/
+/15_Agenti_AI/video/**/*.png
+/15_Agenti_AI/video/**/*.jpg
+/15_Agenti_AI/video/audio/
+/15_Agenti_AI/video/frames/
+/16_Agenti_AI_per_Data/ecobot_output/
 
 # Selezione del portfolio pubblico: feedback e preparazione restano locali
 feedback_riservato/
-/01_intro/consegna/01 PROGETTO INTRODUTTIVO DATA ANALYSIS - Stefano Nocco.pdf
-/04_Python_Orizon/esercizi/
-/06_Tableau/feedback/
-/07_Adv_Analytics/dataset/*.csv
-/10_Agenti_AI/video/
-/10_Agenti_AI/originale_recuperato/
-/10_Agenti_AI/evidenze/*.png
+/01_Introduzione_Data_Analytics/archivio/01 PROGETTO INTRODUTTIVO DATA ANALYSIS - Stefano Nocco.pdf
+/06_Python/esercizi/
+/10_Tableau/feedback/
+/12_Advanced_Analytics/dataset/*.csv
+/15_Agenti_AI/video/
+/15_Agenti_AI/originale_recuperato/
+/15_Agenti_AI/evidenze/*.png
+
+# Pacchetti di consegna riservati restano esclusivamente locali
+/16_Agenti_AI_per_Data/consegna/pacchetto_riservato/
+# Indice corrente di accorpamento; registri dettagliati solo sul Mac
+!/00_STATO_MASTER/riordino/accorpamento_corsi_2026-10-08.json

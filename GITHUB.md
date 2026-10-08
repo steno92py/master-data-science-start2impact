@@ -13,11 +13,12 @@ La repository contiene i file ammessi dalle regole `.gitignore`: progetti, noteb
 Dalla radice del master oppure dalla copia Git:
 
 ```sh
+python3 tools/verifica_corsi.py
 python3 tools/verifica_consegne.py
 python3 tools/verifica_archivio.py --output /tmp/master-verifica-git.json
 ```
 
-Il primo comando verifica gli hash dei 16 elaborati pubblicati rispetto al catalogo. Il secondo applica le esclusioni Git, elenca i candidati e controlla dimensioni e alcuni formati di credenziali. Non stampa segreti e non invia dati in rete; non è una garanzia universale di assenza di informazioni riservate.
+Il primo comando verifica l’indice dei corsi e l’appartenenza degli elaborati; il secondo verifica gli hash dei 16 elaborati approvati. Il terzo applica le esclusioni Git, elenca i candidati e controlla dimensioni e alcuni formati di credenziali. Non stampa segreti e non invia dati in rete; non è una garanzia universale di assenza di informazioni riservate.
 
 Le copie delle due prove finali in `versione_git/` mantengono celle, testo e codice originali, senza output né contatori. Gli originali completi restano sul Mac. I file approvati recuperati dalla piattaforma mantengono i byte originali.
 
@@ -36,3 +37,7 @@ L’export copia solo la selezione ammessa e verifica l’identità di ogni copi
 ## Perimetro della pubblicazione
 
 Il recupero e la pubblicazione documentano il lavoro presente. Non costituiscono una nuova consegna su start2impact né una nuova esecuzione dei modelli storici. Lo [stato del master](00_STATO_MASTER/STATO_MASTER.md) identifica le attività ancora aperte.
+
+## Accorpamento per corso
+
+L’[indice](docs/indice_corsi.json) identifica una cartella per corso ufficiale. Le consegne recuperate sono in `consegna/`; originali importati e pacchetti preparatori sono negli archivi del relativo corso. Il pacchetto finale EcoBot è in `16_Agenti_AI_per_Data/consegna/pacchetto_riservato/`, interamente esclusa dalla pubblicazione. La [mappa](00_STATO_MASTER/riordino/accorpamento_corsi_2026-10-08.json) traduce i percorsi dei registri storici.
