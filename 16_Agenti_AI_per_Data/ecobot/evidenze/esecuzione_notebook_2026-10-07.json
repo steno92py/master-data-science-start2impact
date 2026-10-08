@@ -1,0 +1,13 @@
+{
+  "kind": "REAL_JUPYTER_KERNEL_WITH_API",
+  "executed_at": "2026-10-07T17:49:42.695232+02:00",
+  "code_cells_executed": 15,
+  "total_cells": 26,
+  "api_enabled": true,
+  "api_conversations": 5,
+  "total_tokens": 31809,
+  "all_completed": true,
+  "streamlit_server_started_by_notebook": false,
+  "isolated_directory_removed": true,
+  "python_kernel": "python3"
+}

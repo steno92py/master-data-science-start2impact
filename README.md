@@ -1,43 +1,43 @@
 # Master Data Science & AI — Stefano Nocco
 
-Portfolio dei progetti personali realizzati durante il percorso **start2impact**: analisi dei dati, dashboard e machine learning, organizzati per corso.
+Portfolio dei progetti personali realizzati durante il percorso **start2impact**: analisi dei dati, dashboard, machine learning e agenti AI, organizzati per corso.
 
-**16 elaborati approvati, in 15 corsi.** Le consegne pubblicate sono state confrontate con gli originali tramite SHA-256. I punteggi si riferiscono ai singoli elaborati.
+**19 progetti in 17 cartelle di corso.** Il catalogo descrive i lavori e collega codice, dati e documentazione.
 
 ## Progetti
 
-| Corso | Punteggio degli elaborati | Documentazione |
+| Corso | Progetti | Documentazione |
 | --- | --- | --- |
-| Introduzione alla Data Analytics | 200/200 | [Apri progetto](01_Introduzione_Data_Analytics/README.md) |
-| Introduzione alla Data Science e AI | 190/200 | [Apri progetto](02_Introduzione_Data_Science_AI/README.md) |
-| Excel | 440/500 | [Apri progetto](03_Excel/README.md) |
-| Excel Advanced | 490/500 | [Apri progetto](04_Excel_Advanced/README.md) |
-| SQL | 470/500 | [Apri progetto](05_SQL/README.md) |
-| Python | 500/500 | [Apri progetto](06_Python/README.md) |
-| NumPy | 500/500 | [Apri progetto](07_NumPy/README.md) |
-| Data Manipulation and Visualization | 500/500 | [Apri progetto](08_Data_Manipulation_Visualization/README.md) |
-| Data Studio | 500/500 | [Apri progetto](09_Data_Studio/README.md) |
-| Data Visualization con Tableau | 500/500 | [Apri progetto](10_Tableau/README.md) |
-| Google Analytics 4 | 400/500 e 500/500 | [Apri progetto](11_Google_Analytics_4/README.md) |
-| Advanced Analytics | 500/500 | [Apri progetto](12_Advanced_Analytics/README.md) |
-| Machine Learning | 480/500 | [Apri progetto](13_Machine_Learning/README.md) |
-| Machine Learning Advanced | 480/500 | [Apri progetto](14_Machine_Learning_Advanced/README.md) |
-| Progetto finale — Turismo virtuale | 1500/1500 | [Apri progetto](17_Progetto_Finale/README.md) |
+| Introduzione alla Data Analytics | Strategia basata sui dati per un’azienda vinicola. | [Apri](01_Introduzione_Data_Analytics/README.md) |
+| Introduzione alla Data Science e AI | Proposta di analisi sul tema istruzione di qualità e Agenda ONU 2030. | [Apri](02_Introduzione_Data_Science_AI/README.md) |
+| Excel | Analisi di una web app per l’istruzione: dati, città e tabella pivot. | [Apri](03_Excel/README.md) |
+| Excel Advanced | Analisi Travel con fogli operativi, controlli e pivot. | [Apri](04_Excel_Advanced/README.md) |
+| SQL | Analisi Lifestyle con interrogazioni su dati demografici, energetici e migratori. | [Apri](05_SQL/README.md) |
+| Python | Sistema di gestione degli elementi: classi, operazioni CRUD, ricerca, filtri e persistenza JSON. | [Apri](06_Python/README.md) |
+| NumPy | Organizzazione dei file per tipologia, riepiloghi e interfaccia a riga di comando con argparse. | [Apri](07_NumPy/README.md) |
+| Data Manipulation and Visualization | Analisi esplorativa di Wine Enthusiast: pulizia, valori mancanti, prezzi, punteggi e descrizioni. | [Apri](08_Data_Manipulation_Visualization/README.md) |
+| Data Studio | Presentazione e dashboard sui dati COVID-19. | [Apri](09_Data_Studio/README.md) |
+| Data Visualization con Tableau | Dashboard sui flussi del turismo globale e sui principali indicatori economici. | [Apri](10_Tableau/README.md) |
+| Google Analytics 4 | Esercizio di estrazione e interpretazione delle metriche GA4. Piano con obiettivi, struttura dell’account, eventi e conversioni. | [Apri](11_Google_Analytics_4/README.md) |
+| Advanced Analytics | Regressione, classificazione, clustering e serie temporali su vendite di supermercato e qualità delle mele. | [Apri](12_Advanced_Analytics/README.md) |
+| Machine Learning | Preparazione dei dati e modelli di classificazione della sopravvivenza sul Titanic. | [Apri](13_Machine_Learning/README.md) |
+| Machine Learning Advanced | Classificazione e confronto dei modelli sul dataset Wine di scikit-learn. | [Apri](14_Machine_Learning_Advanced/README.md) |
+| Agenti AI | Assistente Telegram per email e calendario, con input testuale e vocale. | [Apri](15_Agenti_AI/README.md) |
+| Agenti AI per Data | EcoBot: analisi di produzione solare e consumi tramite strumenti Python e chat. | [Apri](16_Agenti_AI_per_Data/README.md) |
+| Progetto finale | Analisi di esperienze di viaggio virtuali, dati elaborati e dashboard Tableau. Analisi e classificazione della soddisfazione dei passeggeri aerei. | [Apri](17_Progetto_Finale/README.md) |
 
 ## Da dove iniziare
 
-- [Turismo virtuale](17_Progetto_Finale/01_PROGETTO_1/README.md): analisi Python, dashboard Tableau e presentazione valutata 1500/1500.
-- [SQL](05_SQL/README.md): interrogazioni su dati demografici, energetici e migratori.
-- [Machine Learning — Titanic](13_Machine_Learning/README.md): preparazione dei dati e classificazione.
-- [Machine Learning Advanced — Wine](14_Machine_Learning_Advanced/README.md): analisi e confronto dei modelli.
+- [Assistente Telegram](15_Agenti_AI/README.md): workflow n8n per email e appuntamenti, con demo video.
+- [EcoBot](16_Agenti_AI_per_Data/ecobot/README.md): strumenti Python per dati energetici, agente e interfaccia Streamlit.
+- [Turismo virtuale](17_Progetto_Finale/01_PROGETTO_1/README.md): analisi Python, dashboard Tableau e presentazione.
+- [Passeggeri aerei](17_Progetto_Finale/02_PROGETTO_2/README.md): analisi esplorativa e confronto dei classificatori.
 
 ## Consultazione
 
-Ogni README identifica la consegna approvata e distingue le copie di lavoro. PDF, workbook e HTML permettono di consultare molti risultati senza eseguire il codice. I notebook storici conservano i contenuti originali; gli ambienti e i percorsi sono descritti nella [guida alla riproducibilità](docs/RIPRODUCIBILITA.md).
+Ogni corso ha una sola cartella; Google Analytics 4 e Progetto finale raccolgono due elaborati ciascuno. I README descrivono contenuti e istruzioni d’uso. PDF, workbook e HTML consentono di consultare molti risultati senza eseguire il codice.
 
-- `consegna/`: elaborati approvati ed esportazioni per la consultazione.
-- `progetto/`, `dataset/` e `materiali/`: codice, dati e materiali associati ai progetti.
-- `versione_git/`: copia leggera del notebook sul turismo virtuale, con testo e codice originali.
+I notebook conservano il testo e il codice originali. Le copie in `versione_git/` dei due progetti finali hanno gli output rimossi per dimensioni. Gli ambienti e i percorsi sono descritti nella [guida alla riproducibilità](docs/RIPRODUCIBILITA.md).
 
 [Indice dei progetti](docs/PERCORSO.md) · [Catalogo e hash](docs/catalogo_progetti.json) · [Provenienza](docs/PROVENIENZA.md) · [Verifiche del repository](GITHUB.md).
 

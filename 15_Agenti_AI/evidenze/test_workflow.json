@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-07",
+  "n8nVersion": "2.37.0",
+  "liveExternalCalls": false,
+  "checks": [
+    {
+      "name": "schema n8n reale",
+      "passed": true
+    },
+    {
+      "name": "collegamenti senza nodi inesistenti",
+      "passed": true
+    },
+    {
+      "name": "testo arriva al prompt",
+      "passed": true
+    },
+    {
+      "name": "trascrizione senza message arriva al prompt",
+      "passed": true
+    },
+    {
+      "name": "trascrizione vuota respinta",
+      "passed": true
+    },
+    {
+      "name": "input eccessivo respinto",
+      "passed": true
+    },
+    {
+      "name": "data corrente risolta dal motore n8n",
+      "passed": true
+    },
+    {
+      "name": "invitati calendario come array, anche vuoto",
+      "passed": true
+    },
+    {
+      "name": "risposta Telegram con caratteri HTML letterali",
+      "passed": true
+    },
+    {
+      "name": "chat non autorizzate e gruppi esclusi",
+      "passed": true
+    },
+    {
+      "name": "assenza configurazione blocca accesso",
+      "passed": true
+    },
+    {
+      "name": "workflow esportato inattivo e senza credenziali",
+      "passed": true
+    }
+  ]
+}

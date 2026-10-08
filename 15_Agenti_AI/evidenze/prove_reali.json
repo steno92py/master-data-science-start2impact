@@ -1,0 +1,387 @@
+{
+  "status": "PROVE_CORE_ESEGUITE_CON_LIMITI",
+  "updated_at": "2026-10-07T21:18:51.696814+02:00",
+  "workflow_id": "vjsParWnqMG15FS0",
+  "workflow_active": true,
+  "executions": [
+    {
+      "id": "1",
+      "case": "Avvio",
+      "status": "success",
+      "started_at": "2026-10-07T20:41:09.912000+02:00",
+      "duration_seconds": 3.645,
+      "input_kind": "text",
+      "input_text": "/start",
+      "transcription": null,
+      "tools_in_order": [],
+      "nodes_executed": [
+        "Telegram Trigger",
+        "Solo Stefano",
+        "Switch",
+        "Normalizza input",
+        "Window Buffer Memory",
+        "OpenAI Chat Model",
+        "AI Agent",
+        "Telegram Send"
+      ],
+      "reply": "Ciao! Come posso aiutarti oggi?",
+      "emails_sent": 0,
+      "events_created": 0,
+      "language_model_calls": 1,
+      "token_usage": {
+        "promptTokens": 501,
+        "completionTokens": 10,
+        "totalTokens": 511
+      },
+      "raw_log_sha256": "3650ea4deedcfd0ffcfa9ef3ccbad1e3dd898bcffbc99aab09f7469a0a3cd0ad"
+    },
+    {
+      "id": "2",
+      "case": "Ricerca contatto",
+      "status": "success",
+      "started_at": "2026-10-07T20:43:28.388000+02:00",
+      "duration_seconds": 6.402,
+      "input_kind": "text",
+      "input_text": "Cerca nella rubrica Contatto Prova S2I e dimmi il suo indirizzo email. Non inviare email e non creare eventi.",
+      "transcription": null,
+      "tools_in_order": [
+        {
+          "name": "rubrica contatti",
+          "started_at": "2026-10-07T20:43:31.845000+02:00",
+          "status": "success"
+        }
+      ],
+      "nodes_executed": [
+        "Telegram Trigger",
+        "Solo Stefano",
+        "Switch",
+        "Normalizza input",
+        "Window Buffer Memory",
+        "OpenAI Chat Model",
+        "rubrica contatti",
+        "AI Agent",
+        "Telegram Send"
+      ],
+      "reply": "L'indirizzo email del contatto \"Prova S2I\" è stefano.nocco@outlook.it. Se hai bisogno di ulteriore assistenza, fammelo sapere!",
+      "emails_sent": 0,
+      "events_created": 0,
+      "language_model_calls": 2,
+      "token_usage": {
+        "promptTokens": 1196,
+        "completionTokens": 54,
+        "totalTokens": 1250
+      },
+      "raw_log_sha256": "94e7aff4391f67a3eb51a4315ed91ecd11b4de171e70bcd99a1c3b4e9c104921"
+    },
+    {
+      "id": "3",
+      "case": "Bozza testo",
+      "status": "success",
+      "started_at": "2026-10-07T20:44:57.503000+02:00",
+      "duration_seconds": 5.028,
+      "input_kind": "text",
+      "input_text": "Prepara una bozza, senza inviarla, per Contatto Prova S2I. Oggetto: Test progetto Agenti AI - Stefano Nocco. Testo: Messaggio di prova del progetto start2impact. Non è richiesta alcuna azione.",
+      "transcription": null,
+      "tools_in_order": [
+        {
+          "name": "rubrica contatti",
+          "started_at": "2026-10-07T20:45:00.506000+02:00",
+          "status": "success"
+        }
+      ],
+      "nodes_executed": [
+        "Telegram Trigger",
+        "Solo Stefano",
+        "Switch",
+        "Normalizza input",
+        "Window Buffer Memory",
+        "OpenAI Chat Model",
+        "rubrica contatti",
+        "AI Agent",
+        "Telegram Send"
+      ],
+      "reply": "Ho preparato la bozza dell'email per \"Contatto Prova S2I\" con i seguenti dettagli:\n\n- **Oggetto**: Test progetto Agenti AI - Stefano Nocco\n- **Messaggio**: Messaggio di prova del progetto start2impact. Non è richiesta alcuna azione.\n\nSe desideri fare ulteriori modifiche alla bozza o se hai bisogno di altro, fammelo sapere!",
+      "emails_sent": 0,
+      "events_created": 0,
+      "language_model_calls": 2,
+      "token_usage": {
+        "promptTokens": 1400,
+        "completionTokens": 102,
+        "totalTokens": 1502
+      },
+      "raw_log_sha256": "84a95f03b32440fe881cbdffe7fbdc5f7c8ef8e17862e93e5d5bd337ee204d5a"
+    },
+    {
+      "id": "4",
+      "case": "Invio e memoria",
+      "status": "success",
+      "started_at": "2026-10-07T20:47:11.438000+02:00",
+      "duration_seconds": 4.848,
+      "input_kind": "text",
+      "input_text": "Invia ora la bozza appena preparata a Contatto Prova S2I, mantenendo esattamente oggetto e testo. Invia una sola email.",
+      "transcription": null,
+      "tools_in_order": [
+        {
+          "name": "invio email",
+          "started_at": "2026-10-07T20:47:14.751000+02:00",
+          "status": "success"
+        }
+      ],
+      "nodes_executed": [
+        "Telegram Trigger",
+        "Solo Stefano",
+        "Switch",
+        "Normalizza input",
+        "Window Buffer Memory",
+        "OpenAI Chat Model",
+        "invio email",
+        "AI Agent",
+        "Telegram Send"
+      ],
+      "reply": "L'email è stata inviata con successo a \"Contatto Prova S2I\" con oggetto e testo come richiesto. Se hai bisogno di ulteriore assistenza, non esitare a chiedere!",
+      "emails_sent": 1,
+      "events_created": 0,
+      "language_model_calls": 2,
+      "token_usage": {
+        "promptTokens": 1665,
+        "completionTokens": 102,
+        "totalTokens": 1767
+      },
+      "raw_log_sha256": "14b778eafbc33be79a95a707f8f712d3ba0b366ad7386c5cc9a2015c123c1155",
+      "assessment": "Invio riuscito e memoria dimostrata, ma nessuna nuova lettura rubrica nel turno 4; contatto già letto nei turni 2 e 3. Prompt rafforzato dopo questa prova; invio email non ripetuto dopo la modifica."
+    },
+    {
+      "id": "5",
+      "case": "Evento personale",
+      "status": "success",
+      "started_at": "2026-10-07T20:49:26.148000+02:00",
+      "duration_seconds": 8.439,
+      "input_kind": "text",
+      "input_text": "Crea un solo evento personale nel mio calendario per domani 8 ottobre 2026 dalle 15:00 alle 15:30, fuso Europe/Rome. Titolo: Test progetto Agenti AI. Descrizione: Evento di prova del progetto start2impact. Nessun invitato. Consulta prima la rubrica, come previsto dalle istruzioni.",
+      "transcription": null,
+      "tools_in_order": [
+        {
+          "name": "rubrica contatti",
+          "started_at": "2026-10-07T20:49:29.134000+02:00",
+          "status": "success"
+        },
+        {
+          "name": "calendario",
+          "started_at": "2026-10-07T20:49:32.367000+02:00",
+          "status": "success"
+        }
+      ],
+      "nodes_executed": [
+        "Telegram Trigger",
+        "Solo Stefano",
+        "Switch",
+        "Normalizza input",
+        "Window Buffer Memory",
+        "OpenAI Chat Model",
+        "rubrica contatti",
+        "calendario",
+        "AI Agent",
+        "Telegram Send"
+      ],
+      "reply": "L'evento personale \"Test progetto Agenti AI\" è stato creato con successo nel tuo calendario per il 8 ottobre 2026, dalle 15:00 alle 15:30. Ecco i dettagli:\n\n- **Titolo**: Test progetto Agenti AI\n- **Descrizione**: Evento di prova del progetto start2impact\n- **Data e ora**: 8 ottobre 2026, dalle 15:00 alle 15:30 (fuso orario Europe/Rome)\n\nSe hai bisogno di ulteriori assistenza o vuoi fare altre modifiche, fammi sapere!",
+      "emails_sent": 0,
+      "events_created": 1,
+      "language_model_calls": 3,
+      "token_usage": {
+        "promptTokens": 3457,
+        "completionTokens": 209,
+        "totalTokens": 3666
+      },
+      "raw_log_sha256": "ffe7b0a9d0fce4603028f8f81a0dbace09cbfc1ebd5177aea1af07e5c25f36b6"
+    },
+    {
+      "id": "6",
+      "case": "Bozza vocale",
+      "status": "success",
+      "started_at": "2026-10-07T20:54:51.370000+02:00",
+      "duration_seconds": 8.076,
+      "input_kind": "voice",
+      "input_text": null,
+      "transcription": {
+        "text": "Prepara una bozza per contatto, prova, start to impact, S2I, oggetto prova voce, testo, questa è una prova vocale, non inviarla.",
+        "usage": {
+          "type": "duration",
+          "seconds": 12
+        }
+      },
+      "tools_in_order": [
+        {
+          "name": "rubrica contatti",
+          "started_at": "2026-10-07T20:54:55.947000+02:00",
+          "status": "success"
+        }
+      ],
+      "nodes_executed": [
+        "Telegram Trigger",
+        "Solo Stefano",
+        "Switch",
+        "Get Voice File",
+        "OpenAI",
+        "Normalizza input",
+        "Window Buffer Memory",
+        "OpenAI Chat Model",
+        "rubrica contatti",
+        "AI Agent",
+        "Telegram Send"
+      ],
+      "reply": "Ho preparato la bozza dell'email per \"Contatto Prova S2I\" con i seguenti dettagli:\n\n- **Oggetto**: prova voce\n- **Messaggio**: questa è una prova vocale\n\nSe desideri fare ulteriori modifiche alla bozza o se hai bisogno di altro, fammelo sapere!",
+      "emails_sent": 0,
+      "events_created": 0,
+      "language_model_calls": 2,
+      "token_usage": {
+        "promptTokens": 2368,
+        "completionTokens": 84,
+        "totalTokens": 2452
+      },
+      "raw_log_sha256": "e79e684ee4f22cf7f06c6ebbd6393077dde376537c6184c6f16a56294f51d55b"
+    },
+    {
+      "id": "7",
+      "case": "Contatto assente",
+      "status": "success",
+      "started_at": "2026-10-07T20:57:03.368000+02:00",
+      "duration_seconds": 6.032,
+      "input_kind": "text",
+      "input_text": "Cerca nella rubrica il contatto Marta Assente S2I e dimmi se esiste. Non inventare indirizzi, non inviare email e non creare eventi.",
+      "transcription": null,
+      "tools_in_order": [
+        {
+          "name": "rubrica contatti",
+          "started_at": "2026-10-07T20:57:07.705000+02:00",
+          "status": "success"
+        }
+      ],
+      "nodes_executed": [
+        "Telegram Trigger",
+        "Solo Stefano",
+        "Switch",
+        "Normalizza input",
+        "Window Buffer Memory",
+        "OpenAI Chat Model",
+        "rubrica contatti",
+        "AI Agent",
+        "Telegram Send"
+      ],
+      "reply": "Il contatto \"Marta Assente S2I\" non esiste nella rubrica. Se hai bisogno di ulteriori informazioni o assistenza, fammelo sapere!",
+      "emails_sent": 0,
+      "events_created": 0,
+      "language_model_calls": 2,
+      "token_usage": {
+        "promptTokens": 2596,
+        "completionTokens": 49,
+        "totalTokens": 2645
+      },
+      "raw_log_sha256": "24f83262c6d98e572170550b3116af3f16413994801a17de3209da8cc0523908"
+    },
+    {
+      "id": "8",
+      "case": "Orario mancante",
+      "status": "success",
+      "started_at": "2026-10-07T21:00:41.747000+02:00",
+      "duration_seconds": 3.295,
+      "input_kind": "text",
+      "input_text": "Nuova richiesta distinta dalla prova precedente: vorrei creare un appuntamento personale intitolato Test orario mancante domani, ma non ho ancora deciso a che ora. Chiedimi l'orario prima di creare l'evento.",
+      "transcription": null,
+      "tools_in_order": [],
+      "nodes_executed": [
+        "Telegram Trigger",
+        "Solo Stefano",
+        "Switch",
+        "Normalizza input",
+        "Window Buffer Memory",
+        "OpenAI Chat Model",
+        "AI Agent",
+        "Telegram Send"
+      ],
+      "reply": "Per creare l'appuntamento personale dal titolo \"Test orario mancante domani\", posso aiutarti a fissare un orario. A che ora vuoi programmare l'evento per domani, 8 ottobre 2026?",
+      "emails_sent": 0,
+      "events_created": 0,
+      "language_model_calls": 1,
+      "token_usage": {
+        "promptTokens": 1339,
+        "completionTokens": 49,
+        "totalTokens": 1388
+      },
+      "raw_log_sha256": "08fd75bafdaaeec5e48be2d3ea7588d77167756d99ef56aec1261a83a68537c0"
+    },
+    {
+      "id": "9",
+      "case": "Sticker",
+      "status": "success",
+      "started_at": "2026-10-07T21:01:57.042000+02:00",
+      "duration_seconds": 1.961,
+      "input_kind": "sticker",
+      "input_text": null,
+      "transcription": null,
+      "tools_in_order": [],
+      "nodes_executed": [
+        "Telegram Trigger",
+        "Solo Stefano",
+        "Switch",
+        "Formato non supportato"
+      ],
+      "reply": "Inviami un messaggio di testo o una nota vocale.",
+      "emails_sent": 0,
+      "events_created": 0,
+      "language_model_calls": 0,
+      "token_usage": {
+        "promptTokens": 0,
+        "completionTokens": 0,
+        "totalTokens": 0
+      },
+      "raw_log_sha256": "2d2966802a2adad10466c48c6f672890492563b9ef0c96ac57287e32ec4a6ba2"
+    }
+  ],
+  "emails_sent": 1,
+  "events_created": 1,
+  "real_language_model_calls": 15,
+  "language_model_tokens_reported": 15181,
+  "real_transcription_calls": 1,
+  "transcription_seconds_reported": 12,
+  "email_receipt": {
+    "confirmed": true,
+    "recipient": "stefano.nocco@outlook.it",
+    "sender": "stefano.nocco.meana@gmail.com",
+    "subject": "Test progetto Agenti AI - Stefano Nocco",
+    "gmail_message_id": "1a117b0f32a5e71f",
+    "initial_folder": "Spam, segnalato da Stefano",
+    "current_folder": "Posta in arrivo, spostata da Stefano e verificata in Outlook",
+    "automatic_n8n_footer": true,
+    "screenshot": "email_ricevuta_2026-10-07.png"
+  },
+  "calendar_event": {
+    "confirmed": true,
+    "event_id": "ichoqsup5uhibso50uehbh26jo",
+    "summary": "Test progetto Agenti AI",
+    "start": "2026-10-08T15:00:00+02:00",
+    "end": "2026-10-08T15:30:00+02:00",
+    "timezone": "Europe/Rome",
+    "attendees": [],
+    "screenshot": "evento_calendario_2026-10-07.png"
+  },
+  "prompt_revision": {
+    "after_execution": "4",
+    "active_version_id": "581cb200-33f5-4221-afcd-90b7b899655e",
+    "change": "Nuova consultazione rubrica nella richiesta corrente anche se il contatto è in memoria",
+    "verified_on": "Esecuzione 5: rubrica contatti prima di calendario",
+    "email_retest": false
+  },
+  "untested_cases": [
+    "Contatti omonimi",
+    "Errore servizio",
+    "Evento con invitati",
+    "Nuovo invio email dopo il rafforzamento del prompt"
+  ],
+  "notes": [
+    "Stato n8n success non equivale alla conformità completa di ogni regola del prompt.",
+    "I log integrali sono conservati localmente, esclusi dagli ZIP.",
+    "Nessun altro invio email o evento creato nelle esecuzioni 1-9."
+  ],
+  "video_created_on": "2026-10-08",
+  "video_local": "../video/Progetto_Agenti_AI_Stefano_Nocco_VIDEO.mp4"
+}

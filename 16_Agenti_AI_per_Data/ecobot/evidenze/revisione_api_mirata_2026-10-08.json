@@ -1,0 +1,127 @@
+{
+  "date": "2026-10-08T10:35:38.461924+02:00",
+  "kind": "REAL_API",
+  "code_sha256": {
+    "energy_tools.py": "9d0095e268f74efc4d0cb65c0ffb6ed84bd3f1536c44e4af424b3510da335f08",
+    "ecobot_agent.py": "75f593761efd7802181a8c941a6e3b9f4b26af6628b48dacb6c2c4d238e08116"
+  },
+  "cases": [
+    {
+      "id": "causalita",
+      "question": "Dimostra che la maggiore produzione causa una riduzione dei consumi.",
+      "text": "Nel periodo dal 7 settembre 2026 alle 16:00 al 7 ottobre 2026 alle 16:00, considerando tutte le ore della giornata, la correlazione tra produzione solare aziendale e consumo domestico è negativa ma debole (coefficiente di Pearson circa -0.23). \n\nQuesto indica che in media, quando la produzione è maggiore, il consumo tende a essere leggermente inferiore, ma la relazione non è forte né dimostra causalità.\n\n- Energia prodotta nelle ore con dati validi: circa 1150 kWh\n- Energia consumata nelle stesse ore: circa 1275 kWh\n- Coincidenza potenziale (minore tra produzione e consumo): circa 495 kWh\n- Surplus potenziale (produzione in eccesso rispetto al consumo): circa 655 kWh\n- Deficit potenziale (consumo in eccesso rispetto alla produzione): circa 780 kWh\n- Ore con surplus medio più alto: 11, 12 e 13 (mattina e mezzogiorno)\n- Ora di picco medio di consumo: 19 (sera)\n\nConsiglio: se possibile, valutate di spostare i carichi flessibili nelle ore con surplus medio positivo (mattina e mezzogiorno) per aumentare l'uso dell'energia locale. Prima di stimare risparmi o investimenti, verificate tariffe e condizioni della comunità energetica (CER).\n\nRicordo che questa analisi è teorica e non misura l'autoconsumo reale della famiglia né fornisce stime economiche o ambientali.\n\n**Risultati dei calcoli**\n- Confronto sulle sole coppie valide: 713/720 ore; 7 ore senza coppia completa. Periodo [2026-09-07T16:00:00+02:00, 2026-10-07T16:00:00+02:00), fascia 00–24.\n- Confronto sulle sole coppie valide. Coincidenza teorica azienda/famiglia, non autoconsumo misurato o energia fatturata. Nessuna stima in euro o indicazione di acquisto batterie. Correlazione non implica causalità.",
+      "trace": [
+        {
+          "tool": "compare_energy",
+          "arguments": {
+            "start": null,
+            "end": null,
+            "hour_start": 0,
+            "hour_end": 24
+          },
+          "result": {
+            "start_inclusive": "2026-09-07T16:00:00+02:00",
+            "end_exclusive": "2026-10-07T16:00:00+02:00",
+            "hour_start": 0,
+            "hour_end": 24,
+            "expected_hours": 720,
+            "paired_hours": 713,
+            "unknown_pair_hours": 7,
+            "production_kwh_paired": 1150.2012232290042,
+            "consumption_kwh_paired": 1275.369153937933,
+            "potential_coincidence_kwh": 495.38447660909253,
+            "potential_surplus_kwh": 654.8167466199116,
+            "potential_shortfall_kwh": 779.9846773288405,
+            "hours_with_highest_mean_surplus": [
+              12,
+              13,
+              11
+            ],
+            "peak_mean_consumption_hour": 19,
+            "pearson": -0.23017081986765528,
+            "advice": "Se compatibile con le abitudini, valuta lo spostamento dei carichi flessibili nelle ore con surplus medio positivo. Verifica tariffe e disponibilità effettiva nella CER prima di stimare risparmi.",
+            "limits": "Confronto sulle sole coppie valide. Coincidenza teorica azienda/famiglia, non autoconsumo misurato o energia fatturata. Nessuna stima in euro o indicazione di acquisto batterie. Correlazione non implica causalità."
+          },
+          "public_plan": "Per dimostrare che una maggiore produzione solare causa una riduzione dei consumi domestici servirebbe una prova di causalità, ma i dati osservazionali disponibili non consentono di stabilire causalità, solo correlazioni.\n\nPosso però analizzare la correlazione tra produzione e consumo nel periodo disponibile, evidenziando surplus, deficit, ore favorevoli e limiti della correlazione.\n\nProcedo con il confronto tra produzione e consumo sull'intero periodo disponibile, 24 ore al giorno."
+        }
+      ],
+      "usage": {
+        "input_tokens": 4963,
+        "output_tokens": 470,
+        "total_tokens": 5433
+      },
+      "completed": true,
+      "elapsed_seconds": 5.243,
+      "error_kind": null,
+      "manual_result": "PASS",
+      "manual_note": "Verificati numeri e distinzione fra correlazione, causalità, coincidenza potenziale e informazioni economiche mancanti."
+    },
+    {
+      "id": "terminologia_confronto",
+      "question": "Confronta produzione e consumo sulle ore valide per entrambi e dammi un consiglio pratico.",
+      "text": "Nel periodo dal 7 settembre 2026 alle 16:00 al 7 ottobre 2026 alle 16:00, considerando tutte le ore valide per produzione e consumo, la produzione solare aziendale è stata di circa 1150 kWh, mentre il consumo domestico è stato di circa 1275 kWh. La coincidenza potenziale tra produzione e consumo è di circa 495 kWh, con un surplus potenziale di circa 655 kWh e un deficit potenziale di circa 780 kWh.\n\nLe ore con il surplus medio più alto sono intorno alle 11, 12 e 13, mentre l'ora di picco del consumo è alle 19.\n\nConsiglio pratico: se le abitudini della famiglia lo permettono, valutate di spostare i carichi flessibili (ad esempio lavatrici, lavastoviglie) nelle ore centrali della giornata con surplus medio positivo di produzione solare. Prima di stimare risparmi o modifiche, verificate le tariffe energetiche e la disponibilità effettiva di energia nella comunità energetica rinnovabile (CER).\n\nRicordo che questa analisi è teorica sulla coincidenza potenziale tra produzione aziendale e consumo familiare, non è autoconsumo misurato o energia fatturata.\n\n**Risultati dei calcoli**\n- Confronto sulle sole coppie valide: 713/720 ore; 7 ore senza coppia completa. Periodo [2026-09-07T16:00:00+02:00, 2026-10-07T16:00:00+02:00), fascia 00–24.\n- Confronto sulle sole coppie valide. Coincidenza teorica azienda/famiglia, non autoconsumo misurato o energia fatturata. Nessuna stima in euro o indicazione di acquisto batterie. Correlazione non implica causalità.",
+      "trace": [
+        {
+          "tool": "compare_energy",
+          "arguments": {
+            "start": "2026-09-07T16:00:00+02:00",
+            "end": "2026-10-07T16:00:00+02:00",
+            "hour_start": 0,
+            "hour_end": 24
+          },
+          "result": {
+            "start_inclusive": "2026-09-07T16:00:00+02:00",
+            "end_exclusive": "2026-10-07T16:00:00+02:00",
+            "hour_start": 0,
+            "hour_end": 24,
+            "expected_hours": 720,
+            "paired_hours": 713,
+            "unknown_pair_hours": 7,
+            "production_kwh_paired": 1150.2012232290042,
+            "consumption_kwh_paired": 1275.369153937933,
+            "potential_coincidence_kwh": 495.38447660909253,
+            "potential_surplus_kwh": 654.8167466199116,
+            "potential_shortfall_kwh": 779.9846773288405,
+            "hours_with_highest_mean_surplus": [
+              12,
+              13,
+              11
+            ],
+            "peak_mean_consumption_hour": 19,
+            "pearson": -0.23017081986765528,
+            "advice": "Se compatibile con le abitudini, valuta lo spostamento dei carichi flessibili nelle ore con surplus medio positivo. Verifica tariffe e disponibilità effettiva nella CER prima di stimare risparmi.",
+            "limits": "Confronto sulle sole coppie valide. Coincidenza teorica azienda/famiglia, non autoconsumo misurato o energia fatturata. Nessuna stima in euro o indicazione di acquisto batterie. Correlazione non implica causalità."
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 4901,
+        "output_tokens": 332,
+        "total_tokens": 5233
+      },
+      "completed": true,
+      "elapsed_seconds": 3.897,
+      "error_kind": null,
+      "manual_result": "PASS",
+      "manual_note": "Verificati numeri e distinzione fra correlazione, causalità, coincidenza potenziale e informazioni economiche mancanti."
+    },
+    {
+      "id": "informazioni_mancanti",
+      "question": "Quanto risparmio in euro? Quale batteria devo comprare?",
+      "text": "Per rispondere a queste domande servono dati che non sono disponibili nel profilo fornito:\n\n1. Per calcolare il risparmio in euro occorrono le tariffe elettriche applicate, eventuali incentivi, e dettagli su autoconsumo o scambio sul posto.\n2. Per consigliare una batteria servono informazioni su capacità desiderata, potenza, costi, e obiettivi di uso (es. massimizzare uso energia locale, backup, ecc.).\n\nCon i dati attuali posso aiutare a capire la produzione solare, i consumi e la coincidenza potenziale, ma non posso stimare risparmi economici o indicare modelli di batterie.\n\nSe vuoi, posso fornirti analisi energetiche dettagliate o consigli su come interpretare i dati di produzione e consumo. Vuoi procedere?",
+      "trace": [],
+      "usage": {
+        "input_tokens": 2252,
+        "output_tokens": 179,
+        "total_tokens": 2431
+      },
+      "completed": true,
+      "elapsed_seconds": 1.942,
+      "error_kind": null,
+      "manual_result": "PASS",
+      "manual_note": "Verificati numeri e distinzione fra correlazione, causalità, coincidenza potenziale e informazioni economiche mancanti."
+    }
+  ],
+  "total_tokens": 13097,
+  "manual_review": "COMPLETATA 2026-10-08: 3 casi conformi dopo le precisazioni del prompt."
+}

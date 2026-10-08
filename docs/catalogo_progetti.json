@@ -318,5 +318,38 @@
     "artifact_sha256": "0486d032bfbc0f29832ff67d9c79e238c4aa552c308c4a900d9a832fd632f795",
     "course_slug": "progetto-finale-data-science-analytics-ai",
     "course_folder": "17_Progetto_Finale"
+  },
+  {
+    "slug": "agenti-ai",
+    "folder": "15_Agenti_AI",
+    "title": "Agenti AI — Assistente Telegram",
+    "artifact_path": "15_Agenti_AI/workflow.json",
+    "course_slug": "agenti-ai",
+    "course_folder": "15_Agenti_AI",
+    "official_course_url": "https://talent.start2impact.it/corsi/agenti-ai",
+    "description": "Assistente Telegram per email e calendario, con input testuale e vocale.",
+    "technologies": "n8n, Telegram, Airtable, Gmail, Google Calendar"
+  },
+  {
+    "slug": "agenti-ai-per-data",
+    "folder": "16_Agenti_AI_per_Data",
+    "title": "Agenti AI per Data — EcoBot",
+    "artifact_path": "16_Agenti_AI_per_Data/ecobot/agent.ipynb",
+    "course_slug": "agenti-ai-per-data",
+    "course_folder": "16_Agenti_AI_per_Data",
+    "official_course_url": "https://talent.start2impact.it/corsi/agenti-ai-per-data",
+    "description": "EcoBot: analisi di produzione solare e consumi tramite strumenti Python e chat.",
+    "technologies": "Python, LangChain, Streamlit"
+  },
+  {
+    "slug": "progetto-finale-2",
+    "folder": "17_Progetto_Finale/02_PROGETTO_2",
+    "title": "Prova finale 2 — Passeggeri aerei",
+    "artifact_path": "17_Progetto_Finale/02_PROGETTO_2/versione_git/Stefano Nocco PROGETTO FINALE 2.ipynb",
+    "course_slug": "progetto-finale-data-science-analytics-ai",
+    "course_folder": "17_Progetto_Finale",
+    "official_course_url": "https://talent.start2impact.it/corsi/progetto-finale-data-science-analytics-ai",
+    "description": "Analisi e classificazione della soddisfazione dei passeggeri aerei.",
+    "technologies": "Python, pandas, scikit-learn, Plotly"
   }
 ]

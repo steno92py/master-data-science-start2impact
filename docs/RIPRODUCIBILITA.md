@@ -27,3 +27,10 @@ Gli elenchi descrivono le dipendenze osservate e i punti d’ingresso, non un am
 Per Excel usare il workbook originale, così da conservare formule e pivot. I progetti Tableau possono richiedere di riconnettere i CSV se contengono percorsi storici di Windows. Il PDF Looker Studio conserva il collegamento al report; la disponibilità live dipende dal servizio e dalle relative fonti.
 
 I due CSV Advanced Analytics sono stati recuperati dalle fonti collegate dal corso e conservati localmente. La [guida ai dataset](../12_Advanced_Analytics/dataset/README.md) contiene link, dimensioni e hash per ripristinarli. Il dataset Wine voluminoso, i modelli binari, gli ZIP e i video rimangono nell’archivio locale. Il repository non attribuisce licenze ai dati di terzi.
+
+
+## Agenti AI e passeggeri aerei
+
+- [Assistente Telegram](../15_Agenti_AI/GUIDA_SETUP.md): importare il workflow n8n e configurare chat, credenziali e servizi. L’export è inattivo e portabile.
+- [EcoBot](../16_Agenti_AI_per_Data/ecobot/README.md): Python 3.11, dipendenze in `requirements.txt`, due CSV inclusi. Analisi e test locali non richiedono chiamate API; la chat richiede una propria configurazione.
+- [Passeggeri aerei](../17_Progetto_Finale/02_PROGETTO_2/README.md): directory di lavoro `17_Progetto_Finale/02_PROGETTO_2`, dove si trovano `train.csv` e `test.csv`, anche aprendo il notebook in `versione_git/`. Consultare le note metodologiche prima di interpretare le metriche storiche.

@@ -1,0 +1,12 @@
+{
+  "seed": 42,
+  "start": "2026-09-07 16:09:59.281075",
+  "end": "2026-10-07 15:09:59.281075",
+  "rows_per_file": 720,
+  "source": "Traccia ufficiale Agenti AI per Data, sezione Step preliminare - Dati, consultata 2026-10-07",
+  "adaptation": "Seed 42; formule e anomalie originali. Timestamp finali dipendono dalla data di esecuzione.",
+  "sha256": {
+    "solar_production_raw.csv": "f03c9342846e61ff8df0ce4705d01f961ebae8c52d3a259ea1e6c06329a0521b",
+    "household_consumption.csv": "ede3e81de05459b157460fd00c5fa6fa1b315ca817794480b122ab7ae40e3b2d"
+  }
+}

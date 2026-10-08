@@ -1,6 +1,6 @@
 # Provenienza e integrità degli elaborati
 
-Il [catalogo](catalogo_progetti.json) identifica i 16 elaborati approvati di Stefano Nocco, verificati sulla piattaforma start2impact l’8 ottobre 2026. Ogni allegato recuperato è stato confrontato tramite SHA-256 con le copie presenti nell’archivio personale.
+Il [catalogo](catalogo_progetti.json) comprende 19 progetti personali. Fra questi, identifica i 16 elaborati approvati di Stefano Nocco, verificati sulla piattaforma start2impact l’8 ottobre 2026. Ogni allegato recuperato è stato confrontato tramite SHA-256 con le copie presenti nell’archivio personale.
 
 ## Versioni pubblicate
 
@@ -23,3 +23,10 @@ Il [catalogo](catalogo_progetti.json) identifica i 16 elaborati approvati di Ste
 La copia leggera del notebook sul turismo virtuale conserva tipo, ordine, testo e codice delle 125 celle originali; sono stati rimossi soltanto output e contatori di esecuzione. Il notebook originale completo resta nell’archivio personale.
 
 Le consegne approvate non sono state riscritte durante il recupero. La verifica conferma identità dei file e associazione al corso; non certifica la riproducibilità integrale degli ambienti storici né costituisce un nuovo addestramento dei modelli.
+
+
+## Progetti e materiali personali
+
+Assistente Telegram, EcoBot e analisi dei passeggeri aerei sono lavori di Stefano Nocco. Il repository ne conserva codice, dati, documentazione ed evidenze tecniche. Questi materiali sono descritti senza registri amministrativi del percorso.
+
+La copia leggera del notebook sui passeggeri conserva le 135 celle di testo e codice originali, senza output né contatori di esecuzione. I limiti dell’analisi sono descritti nelle [note metodologiche](../17_Progetto_Finale/02_PROGETTO_2/NOTE_METODOLOGICHE.md).

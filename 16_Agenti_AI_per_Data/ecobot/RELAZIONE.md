@@ -1,0 +1,29 @@
+# EcoBot — relazione tecnica
+
+Stefano Nocco · revisione 8 ottobre 2026 · app e chat verificate negli screenshot forniti da Stefano
+
+EcoGrid Solutions vuole rendere comprensibili i dati di produzione solare di un'azienda e i consumi di una famiglia. EcoBot separa la generazione linguistica dai calcoli: Python valida e aggrega i dati; l'agente sceglie gli strumenti e spiega risultati e limiti.
+
+La decisione principale sulla pulizia è preservare l'incertezza. Le sei misure mancanti e la misura negativa del solare non diventano zeri. Il totale di 1.150,201223 kWh copre 713 ore su 720: presentarlo come produzione completa sarebbe scorretto. Il consumo valido è 1.292,323970 kWh su 720 ore. La coincidenza potenziale di 495,384477 kWh considera solo ore valide in entrambe le serie.
+
+L'agente usa LangChain con strumenti descritti da schemi JSON. Le date sono esplicite e nel fuso Europe/Rome. Il modello riceve errori strutturati per correggere una richiesta invalida. Sei chiamate per turno e dieci operazioni costituiscono il limite del ciclo; la memoria conserva sei scambi. Il piano eventualmente mostrato è una breve descrizione operativa, distinta dal ragionamento interno del modello.
+
+Le difese principali sono applicative: nessun Python arbitrario, elenco chiuso di strumenti, dimensioni massime dei CSV, limiti temporali e input numerici validati. I testi presenti nei dati non possono modificare le funzioni Python. I casi con istruzioni ingannevoli nei valori e nei nomi delle colonne sono stati verificati con il modello reale. Copertura e limiti del confronto sono inoltre aggiunti dai calcoli Python alla risposta finale.
+
+La validazione del 7 ottobre comprendeva **25 test locali**, Streamlit AppTest, protocollo HTTP simulato, grafici PNG e **13/13 casi API reali conformi nella suite finale**. Il notebook è stato eseguito con kernel Jupyter reale: 15 celle di codice e 5 conversazioni API. Il report HTML ora contiene quelle conversazioni e i grafici effettivamente generati.
+
+Le prime prove reali hanno trovato un errore che i test simulati non mostravano: il modello trattava il timestamp dell'ultima misura come fine esclusiva, perdendo un'ora. Il profilo ora espone estremi espliciti e argomenti per l'intero dataset. Le prove con gpt-4o-mini evidenziavano ancora estensioni mensili non richieste e omissioni dei limiti; gpt-4.1-mini è stato scelto in base al confronto sugli stessi casi. Le risposte finali includono sempre la copertura e, nei confronti, i limiti calcolati dal codice. Le evidenze negative restano archiviate: non sono state sostituite da esiti positivi.
+
+Il provider ha riportato complessivamente **250.728 token** nelle 56 conversazioni di diagnosi, confronto e notebook. La suite finale di 13 casi usa 56.889 token; il notebook 31.809. Sono conteggi osservati, non una stima del costo fatturato. Il confronto fra modelli e il riepilogo sono in `evidenze/validazione_api.json`.
+
+Due risposte del notebook conservano note di lettura: l'assenza di anomalie rilevate non prova la perfezione dei sensori; la copertura del grafico si riferisce al periodo osservato, non a due mesi di calendario completi. Le prove coprono un insieme finito di domande. Errori di servizio e limiti delle iterazioni restano verificati con simulazioni, senza provocare guasti sull'account reale.
+
+Lo screenshot richiesto è presente: domanda, risposta e grafico mensile nella schermata originale fornita da Stefano. Sono verificati anche il consumo settimanale e il follow-up (291,75 e 301,18 kWh), ricalcolati sui CSV. Gli export HTML/JSON della sessione sono verificati: risultati identici al ricalcolo, risposte e tracce conservate, PNG incorporato. Il report è leggibile nei due screenshot forniti da Stefano, con dettagli chiusi e aperti. La schermata successiva delle 12:02 conferma anche il caricamento manuale dei due CSV, con totali e copertura attesi e senza avviso demo.
+
+## Revisione completa dell’8 ottobre
+
+La revisione ha portato a 36 test locali, tutti superati anche dopo un’installazione pulita. Le correzioni riguardano le ore mancanti nell’unione temporale dei due CSV, le griglie esportate con periodi disgiunti, la distinzione tra selezione e giorni/mesi completi, l’avviso sui soli ultimi 90 periodi, le evidenze di più chiamate allo stesso strumento e la conservazione di risultati/token quando l’API si interrompe. Il reset della chat elimina ora anche i riferimenti ai grafici precedenti. Sono controllati anche gli estremi sub-orari e sono contati gli arrotondamenti dei timestamp.
+
+La nuova suite reale comprende 13 casi revisionati. Alcune espressioni su autoconsumo e causalità hanno motivato precisazioni del prompt, poi verificate in 3 casi mirati e 5 conversazioni del notebook. Tutte le 15 celle di codice sono state rieseguite con kernel Jupyter nell’ambiente pulito. Consumo aggiuntivo riportato dal provider: 99.234 token per questa revisione, distinto dai 250.728 delle prove precedenti; non è una stima di fatturazione.
+
+Il report ora mantiene i dettagli tecnici in sezioni espandibili e colloca i grafici accanto alle risposte pertinenti. I PNG sono stati ispezionati e i dati originali preservati. Gli screenshot forniti da Stefano hanno consentito il controllo visivo di app, chat e grafici; lo screenshot richiesto è acquisito. Il report esportato è verificato anche nelle schermate fornite da Stefano; anche l’upload manuale CSV è verificato nello screenshot delle 12:02. Le evidenze tecniche sono riepilogate in `evidenze/validazione_api.json`.

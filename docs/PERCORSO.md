@@ -1,8 +1,8 @@
 # Progetti del portfolio
 
-Il portfolio comprende **16 elaborati approvati di Stefano Nocco, organizzati in 15 corsi**. Il [catalogo](catalogo_progetti.json) riporta nome della consegna, valutazione, data e hash; l’[indice dei corsi](indice_corsi.json) collega ogni elaborato alla sua cartella.
+Il portfolio comprende **19 progetti personali di Stefano Nocco, organizzati in 17 cartelle di corso**. Il [catalogo](catalogo_progetti.json) descrive gli elaborati; l’[indice dei corsi](indice_corsi.json) collega ogni lavoro alla sua cartella.
 
-| Corso | Progetto | Documentazione |
+| Corso | Progetti | Documentazione |
 | --- | --- | --- |
 | Introduzione alla Data Analytics | Strategia basata sui dati per un’azienda vinicola. | [Apri](../01_Introduzione_Data_Analytics/README.md) |
 | Introduzione alla Data Science e AI | Proposta di analisi sul tema istruzione di qualità e Agenda ONU 2030. | [Apri](../02_Introduzione_Data_Science_AI/README.md) |
@@ -18,12 +18,14 @@ Il portfolio comprende **16 elaborati approvati di Stefano Nocco, organizzati in
 | Advanced Analytics | Regressione, classificazione, clustering e serie temporali su vendite di supermercato e qualità delle mele. | [Apri](../12_Advanced_Analytics/README.md) |
 | Machine Learning | Preparazione dei dati e modelli di classificazione della sopravvivenza sul Titanic. | [Apri](../13_Machine_Learning/README.md) |
 | Machine Learning Advanced | Classificazione e confronto dei modelli sul dataset Wine di scikit-learn. | [Apri](../14_Machine_Learning_Advanced/README.md) |
-| Progetto finale — Turismo virtuale | Analisi di esperienze di viaggio virtuali, dati elaborati e dashboard Tableau. | [Apri](../17_Progetto_Finale/README.md) |
+| Agenti AI | Assistente Telegram per email e calendario, con input testuale e vocale. | [Apri](../15_Agenti_AI/README.md) |
+| Agenti AI per Data | EcoBot: analisi di produzione solare e consumi tramite strumenti Python e chat. | [Apri](../16_Agenti_AI_per_Data/README.md) |
+| Progetto finale | Analisi di esperienze di viaggio virtuali, dati elaborati e dashboard Tableau. Analisi e classificazione della soddisfazione dei passeggeri aerei. | [Apri](../17_Progetto_Finale/README.md) |
 
 ## Corrispondenza fra corsi e progetti
 
-Data Studio e Looker Studio identificano lo stesso corso. Google Analytics 4 comprende due elaborati distinti, sull’estrazione e sulla strategia dati.
+Data Studio e Looker Studio identificano lo stesso corso. Google Analytics 4 comprende due elaborati, sull’estrazione e sulla strategia dati. Progetto finale raccoglie turismo virtuale e soddisfazione dei passeggeri aerei.
 
-File Organizer appartiene a NumPy. Il progetto Titanic appartiene a Machine Learning, anche se alcuni nomi originali contengono `ML_Advanced`. L’analisi Wine Enthusiast appartiene a Data Manipulation and Visualization; il dataset Wine di scikit-learn è usato in Machine Learning Advanced.
+File Organizer appartiene a NumPy. Titanic appartiene a Machine Learning, anche se alcuni nomi originali contengono `ML_Advanced`. Wine Enthusiast appartiene a Data Manipulation and Visualization; Wine di scikit-learn è usato in Machine Learning Advanced. Agenti AI e Agenti AI per Data sono due corsi distinti.
 
-I nomi originali delle consegne sono conservati. I numeri delle cartelle servono all’ordinamento del portfolio.
+I nomi originali degli elaborati sono conservati. I numeri delle cartelle servono all’ordinamento del portfolio.

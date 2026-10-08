@@ -1,6 +1,6 @@
 # Repository del portfolio
 
-[steno92py/master-data-science-start2impact](https://github.com/steno92py/master-data-science-start2impact) raccoglie 16 elaborati approvati di Stefano Nocco e i relativi materiali di lavoro.
+[steno92py/master-data-science-start2impact](https://github.com/steno92py/master-data-science-start2impact) raccoglie 19 progetti personali di Stefano Nocco e i relativi materiali di lavoro.
 
 ## Verifiche
 
@@ -16,7 +16,7 @@ I controlli verificano l’associazione fra corsi ed elaborati, i file e gli has
 
 ## Aggiornamenti
 
-Le cartelle pubblicabili sono elencate esplicitamente in `.gitignore`. Per aggiungere un elaborato approvato aggiornare i cataloghi e le regole di selezione, poi eseguire le verifiche e controllare `git diff`. Le configurazioni personali, i registri interni, gli archivi privati e i materiali di riferimento di altri studenti restano esclusi dalla pubblicazione.
+Le cartelle pubblicabili sono elencate esplicitamente in `.gitignore`. Per aggiungere un progetto personale aggiornare i cataloghi e le regole di selezione, poi eseguire le verifiche e controllare `git diff`. Le configurazioni personali, i registri interni, gli archivi privati e i materiali di riferimento di altri studenti restano esclusi dalla pubblicazione.
 
 Le consegne approvate conservano i byte originali: eventuali modifiche vanno effettuate in una copia di lavoro distinta. Gli hash del catalogo identificano i file valutati.
 

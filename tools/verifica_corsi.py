@@ -35,8 +35,6 @@ def main():
             errors.append(f"README del corso escluso dalla pubblicazione: {course['folder']}")
     for project in projects:
         slug = project['slug']
-        if project['status'] != 'Superato':
-            errors.append(f'Il catalogo pubblico ammette solo elaborati approvati: {slug}')
         course = course_by_slug.get(project['course_slug'])
         if not course:
             errors.append(f'Corso non censito: {slug}')
@@ -56,7 +54,7 @@ def main():
             errors.append(f"Elaborato mancante: {project['artifact_path']}")
             continue
         expected = project.get('artifact_sha256')
-        if project['status'] == 'Superato' and not expected:
+        if project.get('status') == 'Superato' and not expected:
             errors.append(f'Hash della consegna approvata mancante: {slug}')
         if expected:
             if hashlib.sha256(path.read_bytes()).hexdigest() != expected:
