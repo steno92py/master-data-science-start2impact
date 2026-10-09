@@ -345,11 +345,14 @@
     "slug": "progetto-finale-2",
     "folder": "17_Progetto_Finale/02_PROGETTO_2",
     "title": "Prova finale 2 — Passeggeri aerei",
-    "artifact_path": "17_Progetto_Finale/02_PROGETTO_2/versione_git/Stefano Nocco PROGETTO FINALE 2.ipynb",
+    "artifact_path": "17_Progetto_Finale/02_PROGETTO_2/Progetto Finale Data Science di Stefano Nocco.ipynb",
     "course_slug": "progetto-finale-data-science-analytics-ai",
     "course_folder": "17_Progetto_Finale",
     "official_course_url": "https://talent.start2impact.it/corsi/progetto-finale-data-science-analytics-ai",
-    "description": "Analisi e classificazione della soddisfazione dei passeggeri aerei.",
-    "technologies": "Python, pandas, scikit-learn, Plotly"
+    "description": "Classificazione della soddisfazione dei passeggeri: pipeline validata nei fold, confronto completo/T-test, selezione ibrida e scenari senza rating.",
+    "technologies": "Python, pandas, scikit-learn, Plotly",
+    "artifact_sha256": "4ccea838bf506785f39bec38645cc82b312171435f3f2fc0edff459ce78ae1c6",
+    "bytes": 5552361,
+    "verified_on": "2026-10-09"
   }
 ]

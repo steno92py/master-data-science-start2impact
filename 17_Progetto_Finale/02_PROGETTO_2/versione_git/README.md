@@ -1,5 +1,5 @@
-# Copia per Git
+# Notebook senza output
 
-Notebook derivato dall’originale: tipo, ordine, testo e codice delle 135 celle sono identici; sono stati rimossi soltanto output e contatori di esecuzione per renderlo versionabile.
+[Progetto Finale Data Science di Stefano Nocco.ipynb](Progetto%20Finale%20Data%20Science%20di%20Stefano%20Nocco.ipynb) conserva testo, codice e ordine delle 139 celle della versione revisionata. Sono rimossi soltanto output e contatori.
 
-Per eseguire questa copia, usare come directory di lavoro la cartella superiore, dove si trovano i CSV. Le [note metodologiche](../NOTE_METODOLOGICHE.md) descrivono i limiti delle analisi e delle metriche storiche.
+La [versione completa con grafici e risultati](../Progetto%20Finale%20Data%20Science%20di%20Stefano%20Nocco.ipynb) è nella cartella superiore. Per eseguire questa copia impostare quella cartella come directory di lavoro, dove si trovano i due CSV.

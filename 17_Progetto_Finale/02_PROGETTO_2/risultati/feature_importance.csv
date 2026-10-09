@@ -1,0 +1,38 @@
+feature,importance
+Online boarding,0.4158465517181474
+Type of Travel_Personal Travel,0.16277448378061005
+Inflight wifi service,0.13166551350802846
+Inflight wifi service_zeroflag,0.04753695973739946
+Customer Type_disloyal Customer,0.04339547011479426
+Inflight entertainment,0.035492086830542335
+Class_Business,0.02305175292422259
+Checkin service,0.02165960976710177
+Inflight service,0.01386653879071385
+Baggage handling,0.0138622549548166
+Age,0.01278831486409918
+Gate location,0.011653174092652227
+Seat comfort,0.0115659104692768
+On-board service,0.01117920155230519
+Cleanliness,0.009399257536301213
+Leg room service,0.00798370080530444
+Flight Distance,0.007231082805289327
+Departure/Arrival time convenient,0.0047397172220976485
+Arrival Delay in Minutes,0.004205975581295514
+Ease of Online booking,0.004203606429355542
+Departure Delay in Minutes,0.0016950385880993776
+Food and drink,0.0011961946682768074
+Leg room service_zeroflag,0.0009040921619735702
+Departure/Arrival time convenient_zeroflag,0.0005688358758045062
+Class_Eco,0.00030869247419012885
+Class_Eco Plus,0.00023733159277749047
+Cleanliness_zeroflag,0.00023280269881165267
+Gender_Male,0.00022096365277233035
+Online boarding_zeroflag,0.00021385908365130333
+Ease of Online booking_zeroflag,0.00015306635799761356
+Inflight entertainment_zeroflag,0.00010804471751848703
+Gate location_zeroflag,4.5990952473524326e-05
+Food and drink_zeroflag,1.3923664347187634e-05
+Checkin service_zeroflag,2.6952458828493227e-11
+On-board service_zeroflag,0.0
+Inflight service_zeroflag,0.0
+Seat comfort_zeroflag,0.0

@@ -162,4 +162,34 @@ feedback_riservato/
 !/17_Progetto_Finale/02_PROGETTO_2/test.csv
 !/17_Progetto_Finale/02_PROGETTO_2/train.csv
 !/17_Progetto_Finale/02_PROGETTO_2/versione_git/README.md
-!/17_Progetto_Finale/02_PROGETTO_2/versione_git/Stefano Nocco PROGETTO FINALE 2.ipynb
+!/17_Progetto_Finale/02_PROGETTO_2/Progetto Finale Data Science di Stefano Nocco.ipynb
+!/17_Progetto_Finale/02_PROGETTO_2/airline_pipeline.py
+!/17_Progetto_Finale/02_PROGETTO_2/evidenze/
+!/17_Progetto_Finale/02_PROGETTO_2/evidenze/correzioni_2026-10-09/
+!/17_Progetto_Finale/02_PROGETTO_2/evidenze/correzioni_2026-10-09/requirements_ambiente_completo.txt
+!/17_Progetto_Finale/02_PROGETTO_2/evidenze/correzioni_2026-10-09/test_finale2_pipeline.py
+!/17_Progetto_Finale/02_PROGETTO_2/evidenze/correzioni_2026-10-09/verifica_finale.json
+!/17_Progetto_Finale/02_PROGETTO_2/requirements.txt
+!/17_Progetto_Finale/02_PROGETTO_2/risultati/
+!/17_Progetto_Finale/02_PROGETTO_2/risultati/audit_fold.json
+!/17_Progetto_Finale/02_PROGETTO_2/risultati/campione_inferenza.csv
+!/17_Progetto_Finale/02_PROGETTO_2/risultati/confronto_approfondimenti.csv
+!/17_Progetto_Finale/02_PROGETTO_2/risultati/confronto_strade.csv
+!/17_Progetto_Finale/02_PROGETTO_2/risultati/feature_importance.csv
+!/17_Progetto_Finale/02_PROGETTO_2/risultati/grid_Ibrida_Gradient Boosting.csv
+!/17_Progetto_Finale/02_PROGETTO_2/risultati/grid_Ibrida_Random Forest.csv
+!/17_Progetto_Finale/02_PROGETTO_2/risultati/grid_Pre-volo_Gradient Boosting.csv
+!/17_Progetto_Finale/02_PROGETTO_2/risultati/grid_S1_Gradient Boosting.csv
+!/17_Progetto_Finale/02_PROGETTO_2/risultati/grid_S1_Random Forest.csv
+!/17_Progetto_Finale/02_PROGETTO_2/risultati/grid_S2_Gradient Boosting.csv
+!/17_Progetto_Finale/02_PROGETTO_2/risultati/grid_S2_Random Forest.csv
+!/17_Progetto_Finale/02_PROGETTO_2/risultati/grid_Senza rating_Gradient Boosting.csv
+!/17_Progetto_Finale/02_PROGETTO_2/risultati/predizioni_processo_nuovo.npy
+!/17_Progetto_Finale/02_PROGETTO_2/risultati/riepilogo.json
+!/17_Progetto_Finale/02_PROGETTO_2/risultati/sintesi_finale.csv
+!/17_Progetto_Finale/02_PROGETTO_2/risultati/spot_Ibrida.csv
+!/17_Progetto_Finale/02_PROGETTO_2/risultati/spot_Pre-volo.csv
+!/17_Progetto_Finale/02_PROGETTO_2/risultati/spot_S1.csv
+!/17_Progetto_Finale/02_PROGETTO_2/risultati/spot_S2.csv
+!/17_Progetto_Finale/02_PROGETTO_2/risultati/spot_Senza rating.csv
+!/17_Progetto_Finale/02_PROGETTO_2/versione_git/Progetto Finale Data Science di Stefano Nocco.ipynb

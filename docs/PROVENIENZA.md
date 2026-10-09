@@ -29,4 +29,4 @@ Le consegne approvate non sono state riscritte durante il recupero. La verifica 
 
 Assistente Telegram, EcoBot e analisi dei passeggeri aerei sono lavori di Stefano Nocco. Il repository ne conserva codice, dati, documentazione ed evidenze tecniche. Questi materiali sono descritti senza registri amministrativi del percorso.
 
-La copia leggera del notebook sui passeggeri conserva le 135 celle di testo e codice originali, senza output né contatori di esecuzione. I limiti dell’analisi sono descritti nelle [note metodologiche](../17_Progetto_Finale/02_PROGETTO_2/NOTE_METODOLOGICHE.md).
+Il notebook sui passeggeri è stato revisionato e rieseguito integralmente il 9 ottobre 2026: conserva l’impostazione delle 135 celle originali e integra quattro celle, per un totale di 139 (60 di codice). Il catalogo identifica con hash la versione completa con output; la copia in `versione_git/` conserva testo e codice della stessa revisione, senza output e contatori. Metodo, risultati e limiti sono nelle [note metodologiche](../17_Progetto_Finale/02_PROGETTO_2/NOTE_METODOLOGICHE.md).

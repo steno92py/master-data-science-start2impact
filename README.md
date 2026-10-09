@@ -37,7 +37,7 @@ Portfolio dei progetti personali realizzati durante il percorso **start2impact**
 
 Ogni corso ha una sola cartella; Google Analytics 4 e Progetto finale raccolgono due elaborati ciascuno. I README descrivono contenuti e istruzioni d’uso. PDF, workbook e HTML consentono di consultare molti risultati senza eseguire il codice.
 
-I notebook conservano il testo e il codice originali. Le copie in `versione_git/` dei due progetti finali hanno gli output rimossi per dimensioni. Gli ambienti e i percorsi sono descritti nella [guida alla riproducibilità](docs/RIPRODUCIBILITA.md).
+Gli elaborati storici conservano testo e codice originali. Il progetto sui passeggeri aerei include il notebook revisionato ed eseguito il 9 ottobre 2026, con grafici e risultati. Le copie in `versione_git/` dei due progetti finali hanno gli output rimossi per consultazione. Gli ambienti e i percorsi sono descritti nella [guida alla riproducibilità](docs/RIPRODUCIBILITA.md).
 
 [Indice dei progetti](docs/PERCORSO.md) · [Catalogo e hash](docs/catalogo_progetti.json) · [Provenienza](docs/PROVENIENZA.md) · [Verifiche del repository](GITHUB.md).
 
@@ -45,4 +45,4 @@ I notebook conservano il testo e il codice originali. Le copie in `versione_git/
 
 Portfolio personale di Stefano Nocco, non materiale ufficiale di start2impact. Dataset, librerie e fonti citate mantengono le attribuzioni e le condizioni dei rispettivi autori. La pubblicazione non assegna una nuova licenza ai contenuti di terzi.
 
-Gli output conservati descrivono le esecuzioni storiche; la verifica di integrità non equivale a un nuovo addestramento di tutti i modelli.
+Gli output degli elaborati storici descrivono le relative esecuzioni: la verifica di integrità non equivale a un nuovo addestramento di tutti i modelli. Per il progetto sui passeggeri è documentata separatamente la nuova esecuzione completa.

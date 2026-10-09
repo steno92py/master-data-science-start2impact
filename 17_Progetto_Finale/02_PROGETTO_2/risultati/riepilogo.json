@@ -1,0 +1,197 @@
+{
+  "selected_by_cv": "S1 - Gradient Boosting",
+  "test_ranking_leader": "S1 - Gradient Boosting",
+  "baseline_accuracy": 0.5610178626424391,
+  "versions": {
+    "pandas": "2.2.3",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "scikit-learn": "1.7.2",
+    "matplotlib": "3.10.6",
+    "seaborn": "0.13.2",
+    "plotly": "6.2.0",
+    "joblib": "1.6.0"
+  },
+  "data_sha256": {
+    "train.csv": "a15fab6d36a6123dedb035e1bc11b31f27b547671ce8d27762e74d96527c364f",
+    "test.csv": "2b58518af6e6c94334bf0f69160e29c5a5a082e340cf30f517473ede2bb1d898"
+  },
+  "metrics": {
+    "S1 - Random Forest": {
+      "Accuracy": 0.9626193409300893,
+      "Precision": 0.9723781923564572,
+      "Recall": 0.941594317284925,
+      "F1-Score": 0.9567386945867676,
+      "AUC-ROC": 0.9940461228922104
+    },
+    "S1 - Gradient Boosting": {
+      "Accuracy": 0.9642747151216507,
+      "Precision": 0.9720594862550699,
+      "Recall": 0.9458037358589845,
+      "F1-Score": 0.9587518890568051,
+      "AUC-ROC": 0.9953694072845778
+    },
+    "S2 - Random Forest": {
+      "Accuracy": 0.8536726208808131,
+      "Precision": 0.8260422027792074,
+      "Recall": 0.8445146014206788,
+      "F1-Score": 0.8351762716274229,
+      "AUC-ROC": 0.9320882347580097
+    },
+    "S2 - Gradient Boosting": {
+      "Accuracy": 0.8533261472128119,
+      "Precision": 0.8240717029449424,
+      "Recall": 0.8466193107077085,
+      "F1-Score": 0.8351933558266286,
+      "AUC-ROC": 0.9322760989214087
+    },
+    "Ibrida - Random Forest": {
+      "Accuracy": 0.8658376963350786,
+      "Precision": 0.8750473664266768,
+      "Recall": 0.810049986845567,
+      "F1-Score": 0.8412951409444874,
+      "AUC-ROC": 0.9362443182877779
+    },
+    "Ibrida - Gradient Boosting": {
+      "Accuracy": 0.8658376963350786,
+      "Precision": 0.8750473664266768,
+      "Recall": 0.810049986845567,
+      "F1-Score": 0.8412951409444874,
+      "AUC-ROC": 0.9361036480863392
+    },
+    "Senza rating - Gradient Boosting": {
+      "Accuracy": 0.8025100092392978,
+      "Precision": 0.7708315344098091,
+      "Recall": 0.7828641585547663,
+      "F1-Score": 0.7768012530455969,
+      "AUC-ROC": 0.868803596025246
+    },
+    "Pre-volo - Gradient Boosting": {
+      "Accuracy": 0.7947720973206036,
+      "Precision": 0.7742547425474254,
+      "Recall": 0.751644304130492,
+      "F1-Score": 0.762782005072754,
+      "AUC-ROC": 0.8586528773762943
+    }
+  },
+  "cv": {
+    "S1": {
+      "Random Forest": {
+        "cv_accuracy": 0.9617435292353333,
+        "params": {
+          "model__max_depth": null,
+          "model__min_samples_split": 2,
+          "model__n_estimators": 300
+        },
+        "seconds": 134.41755145904608
+      },
+      "Gradient Boosting": {
+        "cv_accuracy": 0.9637068815034686,
+        "params": {
+          "model__learning_rate": 0.1,
+          "model__max_depth": 7,
+          "model__n_estimators": 300
+        },
+        "seconds": 649.3648662921041
+      }
+    },
+    "S2": {
+      "Random Forest": {
+        "cv_accuracy": 0.8545387585896812,
+        "params": {
+          "model__max_depth": 10,
+          "model__min_samples_split": 5,
+          "model__n_estimators": 200
+        },
+        "seconds": 46.36433412483893
+      },
+      "Gradient Boosting": {
+        "cv_accuracy": 0.854577260388008,
+        "params": {
+          "model__learning_rate": 0.2,
+          "model__max_depth": 5,
+          "model__n_estimators": 200
+        },
+        "seconds": 96.74391199997626
+      }
+    },
+    "Ibrida": {
+      "Random Forest": {
+        "cv_accuracy": 0.8671080699085689,
+        "params": {
+          "model__max_depth": 10,
+          "model__min_samples_split": 2,
+          "model__n_estimators": 100
+        },
+        "seconds": 31.224637750070542
+      },
+      "Gradient Boosting": {
+        "cv_accuracy": 0.8671080699085689,
+        "params": {
+          "model__learning_rate": 0.01,
+          "model__max_depth": 7,
+          "model__n_estimators": 200
+        },
+        "seconds": 83.22228891705163
+      }
+    },
+    "Senza rating": {
+      "Gradient Boosting": {
+        "cv_accuracy": 0.8060421076685925,
+        "params": {
+          "model__learning_rate": 0.01,
+          "model__max_depth": 7,
+          "model__n_estimators": 300
+        },
+        "seconds": 319.4111717501655
+      }
+    },
+    "Pre-volo": {
+      "Gradient Boosting": {
+        "cv_accuracy": 0.8015379284929285,
+        "params": {
+          "model__learning_rate": 0.01,
+          "model__max_depth": 7,
+          "model__n_estimators": 300
+        },
+        "seconds": 220.62806675001048
+      }
+    }
+  },
+  "s2_features": [
+    "Online boarding",
+    "Inflight entertainment",
+    "Inflight wifi service",
+    "Seat comfort"
+  ],
+  "raw_input_features": [
+    "Gender",
+    "Customer Type",
+    "Age",
+    "Type of Travel",
+    "Class",
+    "Flight Distance",
+    "Inflight wifi service",
+    "Departure/Arrival time convenient",
+    "Ease of Online booking",
+    "Gate location",
+    "Food and drink",
+    "Online boarding",
+    "Seat comfort",
+    "Inflight entertainment",
+    "On-board service",
+    "Leg room service",
+    "Baggage handling",
+    "Checkin service",
+    "Inflight service",
+    "Cleanliness",
+    "Departure Delay in Minutes",
+    "Arrival Delay in Minutes"
+  ],
+  "export_feature_count": 37,
+  "inference_checks": {
+    "raw_roundtrip": true,
+    "missing_zero_unknown": true,
+    "fresh_process": true
+  }
+}

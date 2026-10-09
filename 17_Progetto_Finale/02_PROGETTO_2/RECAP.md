@@ -1,269 +1,150 @@
 # RECAP — Progetto Finale: Airline Passenger Satisfaction
 
-Appunti sul progetto. Per interpretare metriche e conclusioni leggere le [note metodologiche](NOTE_METODOLOGICHE.md). Serve a ritrovare velocemente
-contesto, scelte fatte, risultati e file presenti nella cartella, senza dover
-rileggere tutto il notebook da capo.
+Documento personale aggiornato dopo le correzioni e l'esecuzione completa del 9 ottobre 2026. Mantengo analisi, approfondimenti e griglie del lavoro originale; integro la Strada 2 richiesta e correggo il metodo di validazione.
 
----
+## 1. Contesto e obiettivo
 
-## 1. Contesto del progetto
+Classifico `satisfied` contro `neutral or dissatisfied` per una compagnia aerea attenta al servizio e all'impatto ambientale. Il target negativo comprende anche i neutrali. Il dataset descrive survey: il modello completo serve soprattutto a una lettura post-volo, non a prevedere da informazioni già tutte note alla prenotazione.
 
-- **Master**: progetto finale, modulo di Machine Learning.
-- **Brief**: compagnia aerea attenta a qualità del servizio e impatto ambientale.
-  Vuole analizzare i dati di soddisfazione dei passeggeri per ottimizzare
-  servizi in volo e a terra.
-- **Task**: classificazione binaria della label `satisfaction`
-  (`satisfied` vs `neutral or dissatisfied`).
----
+Il [notebook completo](Progetto%20Finale%20Data%20Science%20di%20Stefano%20Nocco.ipynb) contiene codice, grafici e risultati della nuova esecuzione. Il PDF nella cartella di supporto resta un appunto storico.
 
 ## 2. Dataset
 
-- Sorgente: dataset pubblico Airline Passenger Satisfaction (Kaggle).
-- Pre-separato in `train.csv` (103.904 record) e `test.csv` (25.976 record),
-  proporzione ~80/20, distribuzione del target coerente (~43% satisfied).
-- 22 feature di input + 1 target:
-  - **Demografiche/contesto**: Gender, Customer Type, Age, Type of Travel,
-    Class, Flight Distance.
-  - **Operative**: Departure Delay in Minutes, Arrival Delay in Minutes.
-  - **Rating di servizio (0–5)**: Inflight wifi service,
-    Departure/Arrival time convenient, Ease of Online booking, Gate location,
-    Food and drink, Online boarding, Seat comfort, Inflight entertainment,
-    On-board service, Leg room service, Baggage handling, Checkin service,
-    Inflight service, Cleanliness.
+Mantengo `train.csv` (103.904 righe) e `test.csv` (25.976 righe), già separati dalla fonte. Le 22 feature comprendono sei dati demografici/di contesto, due ritardi effettivi e 14 rating. ID, indice e target non entrano nei predittori.
 
-Sul train ci sono 310 NaN su `Arrival Delay in Minutes` (0.30%) e 83 NaN sul test.
-Imputati con la mediana del **training set**.
+Arrival Delay ha 310 mancanti nel train e 83 nel test. Non ci sono duplicati di contenuto né ID condivisi fra i due file. Gli hash dei CSV sono invariati. L'unità di Flight Distance non è specificata nella scheda consultata: non la chiamo km o miglia.
 
----
+Il test era già stato osservato nel progetto originale e nella revisione: non lo presento come campione nuovo. Nella nuova esecuzione fisso modelli e parametri sul train prima di valutarli sul test.
 
-## 3. Decisioni metodologiche chiave (con il perché)
+## 3. Decisioni metodologiche
 
-### 3.1 Split train/test
-Mantengo la partizione pre-separata della sorgente. L'analisi esplorativa
-è fatta SOLO su `train.csv`; `test.csv` è intoccato fino alla valutazione finale.
+### 3.1 Preprocessing e validazione
 
-### 3.2 Outlier
-- Age e Flight Distance: outlier marginali e plausibili → mantenuti.
-- Departure/Arrival Delay: 13–14% di outlier IQR ma sono casi reali (un volo
-  con 6 ore di ritardo conta). Mantenuti.
-- Strategia di mitigazione: **RobustScaler** sui due delay,
-  **StandardScaler** sulle altre 16 numeriche. Niente eliminazione di righe.
+L'EDA conserva le dimostrazioni di imputazione, encoding e scaling sull'intero train. I modelli ripartono invece dai dati grezzi: `Pipeline(select, prepare, model)` apprende tutte le trasformazioni all'interno dei fold. Non uso gli oggetti già fittati nell'EDA per la cross-validation.
 
-### 3.3 Valori "0" nei rating
-Durante l'EDA ho notato che alcuni rating con valore `0` mostrano un tasso
-di soddisfazione anomalo (es. Wi-Fi rating 0 → 99.7% satisfied).
-Interpretazione: `0 = non applicabile / non usato`, non "pessimo".
+### 3.2 Outlier e scaling
 
-Trattamento applicato:
-1. Per ogni rating con almeno uno `0`, creo una flag binaria `<feature>_zeroflag`.
-2. Sostituisco lo `0` con NaN, poi imputo con la mediana 1–5 del train.
-3. Aggiungo le flag come colonne extra nel dataset modellabile.
+Conservo gli estremi plausibili senza eliminare righe automaticamente. RobustScaler sui due ritardi; StandardScaler su Age, Flight Distance e 14 rating. Lo scaling non elimina gli outlier né rende normali le distribuzioni. Per gli alberi non è necessario; permette una preparazione comune alla baseline lineare.
 
-**Validazione a posteriori**: `Inflight wifi service_zeroflag` finisce in top 5
-della feature importance del Gradient Boosting (importanza 0.048). La scelta
-era corretta.
+### 3.3 Zeri nei rating
 
-### 3.4 Variabili categoriche
-- Binarie (Gender, Customer Type, Type of Travel): LabelEncoder.
-- Multi-classe (Class): One-Hot con 3 colonne (Business, Eco, Eco Plus).
+La scheda Kaggle documenta `0 = Not Applicable` per il Wi-Fi. Per gli altri rating applico la stessa policy come ipotesi dichiarata, da confermare con il dizionario completo. Nella Strada 1 separo gli zeri in flag e imputo i rating con la mediana dei valori 1–5 del training del fold. Le flag vengono create solo se quel fold contiene zeri. Sul train completo sono 13.
 
-### 3.5 Bilanciamento
-Rapporto 57/43, ratio 1.31. Nessun resampling. Accuracy resta affidabile.
+Nel T-test escludo mancanti e zeri dei rating, senza imputarli prima del confronto delle medie. Questo aggiorna anche il ranking: rispetto al vecchio T-test che includeva lo zero, il Wi-Fi entra nelle prime quattro variabili. L'importanza di una flag non dimostra il significato della codifica.
+
+### 3.4 Categoriche
+
+Mantengo la spiegazione di LabelEncoder nell'EDA. Nella pipeline uso OneHotEncoder con `drop='if_binary'`, che produce una colonna per ogni binaria e tre per Class sul train completo. Gestisco categorie non viste con `handle_unknown='ignore'`; il blocco tutto zero è un limite da monitorare, soprattutto per le binarie dove coincide con la categoria di riferimento.
+
+### 3.5 Bilanciamento e metriche
+
+Circa 57/43 nel train: non applico ricampionamento. Accuracy è la metrica principale richiesta; riporto anche precision, recall, F1, AUC, matrice di confusione e report per entrambe le classi. Classe positiva = satisfied. La baseline maggioritaria sul test è **56.10%**.
 
 ### 3.6 Multicollinearità
-`Departure Delay` ↔ `Arrival Delay`: r = 0.97. Mantenute entrambe perché i
-modelli vincenti sono tree-based (non risentono di collinearità). Andrebbero
-deduplicate in un setup con modelli lineari.
+
+I due ritardi sono fortemente correlati (circa 0,97). Mantenerli non invalida automaticamente gli alberi, ma le importanze possono distribuirsi fra predittori correlati; non le interpreto come effetti indipendenti o causali.
 
 ### 3.7 Feature selection
-Tre metodi complementari applicati al training set:
-- **T-test** (numeriche): top 4 = Online boarding, Inflight entertainment,
-  Seat comfort, On-board service.
-- **Chi-square + Cramér's V** (categoriche): Class (V=0.505), Type of Travel
-  (V=0.449), Customer Type (V=0.188), Gender (V=0.012).
-- **Mutual Information** (tutte): conferma Online boarding, Wi-Fi, Class,
-  Type of Travel come top.
 
-**Selezione ibrida per la Strada 2**: top 2 numeriche dal T-test + top 2
-categoriche dal Chi-square →
-`['Online boarding', 'Inflight entertainment', 'Class_Business',
-'Type of Travel_encoded']`.
+Confronto Welch T-test, Chi-square/Cramér's V e Mutual Information. Nella MI dichiaro rating e colonne codificate come discreti; le quattro numeriche continue restano continue per l'estimatore. Le scale dei tre punteggi non sono confrontabili direttamente.
 
-Motivo: prendere solo le top 4 dal T-test escludeva proprio Class e
-Type of Travel, che sono le variabili più discriminanti del dataset secondo
-gli altri due test.
+- **S1**: tutte le 22 variabili grezze, 37 colonne dopo la preparazione sul train completo.
+- **S2**: quattro numeriche con `p < 0,05`, ordinate per `|t|`, selezionate di nuovo dentro ogni fold. Sul train completo: `Online boarding`, `Inflight entertainment`, `Inflight wifi service`, `Seat comfort`. Nessuna flag aggiuntiva: il classificatore riceve esattamente quattro colonne.
+- **Ibrida aggiuntiva**: mantengo due numeriche da T-test e due categoriche da Chi-square/Cramér's V. Class viene ridotta a Business/resto, perdendo Eco/Eco Plus. Anche questa selezione viene appresa nei fold; non sostituisce S2.
 
-### 3.8 Metriche
-Accuracy principale + Precision, Recall, F1, AUC-ROC sempre riportate.
+Il T-test sui rating ordinali è un'approssimazione. La soglia è esplorativa e non corretta per test multipli; p-value pari a zero per underflow non significa probabilità esattamente nulla. La graduatoria univariata non garantisce la migliore combinazione predittiva.
 
-### 3.9 Modelli
-- **Spot-check con 5-fold StratifiedKFold** su 4 modelli: Logistic Regression,
-  Random Forest, AdaBoost, Gradient Boosting.
-- **Top 2 → GridSearchCV** con stessa CV (Random Forest e Gradient Boosting
-  in entrambe le strade).
-- **Valutazione finale sul test set** (mai usato prima).
+### 3.8 Modelli e tuning
 
-### 3.10 Strada 1 vs Strada 2 vs Pre-volo
-- **Strada 1**: tutte le 37 feature.
-- **Strada 2**: 4 feature dalla selezione ibrida.
-- **Modello operativo pre-volo**: SOLO variabili note prima del volo
-  (Age, Customer Type, Type of Travel, Class, Flight Distance, Gender,
-  ritardi). Niente rating post-volo.
+Conservo Logistic Regression, Random Forest, AdaBoost e Gradient Boosting, cinque fold stratificati con shuffle/seed 0, e tutte le griglie originali. In S1, S2 e Ibrida ottimizzo i migliori due algoritmi dello spot check; nei due controlli temporali ottimizzo il migliore, come nell'esperimento aggiuntivo originale.
 
-Motivo del pre-volo: i rating sono raccolti POST-volo sulla stessa survey
-della target. Il modello completo a 96% è uno scoring diagnostico, non un
-predittore operativo. Il pre-volo è la baseline realistica.
+Griglie: LR 8 combinazioni, RF 18, AdaBoost 12, GB 27. Questa esecuzione comprende 189 combinazioni di iperparametri, 945 fit di CV nelle griglie e 8 rifit sul train completo; 100 fit negli spot check (5 esperimenti × 4 algoritmi × 5 fold). Il miglior score GridSearch è interno alla ricerca e può essere ottimista; non ho svolto nested CV.
 
----
+Il modello principale, scelto dalla CV fra S1 e S2, è **S1 - Gradient Boosting**. Importanze ed export seguono quella scelta. Il primo sul test nel confronto descrittivo è **S1 - Gradient Boosting**; nessun tuning viene rifatto dopo la lettura del test.
 
-## 4. Risultati numerici (test set)
+### 3.9 Disponibilità delle informazioni
 
-| Modello                          | Accuracy | Precision | Recall | F1     | AUC-ROC |
-|----------------------------------|----------|-----------|--------|--------|---------|
-| **S1 – Gradient Boosting** (vincitore) | **0.9637** | 0.972     | 0.945  | 0.958  | **0.9954** |
-| S1 – Random Forest               | 0.9624   | 0.972     | 0.941  | 0.957  | 0.9939  |
-| S2 – Random Forest               | 0.866    | 0.875     | 0.810  | 0.841  | 0.936   |
-| S2 – Gradient Boosting           | 0.866    | 0.875     | 0.810  | 0.841  | 0.936   |
-| **Pre-volo – Gradient Boosting** | **0.8028** | 0.771     | 0.783  | 0.777  | 0.8667  |
+- **Senza rating**: sei variabili di contesto più i due ritardi effettivi. Conservo l'analisi originale, chiamandola correttamente post-volo senza rating.
+- **Pre-volo**: Age, Flight Distance, Gender, Customer Type, Type of Travel e Class; escludo rating e ritardi effettivi. Il dataset non documenta timestamp o disponibilità operativa: resta un confronto sul benchmark, non un modello già validato in produzione.
 
-**Iperparametri del modello vincitore (S1 – Gradient Boosting)**:
-`learning_rate=0.1`, `max_depth=7`, `n_estimators=300`.
+La differenza di accuracy fra questi esperimenti non è una stima dell'effetto causale dei servizi.
 
-**Top 5 feature importance del vincitore**:
-1. Online boarding (0.416)
-2. Type of Travel_encoded (0.163)
-3. Inflight wifi service (0.132)
-4. Inflight wifi service_zeroflag (0.048)
-5. Customer Type_encoded (0.043)
+## 4. Risultati effettivamente ricalcolati
 
----
+| Esperimento | Modello scelto tramite CV | Accuracy CV | Accuracy test | ROC-AUC test |
+| --- | --- | ---: | ---: | ---: |
+| S1 | Gradient Boosting | 96.3707% | 96.4275% | 0.99537 |
+| S2 | Gradient Boosting | 85.4577% | 85.3326% | 0.93228 |
+| Ibrida | Gradient Boosting | 86.7108% | 86.5838% | 0.93610 |
+| Senza rating | Gradient Boosting | 80.6042% | 80.2510% | 0.86880 |
+| Pre-volo | Gradient Boosting | 80.1538% | 79.4772% | 0.85865 |
+
+Tutti i modelli ottimizzati, senza selezionare soltanto il miglior risultato sul test:
+
+| Modello | Accuracy | Precision | Recall | F1 | ROC-AUC |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| S1 - Random Forest | 0.96262 | 0.97238 | 0.94159 | 0.95674 | 0.99405 |
+| S1 - Gradient Boosting | 0.96427 | 0.97206 | 0.94580 | 0.95875 | 0.99537 |
+| S2 - Random Forest | 0.85367 | 0.82604 | 0.84451 | 0.83518 | 0.93209 |
+| S2 - Gradient Boosting | 0.85333 | 0.82407 | 0.84662 | 0.83519 | 0.93228 |
+| Ibrida - Random Forest | 0.86584 | 0.87505 | 0.81005 | 0.84130 | 0.93624 |
+| Ibrida - Gradient Boosting | 0.86584 | 0.87505 | 0.81005 | 0.84130 | 0.93610 |
+| Senza rating - Gradient Boosting | 0.80251 | 0.77083 | 0.78286 | 0.77680 | 0.86880 |
+| Pre-volo - Gradient Boosting | 0.79477 | 0.77425 | 0.75164 | 0.76278 | 0.85865 |
+
+Parametri CV completi, metriche e versioni sono in `risultati/riepilogo.json`; tutte le combinazioni tentate sono nei CSV `grid_*`. Le predizioni non derivano dagli artefatti vecchi: i modelli sono stati riaddestrati da zero.
 
 ## 5. Architettura del notebook
 
-```
-# 0.0 Introduzione
-# 1.0 Setup dell'Ambiente
-  ## 1.1 Librerie Utili
-  ## 1.2 Loading dei dati  (+ nota sullo split)
-# 2.0 Exploratory Data Analysis
-  ## 2.1 Valori Duplicati
-  ## 2.2 Valori Mancanti
-  ## 2.3 Esploriamo le Features
-  ## 2.4 Features vs Target  (### 2.4.1 – 2.4.22, una sezione per feature)
-  ## 2.5 Outliers
-  ## 2.6 Analisi delle Variabili Categoriche
-  ## 2.7 Gestione dello "0" nei rating come valore "non applicabile"
-  ## 2.8 Standardizzazione delle Features
-  ## 2.9 Bilanciamento del Dataset
-  ## 2.10 Correlazione tra Features
-  ## 2.11 Feature Selection
-  ## 2.12 Pipeline Dati Unificato
-# 3.0 Scelta della Metrica di Valutazione
-# 4.0 Modelli, Training e Ottimizzazione
-  ## 4.1 Strada 1 (tutte le features)
-  ## 4.2 Strada 2 (4 feature, selezione ibrida)
-# 5.0 Valutazione Finale e Confronto
-  ## 5.1 Feature importance del modello vincitore
-  ## 5.2 Modello operativo "pre-volo" (controllo leakage)
-# 6.0 Conclusione
-# 7.0 Persistenza del modello finale
-```
+Conservo tutte le 135 posizioni originali, aggiornandone il contenuto dove necessario. Il notebook finale contiene 139 celle, di cui 60 di codice:
 
-Totale celle: 135 (78 markdown + 57 code).
+1. Introduzione, ambiente e fonti.
+2. EDA completa delle 22 feature; mancanti, duplicati, outlier, encoding, zeri, scaling, bilanciamento, correlazioni e tre metodi di selezione.
+3. Metriche e significato degli errori.
+4. Due strade richieste, selezione ibrida e controlli temporali; spot check e griglie complete.
+5. Confronto sul test, matrici, ROC, importanze e disponibilità delle informazioni.
+6. Conclusioni, ipotesi aziendali, sostenibilità e limiti; riepilogo numerico generato dagli esperimenti.
+7. Export della pipeline completa e verifica di inferenza, anche da un nuovo processo Python.
 
----
+## 6. Limiti da ricordare
 
-## 6. Limiti dichiarati (sono già scritti in Conclusione, ma li ripeto qui)
+Il test pubblico è già noto; serve una valutazione su nuovi dati. Il modello completo usa la stessa survey del target. Il pre-volo è teorico finché non verifico la disponibilità reale delle sei variabili. Il significato dello zero è documentato soltanto esplicitamente per il Wi-Fi nella fonte consultata. T-test e importanze non dimostrano causalità. Non ho carburante, emissioni o esperimenti aziendali: le proposte ambientali e di servizio rimangono ipotesi.
 
-1. **Leakage dei rating post-volo**: il modello al 96% usa rating raccolti
-   dopo il volo, sulla stessa survey della target. Per uso predittivo reale
-   pre-volo, riferirsi al modello operativo a 80%.
-2. **Collinearità delay**: r=0.97 tra Departure e Arrival Delay; le tengo
-   entrambe perché sono tree-based.
-3. **Interpretazione dello "0"**: trattato come "non applicabile" — supportata
-   dai dati ma non dal data dictionary ufficiale.
+## 7. File e versioni
 
----
+- `Progetto Finale Data Science di Stefano Nocco.ipynb`: elaborato eseguito, con grafici e risultati.
+- `airline_pipeline.py`: trasformazioni leggibili e importabili; il notebook lo rigenera.
+- `airline_satisfaction_model.joblib`: Pipeline completa generata dalla sezione finale del notebook; il binario rimane escluso dal repository.
+- `train.csv`, `test.csv`: dataset invariati.
+- `requirements.txt`: ambiente Python riproducibile.
+- `risultati/`: metriche, parametri, griglie e controlli dei fold.
+- `versione_git/`: copia con codice e testo identici ma senza output.
 
-## 7. File nella cartella di progetto
+Non occorre uno scaler isolato: le mediane e tutti gli scaler sono ora inclusi nella pipeline finale.
 
-- `versione_git/Stefano Nocco PROGETTO FINALE 2.ipynb` — notebook senza output.
-- `train.csv` / `test.csv` — dataset originali richiesti dal notebook.
-- `RECAP.md` — appunti sul progetto.
-- `NOTE_METODOLOGICHE.md` — limiti delle analisi e delle metriche storiche.
+## 8. Come rieseguire e modificare
 
----
+Creare l'ambiente descritto nel README, selezionare il kernel e avviare **Restart Kernel and Run All**. Le celle dipendono dalle precedenti; il modulo scritto all'inizio deve essere importabile anche per i processi paralleli. Le griglie sono complete: il tempo varia con hardware e parallelismo, senza una promessa di pochi minuti. `N_JOBS` controlla soltanto i processi, non riduce la ricerca.
 
-## 8. Se in futuro devo rimettere mano al notebook
+Se cambio feature, preprocessing, griglie o selezione, rieseguo l'intero percorso e rigenero l'artefatto. Il riepilogo finale legge i risultati correnti. Non sostituisco i numeri manualmente.
 
-### Ordine di esecuzione obbligato
-Il notebook va eseguito **dall'inizio in sequenza**. Diverse celle dipendono
-da variabili definite nelle precedenti:
-- `raw_data_train_clean`, `zero_flag_cols`, `median_imputation_map` →
-  definiti in 2.7 e usati in 2.8 e nella Pipeline.
-- `robust_scaler`, `standard_scaler` → definiti in 2.8 e usati nella Pipeline
-  e nella persistenza.
-- `top4_features` → definito in 2.11 e usato in Strada 2 e Pipeline.
-- `cv`, `models_dict`, `param_grids` → definiti in 4.1 e usati anche in 5.2
-  (pre-volo).
+Errori da riconoscere: CSV mancanti (controllare directory), librerie/versioni diverse (ricreare l'ambiente), modulo non trovato in inferenza (tenere `airline_pipeline.py` accanto al modello), renderer PNG indisponibile (installare Kaleido/Chrome oppure usare il formato Plotly). I PNG già salvati restano visibili.
 
-### Tempo di esecuzione
-Tutto il notebook gira in ~5–10 minuti su una macchina decente. Il collo di
-bottiglia sono i due GridSearchCV (RF e GB) che insieme valgono il 70% del
-tempo. AdaBoost e Gradient Boosting sono single-thread su sklearn.
+## 9. Errori in cui non voglio ricadere
 
-### Se cambio un iperparametro o aggiungo una feature
-1. Modifico la cella interessata.
-2. Eseguo da quella cella in poi (Run from cell).
-3. Sezione 7.0: rigenera `airline_satisfaction_model.joblib` con i nuovi
-   pesi/scaler.
+1. Non usare il preprocessing fittato su tutto il train dentro la CV.
+2. Non sostituire la Strada 2 richiesta dal T-test con l'ibrida: posso presentarle entrambe.
+3. Non chiamare pre-volo un modello che usa ritardi effettivi o rating della survey.
+4. Non dire che l'accuracy misura varianza spiegata, o che un'associazione prova un intervento efficace.
+5. Non descrivere il test già esaminato come nuovo e non ottimizzare parametri in base a quel risultato.
+6. Non esportare un classificatore che richiede trasformazioni esterne non salvate.
+7. Non fissare a mano il nome del vincitore in conclusioni, importanze ed export.
 
-### Errori di esecuzione tipici
-- **`NameError` su `top4_features`** → vuol dire che la cella di
-  feature selection (2.11) non è stata eseguita prima della Pipeline (2.12).
-- **`KeyError: 'Class_Business'`** → la cella di feature selection o la
-  pipeline non sono allineate; ricontrollare l'ordine.
+## 10. Se devo raccontare il lavoro
 
----
-
-## 9. Cose da NON rifare (errori in cui non voglio ricadere)
-
-1. **Non scegliere le feature per la Strada 2 dal solo T-test**: esclude
-   Class e Type of Travel, che sono le variabili più discriminanti. La
-   selezione ibrida (T-test + Chi-square) è quella corretta.
-2. **Non rimuovere fisicamente gli outlier dei delay**: si perde proprio
-   l'informazione più predittiva. RobustScaler sì, dropna no.
-3. **Non trattare i rating == 0 come "pessimo"**: si distorce lo scaling e
-   le feature importance. Vanno trattati come "non applicabile".
-4. **Non spacciare il modello al 96% come predittore pre-volo**: contiene
-   rating post-volo (leakage strutturale). Per uso operativo reale, il
-   benchmark è il modello pre-volo a 80%.
-5. **Non scordare di applicare lo stesso preprocessing al test set**: in
-   particolare le `_zeroflag` e gli scaler `RobustScaler`/`StandardScaler`
-   vanno fittati sul train e solo `transform`-ati sul test.
-
----
-
-## 10. Linee guida per un'eventuale presentazione orale
-
-Se mi chiedono di difendere il progetto, le domande probabili sono:
-
-- **"Perché 96% di accuracy?"** → Perché il modello usa rating post-volo.
-  È uno scoring diagnostico. Il modello operativo pre-volo, più onesto per
-  uso reale, è a 80%.
-- **"Perché due strade?"** → Per confrontare un modello completo con uno
-  parsimonioso. Mostra che 4 feature ben scelte spiegano già 86% della
-  varianza (vs 96% con 37).
-- **"Perché RandomForest e AdaBoost?"** → Richiesti dalla traccia. Ho aggiunto
-  GradientBoosting come terzo ensemble e LogReg come baseline lineare.
-- **"Cosa cambieresti?"** → (1) Eseguirei feature importance via SHAP per
-  un'interpretazione locale (per singolo passeggero), non solo globale.
-  (2) Testerei XGBoost/LightGBM, generalmente più performanti di GB nativo.
-  (3) Costruirei una variabile sintetica per i delay invece di tenerli
-  entrambi.
-
----
-
-*Ultimo aggiornamento del recap: dopo l'esecuzione finale del notebook con
-tutte le correzioni applicate (pulizia testuale, numerazione, feature
-selection ibrida, pre-volo, persistenza, conclusione estesa).*
+- **Perché il modello completo va bene?** Usa informazioni ricche della survey post-volo. La sua utilità è diversa da quella del confronto pre-volo.
+- **Perché due strade?** Per confrontare tutte le variabili con quattro significative al T-test, come richiesto; l'ibrida è un approfondimento personale aggiuntivo.
+- **Perché cambia la top 4?** Ora il T-test esclude gli zeri trattati come N/A: il Wi-Fi entra nel ranking. La regola resta dichiarata e ripetuta nei fold.
+- **Come ho corretto il leakage?** Passo alla CV la Pipeline con dati grezzi; i controlli registrano le righe di fit di selezione e preprocessing in ogni fold.
+- **Perché RF e AdaBoost?** Li richiede la traccia; confronto anche GB e una baseline lineare.
+- **Cosa farei dopo?** Nuovi dati temporali, verifica del dizionario e disponibilità degli input, analisi degli errori per gruppo e prove aziendali controllate. Nessuna promessa di migliorare ambiente o soddisfazione senza misurarli.

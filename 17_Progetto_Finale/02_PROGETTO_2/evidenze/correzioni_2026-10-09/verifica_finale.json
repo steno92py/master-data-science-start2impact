@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "cells": 139,
+  "executed_code_cells": 60,
+  "original_cells_preserved": 135,
+  "fold_records": 100,
+  "grid_combinations": {
+    "S1 - Random Forest": 18,
+    "S1 - Gradient Boosting": 27,
+    "S2 - Random Forest": 18,
+    "S2 - Gradient Boosting": 27,
+    "Ibrida - Random Forest": 18,
+    "Ibrida - Gradient Boosting": 27,
+    "Senza rating - Gradient Boosting": 27,
+    "Pre-volo - Gradient Boosting": 27
+  },
+  "grid_cv_fits": 945,
+  "spot_cv_fits": 100,
+  "png_outputs": 47,
+  "interactive_outputs": 22,
+  "repeated_plotly_bundles": 0,
+  "source_sha256": "f6d04cf27d1a0f223b7b37e09af75fcd81941708befe5fc7cfb44146a24492ae",
+  "warnings": [],
+  "selected_model": "S1 - Gradient Boosting",
+  "data_sha256": {
+    "train.csv": "a15fab6d36a6123dedb035e1bc11b31f27b547671ce8d27762e74d96527c364f",
+    "test.csv": "2b58518af6e6c94334bf0f69160e29c5a5a082e340cf30f517473ede2bb1d898"
+  },
+  "s2_fold_selections": [
+    [
+      "Online boarding",
+      "Inflight entertainment",
+      "Inflight wifi service",
+      "Seat comfort"
+    ]
+  ],
+  "s1_fold_feature_counts": [
+    35,
+    36,
+    37
+  ]
+}

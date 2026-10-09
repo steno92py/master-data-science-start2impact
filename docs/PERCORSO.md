@@ -28,4 +28,4 @@ Data Studio e Looker Studio identificano lo stesso corso. Google Analytics 4 com
 
 File Organizer appartiene a NumPy. Titanic appartiene a Machine Learning, anche se alcuni nomi originali contengono `ML_Advanced`. Wine Enthusiast appartiene a Data Manipulation and Visualization; Wine di scikit-learn è usato in Machine Learning Advanced. Agenti AI e Agenti AI per Data sono due corsi distinti.
 
-I nomi originali degli elaborati sono conservati. I numeri delle cartelle servono all’ordinamento del portfolio.
+I nomi degli elaborati storici sono conservati; le revisioni dei progetti personali sono identificate nel catalogo. I numeri delle cartelle servono all’ordinamento del portfolio.
