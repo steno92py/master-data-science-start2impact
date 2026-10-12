@@ -351,8 +351,8 @@
     "official_course_url": "https://talent.start2impact.it/corsi/progetto-finale-data-science-analytics-ai",
     "description": "Classificazione della soddisfazione dei passeggeri: pipeline validata nei fold, confronto completo/T-test, selezione ibrida e scenari senza rating.",
     "technologies": "Python, pandas, scikit-learn, Plotly",
-    "artifact_sha256": "4ccea838bf506785f39bec38645cc82b312171435f3f2fc0edff459ce78ae1c6",
-    "bytes": 5552361,
-    "verified_on": "2026-10-09"
+    "artifact_sha256": "c1ee052738979376270decd321ebee6ed504801da4eb34f6c26f40295b0bfa4a",
+    "bytes": 5553006,
+    "verified_on": "2026-10-12"
   }
 ]

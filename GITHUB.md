@@ -27,3 +27,7 @@ python3 tools/prepara_repository.py /tmp/portfolio-export
 ```
 
 L’export applica la selezione pubblicabile e verifica ogni copia. Rifiuta destinazioni non vuote e non esegue commit o push.
+
+## Revisioni descrittive dei notebook
+
+Per aggiornare il progetto sui passeggeri, mantenere sincronizzati notebook completo, copia senza output, README, recap e note metodologiche. Il catalogo deve riportare dimensione e SHA-256 del notebook pubblicato. Distinguere la data dell'ultima esecuzione integrale da quella delle revisioni del testo e documentare eventuali celle rieseguite separatamente. Le evidenze storiche conservano la loro data e i loro hash; la revisione del 12 ottobre 2026 è identificata da una verifica dedicata.

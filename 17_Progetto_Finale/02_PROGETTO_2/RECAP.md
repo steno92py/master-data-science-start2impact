@@ -1,6 +1,6 @@
 # RECAP — Progetto Finale: Airline Passenger Satisfaction
 
-Documento personale aggiornato dopo le correzioni e l'esecuzione completa del 9 ottobre 2026. Mantengo analisi, approfondimenti e griglie del lavoro originale; integro la Strada 2 richiesta e correggo il metodo di validazione.
+Documento aggiornato dopo l'esecuzione completa del 9 ottobre e la revisione descrittiva del 12 ottobre 2026. Mantengo analisi, approfondimenti e griglie del lavoro originale; integro la Strada 2 richiesta e correggo il metodo di validazione.
 
 ## 1. Contesto e obiettivo
 
@@ -148,3 +148,9 @@ Errori da riconoscere: CSV mancanti (controllare directory), librerie/versioni d
 - **Come ho corretto il leakage?** Passo alla CV la Pipeline con dati grezzi; i controlli registrano le righe di fit di selezione e preprocessing in ogni fold.
 - **Perché RF e AdaBoost?** Li richiede la traccia; confronto anche GB e una baseline lineare.
 - **Cosa farei dopo?** Nuovi dati temporali, verifica del dizionario e disponibilità degli input, analisi degli errori per gruppo e prove aziendali controllate. Nessuna promessa di migliorare ambiente o soddisfazione senza misurarli.
+
+## 11. Revisione descrittiva del 12 ottobre 2026
+
+Il rating 0 di Online boarding comprende 1.351 soddisfatti su 2.428 osservazioni (55,6%): il commento è stato corretto per distinguerlo dai rating 1–3. L'EDA separa osservazioni e possibili spiegazioni aziendali, evitando di ricavare effetti causali o soglie operative dai grafici. Sono state ampliate le motivazioni del confronto fra algoritmi e le spiegazioni degli iperparametri, con sintesi dei ranking e delle differenze fra modelli.
+
+La revisione interessa 36 celle di testo. Nella cella sul bilanciamento sono stati precisati tre messaggi e il margine verticale del grafico; è l'unica cella rieseguita. Ordine delle celle, calcoli, pipeline e risultati dei modelli sono conservati. Il ricontrollo dell'inferenza sul test completo conferma accuracy 96,43% e ROC-AUC 0,99537. Il test pubblico resta già noto: non si tratta di una nuova validazione esterna.

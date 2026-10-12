@@ -37,7 +37,7 @@ Portfolio dei progetti personali realizzati durante il percorso **start2impact**
 
 Ogni corso ha una sola cartella; Google Analytics 4 e Progetto finale raccolgono due elaborati ciascuno. I README descrivono contenuti e istruzioni d’uso. PDF, workbook e HTML consentono di consultare molti risultati senza eseguire il codice.
 
-Gli elaborati storici conservano testo e codice originali. Il progetto sui passeggeri aerei include il notebook revisionato ed eseguito il 9 ottobre 2026, con grafici e risultati. Le copie in `versione_git/` dei due progetti finali hanno gli output rimossi per consultazione. Gli ambienti e i percorsi sono descritti nella [guida alla riproducibilità](docs/RIPRODUCIBILITA.md).
+Gli elaborati storici conservano testo e codice originali. Il progetto sui passeggeri aerei include il notebook eseguito integralmente il 9 ottobre 2026 e revisionato nei testi il 12 ottobre, con grafici e risultati conservati. La revisione chiarisce le interpretazioni EDA, la scelta degli algoritmi e il confronto dei modelli; non costituisce un nuovo addestramento. Le copie in `versione_git/` dei due progetti finali hanno gli output rimossi per consultazione. Gli ambienti e i percorsi sono descritti nella [guida alla riproducibilità](docs/RIPRODUCIBILITA.md).
 
 [Indice dei progetti](docs/PERCORSO.md) · [Catalogo e hash](docs/catalogo_progetti.json) · [Provenienza](docs/PROVENIENZA.md) · [Verifiche del repository](GITHUB.md).
 

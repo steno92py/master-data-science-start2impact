@@ -1,11 +1,20 @@
 # Soddisfazione dei passeggeri aerei — Stefano Nocco
 
-Analisi e classificazione del dataset Airline Passenger Satisfaction. Lavoro revisionato e rieseguito integralmente il **9 ottobre 2026**, mantenendo EDA, quattro algoritmi, griglie complete e approfondimenti originali.
+Analisi e classificazione del dataset Airline Passenger Satisfaction. Esecuzione completa del **9 ottobre 2026** e revisione descrittiva del **12 ottobre 2026**, mantenendo EDA, quattro algoritmi, griglie complete e approfondimenti originali.
 
 - [Notebook completo con grafici e risultati](Progetto%20Finale%20Data%20Science%20di%20Stefano%20Nocco.ipynb): 139 celle, 60 celle di codice eseguite senza errori, circa 5,6 MB.
 - [Copia senza output](versione_git/Progetto%20Finale%20Data%20Science%20di%20Stefano%20Nocco.ipynb): stesso testo e codice, per consultare le modifiche.
 - [Recap tecnico](RECAP.md), [note metodologiche e controlli](NOTE_METODOLOGICHE.md), [risultati completi](risultati/riepilogo.json).
 - [Pipeline di preprocessing](airline_pipeline.py), [dipendenze](requirements.txt), CSV originali `train.csv` e `test.csv`.
+
+## Revisione descrittiva del 12 ottobre 2026
+
+- Corretto il commento al rating 0 di Online boarding: **1.351 soddisfatti su 2.428 osservazioni, pari al 55,6%**.
+- Distinte osservazioni e ipotesi nei commenti EDA, chiariti il significato della classe negativa e il confronto con la baseline.
+- Aggiunte motivazioni della scelta degli algoritmi, spiegazioni degli iperparametri e sintesi dei ranking e dei risultati, con riferimenti alla documentazione scikit-learn.
+- Aggiornati i messaggi sul bilanciamento e lo spazio per le etichette del relativo grafico; rieseguita soltanto quella cella.
+
+Le altre 59 celle di codice e i loro output sono invariati. La struttura conserva 139 celle, 47 PNG e 22 grafici interattivi. Dati, pipeline, griglie e metriche restano quelli dell'esecuzione completa; il ricontrollo del 12 ottobre ha riconfermato le metriche del modello salvato tramite inferenza sull'intero test. [Verifica della revisione](evidenze/revisione_2026-10-12/verifica_descrittiva.json).
 
 ## Metodo e risultati
 
