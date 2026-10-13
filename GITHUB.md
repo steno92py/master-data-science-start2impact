@@ -31,3 +31,9 @@ L’export applica la selezione pubblicabile e verifica ogni copia. Rifiuta dest
 ## Revisioni descrittive dei notebook
 
 Per aggiornare il progetto sui passeggeri, mantenere sincronizzati notebook completo, copia senza output, README, recap e note metodologiche. Il catalogo deve riportare dimensione e SHA-256 del notebook pubblicato. Distinguere la data dell'ultima esecuzione integrale da quella delle revisioni del testo e documentare eventuali celle rieseguite separatamente. Le evidenze storiche conservano la loro data e i loro hash; la revisione del 12 ottobre 2026 è identificata da una verifica dedicata.
+
+## Indice ricercabile
+
+`python3 tools/genera_indice_portfolio.py` aggiorna `INDICE_PORTFOLIO.html` usando il catalogo pubblico e la selezione di `.gitignore`. L’indice funziona offline in una copia scaricata del repository e contiene soltanto nomi, percorsi, categorie e dimensioni dei file selezionati; non copia il loro contenuto. Non importa l’indice privato del master.
+
+Dopo aver aggiunto o spostato materiali pubblici, aggiornare prima il catalogo e i README, poi rigenerare l’indice ed eseguire i controlli sopra.

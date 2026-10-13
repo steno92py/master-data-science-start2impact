@@ -28,6 +28,9 @@ Portfolio dei progetti personali realizzati durante il percorso **start2impact**
 
 ## Da dove iniziare
 
+- [Indice ricercabile del portfolio](INDICE_PORTFOLIO.html): dopo aver scaricato o clonato il repository, aprire il file nel browser per cercare per nome, corso e tipo di materiale. Su GitHub il file HTML viene mostrato come sorgente.
+- [Guida all’organizzazione](docs/ORGANIZZAZIONE.md): dove trovare elaborati, codice, dati e copie senza output.
+
 - [Assistente Telegram](15_Agenti_AI/README.md): workflow n8n per email e appuntamenti, con demo video.
 - [EcoBot](16_Agenti_AI_per_Data/ecobot/README.md): strumenti Python per dati energetici, agente e interfaccia Streamlit.
 - [Turismo virtuale](17_Progetto_Finale/01_PROGETTO_1/README.md): analisi Python, dashboard Tableau e presentazione.
